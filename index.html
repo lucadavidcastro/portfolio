@@ -29,8 +29,8 @@
       --accent-color: #aaaaaa;
       /* Button border and text colour for call‑to‑action elements */
       --btn-border-color: #aaaaaa;
-      /* Semi‑transparent overlay for the professional summary box (~60% opacity) */
-      --summary-bg: rgba(36, 36, 36, 0.6);
+      /* Semi‑transparent overlay for the professional summary box (~80% opacity, roughly 20% transparency) */
+      --summary-bg: rgba(36, 36, 36, 0.8);
     }
 
     /* Global Styles */
@@ -175,10 +175,10 @@
       margin-left: 40px;
     }
     #about img {
-      /* Display the profile image as a square without a circular mask */
+      /* Display the profile image as a perfect circle with the swirling pattern filling the space */
       width: 300px;
-      height: auto;
-      border-radius: 0;
+      height: 300px;
+      border-radius: 50%;
       object-fit: cover;
       margin-bottom: 20px;
     }
