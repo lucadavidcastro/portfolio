@@ -13,11 +13,22 @@
   <style>
     /* Root Variables */
     :root {
-      --primary-color: #000;
-      --text-color: #333;
-      --bg-color: #fff;
-      --secondary-color: #f4f4f4;
-      --accent-color: #ff5722;
+      /* Primary colour used for the navigation bar */
+      --primary-color: #000000;
+      /* Global page background is a very dark grey */
+      --bg-color: #1a1a1a;
+      /* Secondary backgrounds are slightly lighter than the base */
+      --secondary-color: #242424;
+      /* Default text colour is a light grey for contrast on dark backgrounds */
+      --text-color: #cccccc;
+      /* Heading colour for the most prominent titles */
+      --heading-color: #ffffff;
+      /* Subheading colour used for hero subtitles */
+      --subheading-color: #e0e0e0;
+      /* Accent colour used sparingly (e.g. contact link bullet) */
+      --accent-color: #e67e22;
+      /* Button border and text colour for call‑to‑action elements */
+      --btn-border-color: #aaaaaa;
     }
 
     /* Global Styles */
@@ -40,13 +51,13 @@
     h1, h2, h3, h4, h5, h6 {
       font-family: 'Montserrat', sans-serif;
       margin-bottom: 0.5em;
-      color: var(--text-color);
+      color: var(--heading-color);
     }
     p {
       margin-bottom: 1em;
     }
     a {
-      color: var(--primary-color);
+      color: var(--accent-color);
       text-decoration: none;
     }
     a:hover {
@@ -103,9 +114,9 @@
     /* Hero Section */
     #hero {
       /* Use a textured background image instead of a simple gradient */
-      background: url('hero-bg.png') center/cover no-repeat;
-      /* Ensure text stands out against dark background */
-      color: #fff;
+      background: url('hero-bg.png') center/cover no-repeat fixed;
+      /* Default colour for generic text inside hero */
+      color: var(--text-color);
       padding: 120px 20px;
       text-align: left;
       border-bottom-left-radius: 50px;
@@ -123,6 +134,7 @@
     #hero h1 {
       font-size: 4em;
       margin-bottom: 0.2em;
+      color: var(--heading-color);
       /* Increase text shadow for stronger contrast */
       text-shadow: 0 4px 8px rgba(0, 0, 0, 0.7);
     }
@@ -130,12 +142,14 @@
       font-size: 2.2em;
       font-weight: 600;
       margin-bottom: 0.5em;
+      color: var(--subheading-color);
       /* Increase text shadow for stronger contrast */
       text-shadow: 0 4px 8px rgba(0, 0, 0, 0.7);
     }
     #hero p {
       font-size: 1.3em;
       max-width: 700px;
+      color: var(--text-color);
       /* Stronger shadow for readability */
       text-shadow: 0 4px 8px rgba(0, 0, 0, 0.7);
     }
@@ -265,16 +279,17 @@
     }
     .education-list li {
       background: var(--bg-color);
+      color: var(--text-color);
       padding: 10px 15px;
       border-radius: 5px;
       margin-bottom: 10px;
-      box-shadow: 0 0 5px rgba(0,0,0,0.1);
+      box-shadow: 0 0 5px rgba(0,0,0,0.3);
     }
     .education-list li strong {
       font-weight: 600;
     }
     .education-list li span {
-      color: #555;
+      color: var(--text-color);
     }
     .certificate {
       text-align: center;
@@ -283,12 +298,12 @@
     .certificate img {
       max-width: 100%;
       height: auto;
-      border: 1px solid #ccc;
+      border: 1px solid var(--btn-border-color);
     }
     .certificate figcaption {
       font-size: 0.9em;
       margin-top: 5px;
-      color: #555;
+      color: var(--text-color);
     }
 
     /* Skills Section */
@@ -321,14 +336,15 @@
     /* CV Section */
     #cv {
       padding: 80px 20px;
-      background: #000;
-      color: #fff;
+      /* Use secondary colour for contrast within the dark theme */
+      background: var(--secondary-color);
+      color: var(--text-color);
       text-align: center;
       border-radius: 50px;
     }
     #cv h2 {
       margin-bottom: 20px;
-      color: #fff;
+      color: var(--heading-color);
     }
     #cv p {
       margin-bottom: 1.2em;
@@ -340,21 +356,37 @@
     #cv .btn-cta {
       display: inline-block;
       padding: 12px 24px;
-      border: 2px solid var(--accent-color);
-      color: var(--accent-color);
+      border: 1px solid var(--btn-border-color);
+      color: var(--btn-border-color);
       border-radius: 25px;
       font-weight: 600;
       margin-top: 20px;
       transition: background 0.3s, color 0.3s;
     }
     #cv .btn-cta:hover {
-      background: var(--accent-color);
+      background: var(--btn-border-color);
       color: #000;
     }
 
     /* Spacing between multiple buttons in the CV section */
     #cv .btn-cta + .btn-cta {
       margin-left: 12px;
+    }
+
+    /* Project button style */
+    .btn-project {
+      display: inline-block;
+      margin-top: 12px;
+      padding: 10px 20px;
+      border: 1px solid var(--btn-border-color);
+      color: var(--btn-border-color);
+      font-weight: 600;
+      border-radius: 4px;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+    .btn-project:hover {
+      background: var(--btn-border-color);
+      color: #000;
     }
 
     /* Contact Section */
@@ -398,8 +430,10 @@
     .contact-form textarea {
       padding: 10px;
       margin-bottom: 15px;
-      border: 1px solid #ccc;
+      border: 1px solid var(--btn-border-color);
       border-radius: 3px;
+      background: var(--bg-color);
+      color: var(--text-color);
       font: inherit;
     }
     .contact-form textarea {
@@ -408,16 +442,18 @@
     }
     .contact-form button {
       padding: 12px;
-      background: var(--primary-color);
-      color: #fff;
+      border: 1px solid var(--btn-border-color);
+      background: transparent;
+      color: var(--btn-border-color);
       font-size: 1em;
       font-weight: 600;
-      border: none;
       border-radius: 3px;
       cursor: pointer;
+      transition: background-color 0.3s ease, color 0.3s ease;
     }
     .contact-form button:hover {
-      background: #2980b9;
+      background: var(--btn-border-color);
+      color: #000;
     }
 
     /* Footer */
@@ -425,7 +461,7 @@
       text-align: center;
       padding: 20px;
       background: var(--primary-color);
-      color: #fff;
+      color: var(--text-color);
     }
 
     /* Responsive */
@@ -454,7 +490,7 @@
       }
       #nav-toggle {
         display: block;
-        color: #fff;
+        color: var(--text-color);
       }
       #about .about-content {
         flex-direction: column;
@@ -572,19 +608,22 @@
       <h2>Proyectos destacados</h2>
       <div class="projects-grid">
         <div class="project" data-aos="fade-up">
-          <img src="project1.png" alt="Evento Ballet UNCuyo 2025" />
-          <h3>Evento Ballet UNCuyo 2025</h3>
+          <img src="project1.png" alt="Ballet UNCUYO – Concierto de fin de año" />
+          <h3>Ballet UNCUYO – Concierto de fin de año</h3>
           <p>Integración estratégica de contenido audiovisual en evento cultural para ampliar su alcance y valor cultural.</p>
+          <a href="https://drive.google.com/drive/folders/1uzIOFAOW1CsSzQlawsg68XiVz6wb8KR0?usp=drive_link" class="btn-project" target="_blank" rel="noopener noreferrer">Ver material</a>
         </div>
         <div class="project" data-aos="fade-up">
-          <img src="project2.png" alt="Backbeat Records - Lanzamientos Musicales" />
-          <h3>Backbeat Records</h3>
+          <img src="project2.png" alt="Backbeat Records - Lanzamientos musicales" />
+          <h3>Backbeat Records</h3>
           <p>Estrategia integral de comunicación para un sello discográfico independiente, logrando presencia en charts y alta visibilidad regional.</p>
+          <a href="https://drive.google.com/drive/folders/1UL3O82JRSamirN-EtStVF5Asz3TzGagU?usp=drive_link" class="btn-project" target="_blank" rel="noopener noreferrer">Ver material</a>
         </div>
         <div class="project" data-aos="fade-up">
           <img src="project3.png" alt="Sagrado Tattoo - Rebranding" />
-          <h3>Sagrado Tattoo</h3>
+          <h3>Sagrado Tattoo</h3>
           <p>Reordenamiento identitario y estrategia digital para estudio de tatuajes, definiendo una dirección clara de marca y expandiendo su audiencia.</p>
+          <a href="https://drive.google.com/drive/folders/15msR6zZuA3v6787WyRXc_Qh-vhOw7OW2?usp=drive_link" class="btn-project" target="_blank" rel="noopener noreferrer">Ver material</a>
         </div>
       </div>
     </div>
@@ -662,8 +701,12 @@
   <!-- AOS Animation JS -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js" integrity="sha512-A7AYkLZ5Q4xaqjZJ2jz8NT2BTMLbfhvPzN+I8tgi5KPKpPWJ66ZJqtmhGF9LwOOBVS9UtThEnWJZ8a7WHo6Vag==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   <script>
-    // Initialize AOS
-    AOS.init();
+    // Initialize AOS with smoother transitions
+    AOS.init({
+      duration: 800,
+      easing: 'ease-out-cubic',
+      once: true
+    });
     // Navigation toggle for mobile
     const navToggle = document.getElementById('nav-toggle');
     const navMenu = document.getElementById('nav-menu');
