@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Luca David Castro - Portfolio</title>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet" />
+  <!-- Material Icons -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+  <!-- AOS Animate on Scroll CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" integrity="sha512-pipDhN+ZKKep/+5Uzj8axGrNmiK6OXSUzM2UtS2k03Yl5Efz45E3p95nR9fnj1V9BcbXnGJFRufgKmvERkZHwQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <style>
+    /* Root Variables */
+    :root {
+      --primary-color: #3498db;
+      --text-color: #333;
+      --bg-color: #fff;
+      --secondary-color: #f4f4f4;
+      --accent-color: #ff5722;
+    }
+
+    /* Global Styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Open Sans', sans-serif;
+      color: var(--text-color);
+      background-color: var(--bg-color);
+      line-height: 1.6;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      font-family: 'Montserrat', sans-serif;
+      margin-bottom: 0.5em;
+      color: var(--text-color);
+    }
+    p {
+      margin-bottom: 1em;
+    }
+    a {
+      color: var(--primary-color);
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+
+    /* Container */
+    .container {
+      width: 90%;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    /* Navigation */
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: var(--primary-color);
+      color: #fff;
+      z-index: 1000;
+    }
+    nav .container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 60px;
+    }
+    nav .brand {
+      font-size: 1.5em;
+      font-weight: bold;
+    }
+    nav .brand:hover {
+      text-decoration: none;
+    }
+    nav .menu {
+      list-style: none;
+      display: flex;
+    }
+    nav .menu li {
+      margin-left: 2em;
+    }
+    nav .menu li a {
+      color: #fff;
+      font-weight: 600;
+    }
+    /* Hamburger menu icon (for mobile) */
+    #nav-toggle {
+      display: none;
+      font-size: 2em;
+      cursor: pointer;
+    }
+
+    /* Hero Section */
+    #hero {
+      background: radial-gradient(circle at center, #333 0%, #000 80%);
+      color: #fff;
+      padding: 120px 20px;
+      text-align: left;
+      border-bottom-left-radius: 50px;
+      border-bottom-right-radius: 50px;
+      position: relative;
+      overflow: hidden;
+    }
+    #hero .container {
+      min-height: calc(100vh - 60px);
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: center;
+    }
+    #hero h1 {
+      font-size: 4em;
+      margin-bottom: 0.2em;
+    }
+    #hero h2 {
+      font-size: 2em;
+      font-weight: 600;
+      margin-bottom: 0.5em;
+    }
+    #hero p {
+      font-size: 1.2em;
+      max-width: 700px;
+    }
+    /* Contact link in hero */
+    #hero .contact-link {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      display: flex;
+      align-items: center;
+      color: var(--accent-color);
+      font-weight: 600;
+    }
+    #hero .contact-link::before {
+      content: '';
+      width: 8px;
+      height: 8px;
+      background: var(--accent-color);
+      border-radius: 50%;
+      margin-right: 6px;
+    }
+
+    /* About Section */
+    #about {
+      padding: 80px 20px;
+      background: var(--bg-color);
+    }
+    #about .about-content {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+    #about .about-text {
+      flex: 1 1 300px;
+      margin-left: 40px;
+    }
+    #about img {
+      max-width: 300px;
+      width: 100%;
+      border-radius: 50%;
+      margin-bottom: 20px;
+    }
+    #about h2 {
+      margin-bottom: 20px;
+    }
+
+    /* Experience Section */
+    #experience {
+      padding: 80px 20px;
+      background: var(--secondary-color);
+    }
+    #experience h2 {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+    .job {
+      margin-bottom: 40px;
+    }
+    .job h3 {
+      font-size: 1.3em;
+      margin-bottom: 5px;
+      font-weight: 600;
+    }
+    .job .job-location {
+      font-size: 0.9em;
+      color: #555;
+      margin-bottom: 10px;
+    }
+    .job ul {
+      list-style: disc;
+      padding-left: 20px;
+    }
+    .job ul li {
+      margin-bottom: 5px;
+    }
+
+    /* Projects Section */
+    #projects {
+      padding: 80px 20px;
+      background: var(--bg-color);
+    }
+    #projects h2 {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+    .project {
+      background: var(--secondary-color);
+      padding: 15px;
+      border-radius: 5px;
+      text-align: center;
+      overflow: hidden;
+    }
+    .project img {
+      max-width: 100%;
+      border-radius: 5px;
+      margin-bottom: 15px;
+    }
+    .project h3 {
+      margin-bottom: 10px;
+      font-size: 1.2em;
+    }
+    .project p {
+      font-size: 0.95em;
+      color: #555;
+    }
+
+    /* Education Section */
+    #education {
+      padding: 80px 20px;
+      background: var(--secondary-color);
+    }
+    #education h2 {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+    .education-list {
+      list-style: none;
+      padding: 0;
+      max-width: 600px;
+      margin: 0 auto 30px auto;
+    }
+    .education-list li {
+      background: var(--bg-color);
+      padding: 10px 15px;
+      border-radius: 5px;
+      margin-bottom: 10px;
+      box-shadow: 0 0 5px rgba(0,0,0,0.1);
+    }
+    .education-list li strong {
+      font-weight: 600;
+    }
+    .education-list li span {
+      color: #555;
+    }
+    .certificate {
+      text-align: center;
+      margin-top: 20px;
+    }
+    .certificate img {
+      max-width: 100%;
+      height: auto;
+      border: 1px solid #ccc;
+    }
+    .certificate figcaption {
+      font-size: 0.9em;
+      margin-top: 5px;
+      color: #555;
+    }
+
+    /* Skills Section */
+    #skills {
+      padding: 80px 20px;
+      background: var(--bg-color);
+    }
+    #skills h2 {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+    .skills-list {
+      list-style: none;
+      padding: 0;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    .skills-list li {
+      margin-bottom: 10px;
+      position: relative;
+      padding-left: 20px;
+    }
+    .skills-list li::before {
+      content: "✔";
+      color: var(--primary-color);
+      position: absolute;
+      left: 0;
+      top: 0;
+    }
+
+    /* CV Section */
+    #cv {
+      padding: 80px 20px;
+      background: #000;
+      color: #fff;
+      text-align: center;
+      border-radius: 50px;
+    }
+    #cv h2 {
+      margin-bottom: 20px;
+      color: #fff;
+    }
+    #cv p {
+      margin-bottom: 1.2em;
+      font-size: 1.1em;
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    #cv .btn-cta {
+      display: inline-block;
+      padding: 12px 24px;
+      border: 2px solid var(--accent-color);
+      color: var(--accent-color);
+      border-radius: 25px;
+      font-weight: 600;
+      margin-top: 20px;
+      transition: background 0.3s, color 0.3s;
+    }
+    #cv .btn-cta:hover {
+      background: var(--accent-color);
+      color: #000;
+    }
+
+    /* Contact Section */
+    #contact {
+      padding: 80px 20px;
+      background: var(--secondary-color);
+    }
+    #contact h2 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    #contact p {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+    .contact-info {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+    .contact-info p {
+      margin-bottom: 5px;
+      font-size: 1em;
+    }
+    .contact-info a {
+      color: var(--text-color);
+      font-weight: 600;
+    }
+    .contact-form {
+      max-width: 500px;
+      margin: 0 auto;
+    }
+    .contact-form form {
+      display: flex;
+      flex-direction: column;
+    }
+    .contact-form label {
+      margin-bottom: 5px;
+      font-weight: 600;
+    }
+    .contact-form input,
+    .contact-form textarea {
+      padding: 10px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 3px;
+      font: inherit;
+    }
+    .contact-form textarea {
+      resize: vertical;
+      height: 100px;
+    }
+    .contact-form button {
+      padding: 12px;
+      background: var(--primary-color);
+      color: #fff;
+      font-size: 1em;
+      font-weight: 600;
+      border: none;
+      border-radius: 3px;
+      cursor: pointer;
+    }
+    .contact-form button:hover {
+      background: #2980b9;
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 20px;
+      background: var(--primary-color);
+      color: #fff;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      nav .menu {
+        position: absolute;
+        top: 60px;
+        right: 0;
+        background: var(--primary-color);
+        flex-direction: column;
+        width: 200px;
+        display: none;
+      }
+      nav .menu li {
+        margin: 0;
+        text-align: center;
+        padding: 10px 0;
+        border-top: 1px solid rgba(255,255,255,0.2);
+      }
+      nav .menu li:first-child {
+        border-top: none;
+      }
+      nav .menu.open {
+        display: flex;
+        flex-direction: column;
+      }
+      #nav-toggle {
+        display: block;
+        color: #fff;
+      }
+      #about .about-content {
+        flex-direction: column;
+      }
+      #about .about-text {
+        margin-left: 0;
+      }
+      #hero h1 {
+        font-size: 2.5em;
+      }
+      #hero h2 {
+        font-size: 1.5em;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation -->
+  <nav id="navbar">
+    <div class="container">
+      <a href="#hero" class="brand">Luca Castro</a>
+      <span id="nav-toggle" class="material-icons">menu</span>
+      <ul class="menu" id="nav-menu">
+        <li><a href="#about">Sobre mí</a></li>
+        <li><a href="#experience">Experiencia</a></li>
+        <li><a href="#projects">Proyectos</a></li>
+        <li><a href="#education">Educación</a></li>
+        <li><a href="#skills">Habilidades</a></li>
+        <li><a href="#cv">Resumen</a></li>
+        <li><a href="#contact">Contacto</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section id="hero">
+    <div class="contact-link">
+      <a href="mailto:13.luca.castro@gmail.com">13.luca.castro@gmail.com</a>
+    </div>
+    <div class="container" data-aos="fade-up">
+      <h1>Luca David Castro</h1>
+      <h2>Estratega digital &amp; productor de contenidos</h2>
+      <p>Más de 6 años de experiencia en gestión de redes, branding y storytelling audiovisual, especializado en campañas 360° y posicionamiento digital.</p>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about">
+    <div class="container about-content" data-aos="fade-up">
+      <img src="images/profile.jpg" alt="Foto de Luca David Castro" />
+      <div class="about-text">
+        <h2>Sobre mí</h2>
+        <p>Estratega digital y productor de contenidos con más de 6 años de experiencia en gestión de redes, branding y storytelling audiovisual. Especializado en desarrollo de identidad de marca, campañas 360° y posicionamiento (orgánico y pago) en plataformas sociales. Enfocado en optimizar el rendimiento del contenido y potenciar el engagement mediante estrategias basadas en datos y creatividad aplicada.</p>
+        <p>Experiencia en Latinoamérica trabajando con marcas, artistas y emprendimientos del sector cultural y comercial.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Experience Section -->
+  <section id="experience">
+    <div class="container" data-aos="fade-up">
+      <h2>Experiencia profesional</h2>
+      <div class="job" data-aos="fade-up">
+        <h3>Nave Cultural – Productor de Contenido Audiovisual <span>(2025–Actualidad)</span></h3>
+        <p class="job-location">Mendoza, Argentina</p>
+        <ul>
+          <li>Creación y edición de piezas audiovisuales para redes institucionales y campañas culturales.</li>
+          <li>Aplicación de diseño, animación y narrativa visual en estrategias de comunicación digital.</li>
+          <li>Aumento del alcance orgánico y participación del público mediante contenido optimizado para RRSS.</li>
+        </ul>
+      </div>
+      <div class="job" data-aos="fade-up">
+        <h3>Backbeat Records – Director de Contenidos y Estrategia Digital <span>(2021–2025)</span></h3>
+        <p class="job-location">Argentina</p>
+        <ul>
+          <li>Dirección creativa y planificación de más de 30 lanzamientos musicales.</li>
+          <li>Desarrollo de campañas digitales integrales (Meta, TikTok, Google Ads) con incrementos de engagement del 120% y crecimiento orgánico sostenido.</li>
+          <li>Coordinación de equipos creativos multidisciplinarios y estrategias de posicionamiento, logrando visibilidad en medios y playlists editoriales.</li>
+        </ul>
+      </div>
+      <div class="job" data-aos="fade-up">
+        <h3>Hialuronlips – Community Manager <span>(2021–2022)</span></h3>
+        <p class="job-location">Chile</p>
+        <ul>
+          <li>Creación de contenido y gestión de redes con foco en fidelización y crecimiento orgánico.</li>
+          <li>Diseño de piezas promocionales y calendarización estratégica de contenido (Meta Ads).</li>
+          <li>Incremento del engagement en un 85% y crecimiento de comunidad en +12K seguidores en 6 meses.</li>
+        </ul>
+      </div>
+      <div class="job" data-aos="fade-up">
+        <h3>Titanium Tattoo – Community Manager &amp; Estratega Visual <span>(2020–2021)</span></h3>
+        <p class="job-location">Chile / Brasil</p>
+        <ul>
+          <li>Desarrollo de identidad digital bilingüe (español/portugués).</li>
+          <li>Ejecución de campañas pagas en Meta Ads con ROI positivo y aumento de tráfico web.</li>
+          <li>Coordinación de lanzamientos promocionales con resultados superiores al promedio de CTR del sector.</li>
+        </ul>
+      </div>
+      <div class="job" data-aos="fade-up">
+        <h3>Sagrado Tattoo – Community Manager &amp; Productor Visual <span>(2018–2021)</span></h3>
+        <p class="job-location">Argentina</p>
+        <ul>
+          <li>Gestión integral de Instagram y Facebook.</li>
+          <li>Producción fotográfica, diseño y edición de video.</li>
+          <li>Crecimiento sostenido de la comunidad y consolidación de la marca en el rubro artístico.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects Section -->
+  <section id="projects">
+    <div class="container" data-aos="fade-up">
+      <h2>Proyectos destacados</h2>
+      <div class="projects-grid">
+        <div class="project" data-aos="fade-up">
+          <img src="images/project1.jpg" alt="Evento Ballet UNCuyo 2025" />
+          <h3>Evento Ballet UNCuyo 2025</h3>
+          <p>Integración estratégica de contenido audiovisual en evento cultural para ampliar su alcance y valor cultural.</p>
+        </div>
+        <div class="project" data-aos="fade-up">
+          <img src="images/project2.jpg" alt="Backbeat Records - Lanzamientos Musicales" />
+          <h3>Backbeat Records</h3>
+          <p>Estrategia integral de comunicación para un sello discográfico independiente, logrando presencia en charts y alta visibilidad regional.</p>
+        </div>
+        <div class="project" data-aos="fade-up">
+          <img src="images/project3.jpg" alt="Sagrado Tattoo - Rebranding" />
+          <h3>Sagrado Tattoo</h3>
+          <p>Reordenamiento identitario y estrategia digital para estudio de tatuajes, definiendo una dirección clara de marca y expandiendo su audiencia.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Education Section -->
+  <section id="education">
+    <div class="container" data-aos="fade-up">
+      <h2>Educación &amp; Formación</h2>
+      <ul class="education-list">
+        <li><strong>Fundamentals of Digital Marketing</strong> – Google <span>(2024)</span></li>
+        <li><strong>Community Manager &amp; Publicidad</strong> – Coderhouse <span>(2023)</span></li>
+        <li><strong>Bachiller en Economía y Administración</strong> – Escuela de Comercio Martín Zapata, UNCuyo <span>(2017)</span></li>
+      </ul>
+      <figure class="certificate" data-aos="fade-up">
+        <img src="images/coderhouse_cert.png" alt="Certificado de Community Manager &amp; Publicidad - Coderhouse" />
+        <figcaption>Certificado de finalización - Coderhouse (Community Manager &amp; Publicidad)</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- Skills Section -->
+  <section id="skills">
+    <div class="container" data-aos="fade-up">
+      <h2>Habilidades técnicas</h2>
+      <ul class="skills-list">
+        <li>Gestión Digital: Estrategia de redes, posicionamiento orgánico y pago, growth marketing, campañas de performance.</li>
+        <li>Herramientas Ads: Meta Ads, TikTok Ads, Google Ads.</li>
+        <li>Producción Audiovisual: Photoshop, Illustrator, Premiere Pro, After Effects, Canva.</li>
+        <li>IA Creativa: Aplicaciones de IA para generación de imagen, video y copywriting.</li>
+        <li>Gestión de Equipos: Coordinación de equipos creativos, planificación de campañas 360°, liderazgo de proyectos.</li>
+        <li>Idiomas: Español nativo | Inglés intermedio-avanzado (B2).</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- CV Section -->
+  <section id="cv">
+    <div class="container" data-aos="fade-up">
+      <h2>Resumen profesional</h2>
+      <p>Con una sólida trayectoria en estrategia digital y producción de contenidos, he colaborado con marcas, artistas y emprendimientos en toda Latinoamérica, desarrollando identidades de marca, campañas 360° y estrategias de posicionamiento tanto orgánicas como pagas. Mi enfoque combina creatividad y análisis de datos para potenciar el alcance y engagement de cada proyecto.</p>
+      <p>Mi experiencia se extiende desde la dirección creativa de lanzamientos musicales y la gestión de redes sociales hasta la coordinación de equipos multidisciplinarios y la implementación de campañas de performance en diversas plataformas.</p>
+      <a href="#contact" class="btn-cta">Hablemos</a>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact">
+    <div class="container" data-aos="fade-up">
+      <h2>Contacto</h2>
+      <p>¿Interesado en trabajar juntos o conocer más? Completa el formulario a continuación o contáctame directamente.</p>
+      <div class="contact-info">
+        <p><span class="material-icons">email</span> <a href="mailto:13.luca.castro@gmail.com">13.luca.castro@gmail.com</a></p>
+        <p><span class="material-icons">phone</span> <a href="tel:+542613059137">+54 261 3059137</a></p>
+        <p><span class="material-icons">place</span> Godoy Cruz, Mendoza, Argentina</p>
+      </div>
+      <div class="contact-form">
+        <form name="contact" method="POST" data-netlify="true">
+          <input type="hidden" name="form-name" value="contact" />
+          <label for="name">Nombre</label>
+          <input type="text" id="name" name="name" placeholder="Tu nombre" required />
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" placeholder="Tu email" required />
+          <label for="message">Mensaje</label>
+          <textarea id="message" name="message" placeholder="Tu mensaje" required></textarea>
+          <button type="submit">Enviar</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    &copy; 2026 Luca David Castro. Todos los derechos reservados.
+  </footer>
+
+  <!-- AOS Animation JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js" integrity="sha512-A7AYkLZ5Q4xaqjZJ2jz8NT2BTMLbfhvPzN+I8tgi5KPKpPWJ66ZJqtmhGF9LwOOBVS9UtThEnWJZ8a7WHo6Vag==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script>
+    // Initialize AOS
+    AOS.init();
+    // Navigation toggle for mobile
+    const navToggle = document.getElementById('nav-toggle');
+    const navMenu = document.getElementById('nav-menu');
+    navToggle.addEventListener('click', () => {
+      navMenu.classList.toggle('open');
+    });
+    // Close nav on menu item click (for one-page navigation)
+    document.querySelectorAll('#nav-menu a').forEach(link => {
+      link.addEventListener('click', () => {
+        navMenu.classList.remove('open');
+      });
+    });
+  </script>
+</body>
+</html>
