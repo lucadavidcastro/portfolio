@@ -29,6 +29,8 @@
       --accent-color: #aaaaaa;
       /* Button border and text colour for call‑to‑action elements */
       --btn-border-color: #aaaaaa;
+      /* Semi‑transparent overlay for the professional summary box (80% opacity) */
+      --summary-bg: rgba(36, 36, 36, 0.8);
     }
 
     /* Global Styles */
@@ -173,9 +175,11 @@
       margin-left: 40px;
     }
     #about img {
-      max-width: 300px;
-      width: 100%;
+      /* Ensure the profile image fills the circular container without distortion */
+      width: 250px;
+      height: 250px;
       border-radius: 50%;
+      object-fit: cover;
       margin-bottom: 20px;
     }
     #about h2 {
@@ -368,6 +372,21 @@
       margin-left: 12px;
     }
 
+    /* Professional summary box inside the hero section */
+    .summary-box {
+      background: var(--summary-bg);
+      padding: 40px 30px;
+      border-radius: 30px;
+      margin-top: 40px;
+      width: 100%;
+    }
+    .summary-box p {
+      margin-bottom: 1em;
+    }
+    .summary-box .btn-cta {
+      margin-right: 10px;
+    }
+
     /* Project button style */
     .btn-project {
       display: inline-block;
@@ -532,15 +551,14 @@
         <h1>Luca David Castro</h1>
         <h2>Estratega digital &amp; productor de contenidos</h2>
         <p>Más de 6 años de experiencia en gestión de redes, branding y storytelling audiovisual, especializado en campañas 360° y posicionamiento digital.</p>
-        <!-- Professional summary moved up from the end of the page -->
-        <section id="cv" style="margin-top:40px;">
-          <h2>Resumen profesional</h2>
-          <p>Con una sólida trayectoria en estrategia digital y producción de contenidos, he colaborado con marcas, artistas y emprendimientos en toda Latinoamérica, desarrollando identidades de marca, campañas 360° y estrategias de posicionamiento tanto orgánicas como pagas. Mi enfoque combina creatividad y análisis de datos para potenciar el alcance y engagement de cada proyecto.</p>
+        <!-- Professional summary integrated into the hero; removed separate heading -->
+        <div class="summary-box">
+          <p>Con una sólida trayectoria en estrategia digital y producción de contenidos, he colaborado con marcas, artistas y emprendimientos en toda Latinoamérica, desarrollando identidades de marca, campañas 360° y estrategias de posicionamiento tanto orgánicas como pagas. Mi enfoque combina creatividad y análisis de datos para potenciar el alcance y engagement de cada proyecto.</p>
           <p>Mi experiencia se extiende desde la dirección creativa de lanzamientos musicales y la gestión de redes sociales hasta la coordinación de equipos multidisciplinarios y la implementación de campañas de performance en diversas plataformas.</p>
           <a href="luca-david-castro-cv.pdf" class="btn-cta" download>Descargar CV</a>
           <a href="portfolio.pdf" class="btn-cta" download>Ver Portfolio</a>
           <a href="#contact" class="btn-cta">Hablemos</a>
-        </section>
+        </div>
       </div>
     </section>
 
