@@ -12,7 +12,8 @@
   <!-- AOS Animate on Scroll CSS -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" integrity="sha512-pipDhN+ZKKep/+5Uzj8axGrNmiK6OXSUzM2UtS2k03Yl5Efz45E3p95nR9fnj1V9BcbXnGJFRufgKmvERkZHwQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <!-- Favicon: use the profile illustration as the site icon -->
-  <link rel="icon" type="image/png" href="profile.png" />
+  <!-- Point to the profile illustration within the images folder so the favicon loads correctly -->
+  <link rel="icon" type="image/png" href="images/profile.png" />
   <style>
     /* Root Variables */
     :root {
@@ -137,7 +138,8 @@
       background: url('hero-bg.png') center/cover no-repeat fixed;
       /* Default colour for generic text inside hero */
       color: var(--text-color);
-      padding: 120px 20px;
+      /* Reduce top padding so the hero content box aligns closer to the navigation bar */
+      padding: 60px 20px;
       text-align: left;
       border-bottom-left-radius: 50px;
       border-bottom-right-radius: 50px;
@@ -579,8 +581,8 @@
   <!-- About Section -->
   <section id="about">
     <div class="container about-content" data-aos="fade-up">
-      <!-- Placeholder avatar image -->
-      <img src="profile.png" alt="Imagen de perfil de Luca David Castro" />
+      <!-- Use the abstract profile illustration stored in the images folder -->
+      <img src="images/profile.png" alt="Imagen de perfil de Luca David Castro" />
       <div class="about-text">
         <h2>Sobre mí</h2>
         <p>Estratega digital y productor de contenidos con más de 6 años de experiencia en gestión de redes, branding y storytelling audiovisual. Especializado en desarrollo de identidad de marca, campañas 360° y posicionamiento (orgánico y pago) en plataformas sociales. Enfocado en optimizar el rendimiento del contenido y potenciar el engagement mediante estrategias basadas en datos y creatividad aplicada.</p>
@@ -750,13 +752,19 @@
     });
 
     // Show the navigation brand (Inicio) only when the page is scrolled down
-    const brandLink = document.querySelector('nav .brand');
-    window.addEventListener('scroll', () => {
-      if (window.scrollY > 100) {
-        brandLink.classList.add('visible');
-      } else {
-        brandLink.classList.remove('visible');
+    // Wrap logic in a load event to ensure the element exists before adding listeners
+    window.addEventListener('load', () => {
+      const brandLink = document.querySelector('nav .brand');
+      function toggleBrand() {
+        if (window.scrollY > 100) {
+          brandLink.classList.add('visible');
+        } else {
+          brandLink.classList.remove('visible');
+        }
       }
+      // Check immediately in case the page loads at a scrolled position
+      toggleBrand();
+      window.addEventListener('scroll', toggleBrand);
     });
   </script>
 </body>
