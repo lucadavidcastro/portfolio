@@ -25,8 +25,8 @@
       --heading-color: #ffffff;
       /* Subheading colour used for hero subtitles */
       --subheading-color: #e0e0e0;
-      /* Accent colour used sparingly (e.g. contact link bullet) */
-      --accent-color: #e67e22;
+      /* Accent colour removed to avoid orange; use a light grey for subtle highlights */
+      --accent-color: #aaaaaa;
       /* Button border and text colour for call‑to‑action elements */
       --btn-border-color: #aaaaaa;
     }
@@ -89,9 +89,12 @@
     nav .brand {
       font-size: 1.5em;
       font-weight: bold;
+      /* Ensure the brand text inherits the heading colour instead of the accent colour */
+      color: var(--heading-color);
     }
     nav .brand:hover {
       text-decoration: none;
+      color: var(--heading-color);
     }
     nav .menu {
       list-style: none;
@@ -152,24 +155,6 @@
       color: var(--text-color);
       /* Stronger shadow for readability */
       text-shadow: 0 4px 8px rgba(0, 0, 0, 0.7);
-    }
-    /* Contact link in hero */
-    #hero .contact-link {
-      position: absolute;
-      bottom: 20px;
-      right: 20px;
-      display: flex;
-      align-items: center;
-      color: var(--accent-color);
-      font-weight: 600;
-    }
-    #hero .contact-link::before {
-      content: '';
-      width: 8px;
-      height: 8px;
-      background: var(--accent-color);
-      border-radius: 50%;
-      margin-right: 6px;
     }
 
     /* About Section */
@@ -324,13 +309,15 @@
     }
     .skills-list li {
       margin-bottom: 10px;
-      /* Remove left padding to align text since no icons are used */
       padding-left: 0;
       list-style: none;
+      position: relative;
     }
     .skills-list li::before {
-      /* Remove bullet icon completely */
-      content: none;
+      content: '•';
+      color: var(--btn-border-color);
+      position: relative;
+      margin-right: 8px;
     }
 
     /* CV Section */
@@ -403,11 +390,17 @@
       margin-bottom: 30px;
     }
     .contact-info {
-      text-align: center;
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      flex-wrap: wrap;
       margin-bottom: 40px;
     }
     .contact-info p {
-      margin-bottom: 5px;
+      margin: 0;
+      display: flex;
+      align-items: center;
+      gap: 6px;
       font-size: 1em;
     }
     .contact-info a {
@@ -525,17 +518,23 @@
     </div>
   </nav>
 
-  <!-- Hero Section -->
-  <section id="hero">
-    <div class="contact-link">
-      <a href="mailto:13.luca.castro@gmail.com">13.luca.castro@gmail.com</a>
-    </div>
-    <div class="container" data-aos="fade-up">
-      <h1>Luca David Castro</h1>
-      <h2>Estratega digital &amp; productor de contenidos</h2>
-      <p>Más de 6 años de experiencia en gestión de redes, branding y storytelling audiovisual, especializado en campañas 360° y posicionamiento digital.</p>
-    </div>
-  </section>
+    <!-- Hero Section -->
+    <section id="hero">
+      <div class="container" data-aos="fade-up">
+        <h1>Luca David Castro</h1>
+        <h2>Estratega digital &amp; productor de contenidos</h2>
+        <p>Más de 6 años de experiencia en gestión de redes, branding y storytelling audiovisual, especializado en campañas 360° y posicionamiento digital.</p>
+        <!-- Professional summary moved up from the end of the page -->
+        <section id="cv" style="margin-top:40px;">
+          <h2>Resumen profesional</h2>
+          <p>Con una sólida trayectoria en estrategia digital y producción de contenidos, he colaborado con marcas, artistas y emprendimientos en toda Latinoamérica, desarrollando identidades de marca, campañas 360° y estrategias de posicionamiento tanto orgánicas como pagas. Mi enfoque combina creatividad y análisis de datos para potenciar el alcance y engagement de cada proyecto.</p>
+          <p>Mi experiencia se extiende desde la dirección creativa de lanzamientos musicales y la gestión de redes sociales hasta la coordinación de equipos multidisciplinarios y la implementación de campañas de performance en diversas plataformas.</p>
+          <a href="luca-david-castro-cv.pdf" class="btn-cta" download>Descargar CV</a>
+          <a href="portfolio.pdf" class="btn-cta" download>Ver Portfolio</a>
+          <a href="#contact" class="btn-cta">Hablemos</a>
+        </section>
+      </div>
+    </section>
 
   <!-- About Section -->
   <section id="about">
@@ -656,27 +655,17 @@
     </div>
   </section>
 
-  <!-- CV Section -->
-  <section id="cv">
-    <div class="container" data-aos="fade-up">
-      <h2>Resumen profesional</h2>
-      <p>Con una sólida trayectoria en estrategia digital y producción de contenidos, he colaborado con marcas, artistas y emprendimientos en toda Latinoamérica, desarrollando identidades de marca, campañas 360° y estrategias de posicionamiento tanto orgánicas como pagas. Mi enfoque combina creatividad y análisis de datos para potenciar el alcance y engagement de cada proyecto.</p>
-      <p>Mi experiencia se extiende desde la dirección creativa de lanzamientos musicales y la gestión de redes sociales hasta la coordinación de equipos multidisciplinarios y la implementación de campañas de performance en diversas plataformas.</p>
-      <a href="luca-david-castro-cv.pdf" class="btn-cta" download>Descargar CV</a>
-      <a href="portfolio.pdf" class="btn-cta" download>Ver Portfolio</a>
-      <a href="#contact" class="btn-cta">Hablemos</a>
-    </div>
-  </section>
 
   <!-- Contact Section -->
   <section id="contact">
     <div class="container" data-aos="fade-up">
       <h2>Contacto</h2>
-      <p>¿Interesado en trabajar juntos o conocer más? Completa el formulario a continuación o contáctame directamente.</p>
+      <p>¿Interesado en trabajar juntos?</p>
+      <p>Completa el formulario a continuación o llámame directamente.</p>
       <div class="contact-info">
-        <p><span class="material-icons">email</span> <a href="mailto:13.luca.castro@gmail.com">13.luca.castro@gmail.com</a></p>
-        <p><span class="material-icons">phone</span> <a href="tel:+542613059137">+54 261 3059137</a></p>
-        <p><span class="material-icons">place</span> Godoy Cruz, Mendoza, Argentina</p>
+        <p><span class="material-icons">email</span><a href="mailto:13.luca.castro@gmail.com">13.luca.castro@gmail.com</a></p>
+        <p><span class="material-icons">phone</span><a href="tel:+542613059137">+54 261 3059137</a></p>
+        <p><span class="material-icons">place</span>Godoy Cruz, Mendoza, Argentina</p>
       </div>
       <div class="contact-form">
         <form name="contact" method="POST" data-netlify="true">
