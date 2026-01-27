@@ -13,7 +13,7 @@
   <style>
     /* Root Variables */
     :root {
-      --primary-color: #3498db;
+      --primary-color: #000;
       --text-color: #333;
       --bg-color: #fff;
       --secondary-color: #f4f4f4;
@@ -31,6 +31,11 @@
       color: var(--text-color);
       background-color: var(--bg-color);
       line-height: 1.6;
+    }
+
+    /* Smooth scrolling for anchor links */
+    html {
+      scroll-behavior: smooth;
     }
     h1, h2, h3, h4, h5, h6 {
       font-family: 'Montserrat', sans-serif;
@@ -97,7 +102,9 @@
 
     /* Hero Section */
     #hero {
-      background: radial-gradient(circle at center, #333 0%, #000 80%);
+      /* Use a textured background image instead of a simple gradient */
+      background: url('hero-bg.png') center/cover no-repeat;
+      /* Ensure text stands out against dark background */
       color: #fff;
       padding: 120px 20px;
       text-align: left;
@@ -116,20 +123,26 @@
     #hero h1 {
       font-size: 4em;
       margin-bottom: 0.2em;
+      /* Increase text shadow for stronger contrast */
+      text-shadow: 0 4px 8px rgba(0, 0, 0, 0.7);
     }
     #hero h2 {
-      font-size: 2em;
+      font-size: 2.2em;
       font-weight: 600;
       margin-bottom: 0.5em;
+      /* Increase text shadow for stronger contrast */
+      text-shadow: 0 4px 8px rgba(0, 0, 0, 0.7);
     }
     #hero p {
-      font-size: 1.2em;
+      font-size: 1.3em;
       max-width: 700px;
+      /* Stronger shadow for readability */
+      text-shadow: 0 4px 8px rgba(0, 0, 0, 0.7);
     }
     /* Contact link in hero */
     #hero .contact-link {
       position: absolute;
-      top: 20px;
+      bottom: 20px;
       right: 20px;
       display: flex;
       align-items: center;
@@ -281,7 +294,8 @@
     /* Skills Section */
     #skills {
       padding: 80px 20px;
-      background: var(--bg-color);
+      /* Match the education section background for consistency */
+      background: var(--secondary-color);
     }
     #skills h2 {
       text-align: center;
@@ -295,15 +309,13 @@
     }
     .skills-list li {
       margin-bottom: 10px;
-      position: relative;
-      padding-left: 20px;
+      /* Remove left padding to align text since no icons are used */
+      padding-left: 0;
+      list-style: none;
     }
     .skills-list li::before {
-      content: "✔";
-      color: var(--primary-color);
-      position: absolute;
-      left: 0;
-      top: 0;
+      /* Remove bullet icon completely */
+      content: none;
     }
 
     /* CV Section */
@@ -338,6 +350,11 @@
     #cv .btn-cta:hover {
       background: var(--accent-color);
       color: #000;
+    }
+
+    /* Spacing between multiple buttons in the CV section */
+    #cv .btn-cta + .btn-cta {
+      margin-left: 12px;
     }
 
     /* Contact Section */
@@ -487,7 +504,8 @@
   <!-- About Section -->
   <section id="about">
     <div class="container about-content" data-aos="fade-up">
-      <img src="images/profile.jpg" alt="Foto de Luca David Castro" />
+      <!-- Placeholder avatar image -->
+      <img src="profile.png" alt="Imagen de perfil de Luca David Castro" />
       <div class="about-text">
         <h2>Sobre mí</h2>
         <p>Estratega digital y productor de contenidos con más de 6 años de experiencia en gestión de redes, branding y storytelling audiovisual. Especializado en desarrollo de identidad de marca, campañas 360° y posicionamiento (orgánico y pago) en plataformas sociales. Enfocado en optimizar el rendimiento del contenido y potenciar el engagement mediante estrategias basadas en datos y creatividad aplicada.</p>
@@ -554,17 +572,17 @@
       <h2>Proyectos destacados</h2>
       <div class="projects-grid">
         <div class="project" data-aos="fade-up">
-          <img src="images/project1.jpg" alt="Evento Ballet UNCuyo 2025" />
+          <img src="project1.png" alt="Evento Ballet UNCuyo 2025" />
           <h3>Evento Ballet UNCuyo 2025</h3>
           <p>Integración estratégica de contenido audiovisual en evento cultural para ampliar su alcance y valor cultural.</p>
         </div>
         <div class="project" data-aos="fade-up">
-          <img src="images/project2.jpg" alt="Backbeat Records - Lanzamientos Musicales" />
+          <img src="project2.png" alt="Backbeat Records - Lanzamientos Musicales" />
           <h3>Backbeat Records</h3>
           <p>Estrategia integral de comunicación para un sello discográfico independiente, logrando presencia en charts y alta visibilidad regional.</p>
         </div>
         <div class="project" data-aos="fade-up">
-          <img src="images/project3.jpg" alt="Sagrado Tattoo - Rebranding" />
+          <img src="project3.png" alt="Sagrado Tattoo - Rebranding" />
           <h3>Sagrado Tattoo</h3>
           <p>Reordenamiento identitario y estrategia digital para estudio de tatuajes, definiendo una dirección clara de marca y expandiendo su audiencia.</p>
         </div>
@@ -581,10 +599,6 @@
         <li><strong>Community Manager &amp; Publicidad</strong> – Coderhouse <span>(2023)</span></li>
         <li><strong>Bachiller en Economía y Administración</strong> – Escuela de Comercio Martín Zapata, UNCuyo <span>(2017)</span></li>
       </ul>
-      <figure class="certificate" data-aos="fade-up">
-        <img src="images/coderhouse_cert.png" alt="Certificado de Community Manager &amp; Publicidad - Coderhouse" />
-        <figcaption>Certificado de finalización - Coderhouse (Community Manager &amp; Publicidad)</figcaption>
-      </figure>
     </div>
   </section>
 
@@ -609,6 +623,8 @@
       <h2>Resumen profesional</h2>
       <p>Con una sólida trayectoria en estrategia digital y producción de contenidos, he colaborado con marcas, artistas y emprendimientos en toda Latinoamérica, desarrollando identidades de marca, campañas 360° y estrategias de posicionamiento tanto orgánicas como pagas. Mi enfoque combina creatividad y análisis de datos para potenciar el alcance y engagement de cada proyecto.</p>
       <p>Mi experiencia se extiende desde la dirección creativa de lanzamientos musicales y la gestión de redes sociales hasta la coordinación de equipos multidisciplinarios y la implementación de campañas de performance en diversas plataformas.</p>
+      <a href="luca-david-castro-cv.pdf" class="btn-cta" download>Descargar CV</a>
+      <a href="portfolio.pdf" class="btn-cta" download>Ver Portfolio</a>
       <a href="#contact" class="btn-cta">Hablemos</a>
     </div>
   </section>
