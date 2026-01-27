@@ -29,8 +29,8 @@
       --accent-color: #aaaaaa;
       /* Button border and text colour for call‑to‑action elements */
       --btn-border-color: #aaaaaa;
-      /* Semi‑transparent overlay for the professional summary box (~80% opacity, roughly 20% transparency) */
-      --summary-bg: rgba(36, 36, 36, 0.8);
+      /* Background colour for the hero content box (pure grey, no saturation) */
+      --hero-box-bg: #2a2a2a;
     }
 
     /* Global Styles */
@@ -40,7 +40,8 @@
       box-sizing: border-box;
     }
     body {
-      font-family: 'Open Sans', sans-serif;
+      /* Use Montserrat for all body text */
+      font-family: 'Montserrat', sans-serif;
       color: var(--text-color);
       background-color: var(--bg-color);
       line-height: 1.6;
@@ -51,7 +52,8 @@
       scroll-behavior: smooth;
     }
     h1, h2, h3, h4, h5, h6 {
-      font-family: 'Montserrat', sans-serif;
+      /* Use Bebas Neue for headings */
+      font-family: 'Bebas Neue', sans-serif;
       margin-bottom: 0.5em;
       color: var(--heading-color);
     }
@@ -93,10 +95,20 @@
       font-weight: bold;
       /* Ensure the brand text inherits the heading colour instead of the accent colour */
       color: var(--heading-color);
+      /* Hide the brand (Inicio) until the user scrolls down a bit */
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
     }
     nav .brand:hover {
       text-decoration: none;
       color: var(--heading-color);
+    }
+
+    /* When the page is scrolled, reveal the brand so users can jump back to the top */
+    nav .brand.visible {
+      opacity: 1;
+      pointer-events: auto;
     }
     nav .menu {
       list-style: none;
@@ -372,18 +384,17 @@
       margin-left: 12px;
     }
 
-    /* Professional summary box inside the hero section */
-    .summary-box {
-      background: var(--summary-bg);
+    /* Box that contains all hero content (name, tagline, summary and call‑to‑actions). It is a pure grey overlay without transparency. */
+    .hero-box {
+      background: var(--hero-box-bg);
       padding: 40px 30px;
       border-radius: 30px;
-      margin-top: 40px;
       width: 100%;
     }
-    .summary-box p {
+    .hero-box p {
       margin-bottom: 1em;
     }
-    .summary-box .btn-cta {
+    .hero-box .btn-cta {
       margin-right: 10px;
     }
 
@@ -531,7 +542,8 @@
   <!-- Navigation -->
   <nav id="navbar">
     <div class="container">
-      <a href="#hero" class="brand">Luca Castro</a>
+      <!-- The brand acts as a “Back to top” link labelled Inicio; it appears when the user scrolls down -->
+      <a href="#hero" class="brand">Inicio</a>
       <span id="nav-toggle" class="material-icons">menu</span>
       <ul class="menu" id="nav-menu">
         <li><a href="#about">Sobre mí</a></li>
@@ -548,11 +560,10 @@
     <!-- Hero Section -->
     <section id="hero">
       <div class="container" data-aos="fade-up">
-        <h1>Luca David Castro</h1>
-        <h2>Estratega digital &amp; productor de contenidos</h2>
-        <p>Más de 6 años de experiencia en gestión de redes, branding y storytelling audiovisual, especializado en campañas 360° y posicionamiento digital.</p>
-        <!-- Professional summary integrated into the hero; removed separate heading -->
-        <div class="summary-box">
+        <div class="hero-box">
+          <h1>Luca David Castro</h1>
+          <h2>Estratega digital & productor de contenidos</h2>
+          <p>Más de 6 años de experiencia en gestión de redes, branding y storytelling audiovisual, especializado en campañas 360° y posicionamiento digital.</p>
           <p>Con una sólida trayectoria en estrategia digital y producción de contenidos, he colaborado con marcas, artistas y emprendimientos en toda Latinoamérica, desarrollando identidades de marca, campañas 360° y estrategias de posicionamiento tanto orgánicas como pagas. Mi enfoque combina creatividad y análisis de datos para potenciar el alcance y engagement de cada proyecto.</p>
           <p>Mi experiencia se extiende desde la dirección creativa de lanzamientos musicales y la gestión de redes sociales hasta la coordinación de equipos multidisciplinarios y la implementación de campañas de performance en diversas plataformas.</p>
           <a href="luca-david-castro-cv.pdf" class="btn-cta" download>Descargar CV</a>
@@ -733,6 +744,16 @@
       link.addEventListener('click', () => {
         navMenu.classList.remove('open');
       });
+    });
+
+    // Show the navigation brand (Inicio) only when the page is scrolled down
+    const brandLink = document.querySelector('nav .brand');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 100) {
+        brandLink.classList.add('visible');
+      } else {
+        brandLink.classList.remove('visible');
+      }
     });
   </script>
 </body>
