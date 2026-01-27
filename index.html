@@ -308,16 +308,24 @@
       margin: 0 auto;
     }
     .skills-list li {
+      /* Use flexbox to align the custom bullet with the text for multi‑line items */
+      display: flex;
+      align-items: flex-start;
       margin-bottom: 10px;
       padding-left: 0;
       list-style: none;
       position: relative;
     }
     .skills-list li::before {
-      content: '•';
-      color: var(--btn-border-color);
-      position: relative;
-      margin-right: 8px;
+      /* Create a small circular bullet with the button border colour */
+      content: '';
+      flex-shrink: 0;
+      width: 8px;
+      height: 8px;
+      margin-right: 10px;
+      margin-top: 8px;
+      border-radius: 50%;
+      background-color: var(--btn-border-color);
     }
 
     /* CV Section */
@@ -512,7 +520,7 @@
         <li><a href="#projects">Proyectos</a></li>
         <li><a href="#education">Educación</a></li>
         <li><a href="#skills">Habilidades</a></li>
-        <li><a href="#cv">Resumen</a></li>
+        <!-- Removed the redundant "Resumen" nav item; the professional summary now lives inside the hero and doesn't require its own navigation link -->
         <li><a href="#contact">Contacto</a></li>
       </ul>
     </div>
