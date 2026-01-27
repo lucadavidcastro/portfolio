@@ -33,8 +33,8 @@
       --accent-color: #aaaaaa;
       /* Button border and text colour for call‑to‑action elements */
       --btn-border-color: #aaaaaa;
-      /* Background colour for the hero content box (pure grey, no saturation) */
-      --hero-box-bg: #2a2a2a;
+      /* Background colour for the hero content box. Using semi‑transparent grey to create a glass effect */
+      --hero-box-bg: rgba(34, 34, 34, 0.9);
     }
 
     /* Global Styles */
@@ -270,7 +270,8 @@
 
     /* Education Section */
     #education {
-      padding: 80px 20px;
+      /* Reduce vertical spacing between sections */
+      padding: 60px 20px;
       background: var(--secondary-color);
     }
     #education h2 {
@@ -314,7 +315,8 @@
 
     /* Skills Section */
     #skills {
-      padding: 80px 20px;
+      /* Reduce vertical spacing between sections */
+      padding: 60px 20px;
       /* Match the education section background for consistency */
       background: var(--secondary-color);
     }
@@ -392,6 +394,9 @@
     /* Box that contains all hero content (name, tagline, summary and call‑to‑actions). It is a pure grey overlay without transparency. */
     .hero-box {
       background: var(--hero-box-bg);
+      /* Apply a blur to the background behind the hero box to achieve a frosted glass effect */
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
       padding: 40px 30px;
       border-radius: 30px;
       width: 100%;
@@ -421,7 +426,8 @@
 
     /* Contact Section */
     #contact {
-      padding: 80px 20px;
+      /* Reduce vertical spacing between sections */
+      padding: 60px 20px;
       background: var(--secondary-color);
     }
     #contact h2 {
@@ -490,6 +496,15 @@
     .contact-form button:hover {
       background: var(--btn-border-color);
       color: #000;
+    }
+
+    /* Box styling for the contact section. This creates a dark grey container similar to the hero box with a subtle glass effect */
+    .contact-box {
+      background: var(--hero-box-bg);
+      padding: 40px;
+      border-radius: 30px;
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
     }
 
     /* Footer */
@@ -701,25 +716,28 @@
   <!-- Contact Section -->
   <section id="contact">
     <div class="container" data-aos="fade-up">
-      <h2>Contacto</h2>
-      <p>¿Interesado en trabajar juntos?</p>
-      <p>Completa el formulario a continuación o llámame directamente.</p>
-      <div class="contact-info">
-        <p><span class="material-icons">email</span><a href="mailto:13.luca.castro@gmail.com">13.luca.castro@gmail.com</a></p>
-        <p><span class="material-icons">phone</span><a href="tel:+542613059137">+54 261 3059137</a></p>
-        <p><span class="material-icons">place</span>Godoy Cruz, Mendoza, Argentina</p>
-      </div>
-      <div class="contact-form">
-        <form name="contact" method="POST" data-netlify="true">
-          <input type="hidden" name="form-name" value="contact" />
-          <label for="name">Nombre</label>
-          <input type="text" id="name" name="name" placeholder="Tu nombre" required />
-          <label for="email">Email</label>
-          <input type="email" id="email" name="email" placeholder="Tu email" required />
-          <label for="message">Mensaje</label>
-          <textarea id="message" name="message" placeholder="Tu mensaje" required></textarea>
-          <button type="submit">Enviar</button>
-        </form>
+      <!-- Wrap the contact contents in a box to differentiate the section -->
+      <div class="contact-box">
+        <h2>Contacto</h2>
+        <p>¿Interesado en trabajar juntos?</p>
+        <p>Completa el formulario a continuación o llámame directamente.</p>
+        <div class="contact-info">
+          <p><span class="material-icons">email</span><a href="mailto:13.luca.castro@gmail.com">13.luca.castro@gmail.com</a></p>
+          <p><span class="material-icons">phone</span><a href="tel:+542613059137">+54 261 3059137</a></p>
+          <p><span class="material-icons">place</span>Godoy Cruz, Mendoza, Argentina</p>
+        </div>
+        <div class="contact-form">
+          <form name="contact" method="POST" data-netlify="true">
+            <input type="hidden" name="form-name" value="contact" />
+            <label for="name">Nombre</label>
+            <input type="text" id="name" name="name" placeholder="Tu nombre" required />
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" placeholder="Tu email" required />
+            <label for="message">Mensaje</label>
+            <textarea id="message" name="message" placeholder="Tu mensaje" required></textarea>
+            <button type="submit">Enviar</button>
+          </form>
+        </div>
       </div>
     </div>
   </section>
