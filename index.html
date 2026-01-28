@@ -9,6 +9,9 @@
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <!-- Material Icons -->
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+
+    <!-- Meta description for SEO -->
+    <meta name="description" content="Portfolio de Luca David Castro – Estratega digital y productor de contenidos con experiencia en branding, storytelling y campañas 360° en Latinoamérica." />
   <!-- AOS Animate on Scroll CSS -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" integrity="sha512-pipDhN+ZKKep/+5Uzj8axGrNmiK6OXSUzM2UtS2k03Yl5Efz45E3p95nR9fnj1V9BcbXnGJFRufgKmvERkZHwQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <!-- Favicon: use the profile illustration as the site icon -->
@@ -55,18 +58,24 @@
       padding: 0;
       box-sizing: border-box;
     }
+
+    /* Enable smooth scrolling for anchor navigation */
+    html {
+      scroll-behavior: smooth;
+    }
     body {
       /* Use Montserrat for all body text */
       font-family: 'Montserrat', sans-serif;
       color: var(--text-color);
       background-color: var(--bg-color);
       line-height: 1.6;
+
+      /* Start with transparent body for fade‑in effect */
+      opacity: 0;
+      transition: opacity 0.5s ease;
     }
 
-    /* Smooth scrolling for anchor links */
-    html {
-      scroll-behavior: smooth;
-    }
+    /* Smooth scrolling for anchor links: defined once at the top of the stylesheet */
     h1, h2, h3, h4, h5, h6 {
       /* Use Bebas Neue for headings */
       font-family: 'Bebas Neue', sans-serif;
@@ -138,6 +147,12 @@
       font-weight: 600;
     }
 
+    /* Highlight the active navigation link when its section is in view */
+    nav .menu li a.active {
+      color: var(--btn-border-color);
+      border-bottom: 2px solid var(--btn-border-color);
+    }
+
     /* Language icon styling */
     /*
       Style the language selector icon to look like a proper button.  It has a subtle semi‑transparent
@@ -146,24 +161,22 @@
       inverted so the dark glyph appears white on dark backgrounds.  We increase brightness so it
       remains clearly visible.
     */
-    #language-select img {
-      width: 32px;
-      height: 32px;
-      padding: 6px;
-      border: 1px solid var(--btn-border-color);
-      border-radius: 6px;
-      background: rgba(255, 255, 255, 0.05);
-      cursor: pointer;
-      /* invert colours so the dark icon appears white on a dark background */
-      filter: invert(1) brightness(2);
-      transition: background-color 0.3s ease, filter 0.3s ease;
-    }
-    #language-select img:hover {
-      /* Fill the icon background on hover to make it stand out */
-      background: var(--btn-border-color);
-      /* Reverse the invert so the icon appears dark on a light background */
-      filter: invert(0) brightness(1);
-    }
+        #language-select img {
+          /* Show only the icon itself without any surrounding border or background */
+          width: 28px;
+          height: 28px;
+          padding: 0;
+          border: none;
+          background: transparent;
+          cursor: pointer;
+          /* Invert the colours so the dark glyph appears white on a dark background */
+          filter: invert(1) brightness(2);
+          transition: filter 0.3s ease;
+        }
+        #language-select img:hover {
+          /* Slightly reduce brightness on hover to indicate interactivity */
+          filter: invert(1) brightness(1.5);
+        }
     /* Hide the Google Translate dropdown by default and style its container */
     #google_translate_element {
       display: none;
@@ -465,14 +478,25 @@
     .hero-box p {
       margin-bottom: 1em;
     }
+
+    /* Responsive typography for hero headings: use clamp to scale between mobile and desktop */
+    .hero-box h1 {
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      margin-bottom: 0.2em;
+    }
+    .hero-box h2 {
+      font-size: clamp(1.3rem, 4vw, 2.5rem);
+      font-weight: 600;
+      margin-bottom: 0.5em;
+    }
      .hero-box .btn-cta {
        display: inline-block;
        /* Provide generous padding to create a defined button area */
        padding: 14px 28px;
        /* Surround each call‑to‑action with a soft grey border and a semi‑transparent background.  Use a lower opacity (8%) so the default state is darker and the text remains legible */
        border: 1px solid var(--btn-border-color);
-       /* Slightly increase the opacity of the CTA buttons so the text stands out against the textured background */
-       background: rgba(255, 255, 255, 0.05);
+       /* Darken the default CTA background slightly (8% opacity) so the text stands out against the textured background */
+       background: rgba(255, 255, 255, 0.08);
        color: var(--btn-border-color);
        /* Increase border‑radius to create pill/rounded square appearance */
        border-radius: 40px;
@@ -504,6 +528,41 @@
     .btn-project:hover {
       background: var(--btn-border-color);
       color: #000;
+    }
+
+    /* Scroll-to-top button styling */
+    .scroll-top-btn {
+      position: fixed;
+      right: 20px;
+      bottom: 20px;
+      width: 45px;
+      height: 45px;
+      border: none;
+      border-radius: 50%;
+      background: var(--btn-border-color);
+      color: #000;
+      cursor: pointer;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+      transition: background-color 0.3s ease;
+    }
+    .scroll-top-btn.show {
+      display: flex;
+    }
+    .scroll-top-btn:hover {
+      background: var(--text-color);
+      color: #000;
+    }
+
+    /* Provide visible focus styles for accessibility */
+    a:focus,
+    button:focus,
+    input:focus,
+    textarea:focus {
+      outline: 2px dashed var(--btn-border-color);
+      outline-offset: 2px;
     }
 
     /* Contact Section */
@@ -560,6 +619,12 @@
       background: var(--bg-color);
       color: var(--text-color);
       font: inherit;
+    }
+    /* Style placeholders to ensure they are legible on dark backgrounds */
+    .contact-form input::placeholder,
+    .contact-form textarea::placeholder {
+      color: #777;
+    }
     }
     .contact-form textarea {
       resize: vertical;
@@ -645,6 +710,18 @@
         border-radius: 20px;
       }
     }
+
+    /* Accessibility: respect prefers-reduced-motion.  If the user has opted for reduced motion,
+       disable smooth scrolling and transitions on animated elements. */
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+      /* Remove transitions on elements that would otherwise animate */
+      .aos-init, .aos-animate {
+        transition: none !important;
+      }
+    }
   </style>
 </head>
 <body>
@@ -652,16 +729,16 @@
   <nav id="navbar">
     <div class="container">
       <!-- The brand acts as a “Back to top” link labelled Inicio; it appears when the user scrolls down -->
-      <a href="#hero" class="brand">Inicio</a>
+      <a href="#hero" class="brand" aria-label="Volver al inicio">Inicio</a>
       <span id="nav-toggle" class="material-icons">menu</span>
       <ul class="menu" id="nav-menu">
         <!-- Removed the "Sobre mí" link as the about section has been removed -->
-        <li><a href="#experience">Experiencia</a></li>
-        <li><a href="#projects">Proyectos</a></li>
-        <li><a href="#education">Educación</a></li>
-        <li><a href="#skills">Habilidades</a></li>
+        <li><a href="#experience" aria-label="Ir a Experiencia">Experiencia</a></li>
+        <li><a href="#projects" aria-label="Ir a Proyectos">Proyectos</a></li>
+        <li><a href="#education" aria-label="Ir a Educación">Educación</a></li>
+        <li><a href="#skills" aria-label="Ir a Habilidades">Habilidades</a></li>
         <!-- Removed the redundant "Resumen" nav item; the professional summary now lives inside the hero and doesn't require its own navigation link -->
-        <li><a href="#contact">Contacto</a></li>
+        <li><a href="#contact" aria-label="Ir a Contacto">Contacto</a></li>
         <!-- Language selector inserted at the end of the navigation menu for on‑the‑fly translation -->
         <li id="language-select" style="margin-left: 1em; position: relative;">
           <!-- Custom icon that toggles the translation dropdown. The icon is white by default to match the navigation bar. -->
@@ -743,25 +820,30 @@
     </div>
   </section>
 
+  <!-- Scroll to top button (appears after scrolling down) -->
+  <button id="scroll-top-btn" aria-label="Volver arriba" class="scroll-top-btn">
+    <span class="material-icons">arrow_upward</span>
+  </button>
+
   <!-- Projects Section -->
   <section id="projects">
     <div class="container" data-aos="fade-up">
       <h2>Proyectos destacados</h2>
       <div class="projects-grid">
         <div class="project" data-aos="fade-up">
-          <img src="project1.png" alt="Ballet UNCUYO – Concierto de fin de año" />
+               <img src="project1.png" alt="Icono abstracto que representa el concierto de fin de año del Ballet UNCUYO" />
           <h3>Ballet UNCUYO – Concierto de fin de año</h3>
           <p>Integración estratégica de contenido audiovisual en evento cultural para ampliar su alcance y valor cultural.</p>
           <a href="https://drive.google.com/drive/folders/1uzIOFAOW1CsSzQlawsg68XiVz6wb8KR0?usp=drive_link" class="btn-project" target="_blank" rel="noopener noreferrer">Ver material</a>
         </div>
         <div class="project" data-aos="fade-up">
-          <img src="project2.png" alt="Backbeat Records - Lanzamientos musicales" />
+               <img src="project2.png" alt="Icono de disco de vinilo estilizado para Backbeat Records" />
           <h3>Backbeat Records</h3>
           <p>Estrategia integral de comunicación para un sello discográfico independiente, logrando presencia en charts y alta visibilidad regional.</p>
           <a href="https://drive.google.com/drive/folders/1UL3O82JRSamirN-EtStVF5Asz3TzGagU?usp=drive_link" class="btn-project" target="_blank" rel="noopener noreferrer">Ver material</a>
         </div>
         <div class="project" data-aos="fade-up">
-          <img src="project3.png" alt="Sagrado Tattoo - Rebranding" />
+               <img src="project3.png" alt="Icono de manos rezando estilizadas para Sagrado Tattoo" />
           <h3>Sagrado Tattoo</h3>
           <p>Reordenamiento identitario y estrategia digital para estudio de tatuajes, definiendo una dirección clara de marca y expandiendo su audiencia.</p>
           <a href="https://drive.google.com/drive/folders/15msR6zZuA3v6787WyRXc_Qh-vhOw7OW2?usp=drive_link" class="btn-project" target="_blank" rel="noopener noreferrer">Ver material</a>
@@ -882,6 +964,39 @@
         }
       });
     }
+
+    // Scroll-to-top button behaviour
+    const scrollBtn = document.getElementById('scroll-top-btn');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 300) {
+        scrollBtn.classList.add('show');
+      } else {
+        scrollBtn.classList.remove('show');
+      }
+    });
+    scrollBtn.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    // Highlight navigation links when sections are in view
+    const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('#nav-menu a');
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          navLinks.forEach(link => link.classList.remove('active'));
+          const id = entry.target.getAttribute('id');
+          const activeLink = document.querySelector(`#nav-menu a[href="#${id}"]`);
+          if (activeLink) activeLink.classList.add('active');
+        }
+      });
+    }, { threshold: 0.5 });
+    sections.forEach(section => observer.observe(section));
+
+    // Fade the body in once the page is fully loaded
+    window.addEventListener('load', () => {
+      document.body.style.opacity = '1';
+    });
   </script>
 </body>
 </html>
