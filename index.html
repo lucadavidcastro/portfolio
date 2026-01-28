@@ -13,7 +13,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" integrity="sha512-pipDhN+ZKKep/+5Uzj8axGrNmiK6OXSUzM2UtS2k03Yl5Efz45E3p95nR9fnj1V9BcbXnGJFRufgKmvERkZHwQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <!-- Favicon: use the profile illustration as the site icon -->
   <!-- Point to the profile illustration within the images folder so the favicon loads correctly -->
-  <link rel="icon" type="image/png" href="images/profile.png" />
+  <link rel="icon" type="image/png" href="profile.png" />
   <style>
     /* Root Variables */
     :root {
@@ -35,6 +35,8 @@
       --btn-border-color: #aaaaaa;
       /* Background colour for the hero content box. Using semi‑transparent grey to create a glass effect */
       --hero-box-bg: rgba(34, 34, 34, 0.9);
+      /* Darker overlay used specifically for the contact section box to ensure it stands out */
+      --contact-box-bg: rgba(15, 15, 15, 0.92);
     }
 
     /* Global Styles */
@@ -248,7 +250,7 @@
       gap: 20px;
     }
     .project {
-      background: var(--secondary-color);
+      background: var(--bg-color);
       padding: 15px;
       border-radius: 5px;
       text-align: center;
@@ -405,7 +407,23 @@
       margin-bottom: 1em;
     }
     .hero-box .btn-cta {
+      display: inline-block;
+      padding: 12px 24px;
+      border: 1px solid var(--btn-border-color);
+      background: rgba(170, 170, 170, 0.1);
+      color: var(--btn-border-color);
+      border-radius: 25px;
+      font-weight: 600;
+      margin-top: 20px;
       margin-right: 10px;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+    .hero-box .btn-cta:hover {
+      background: var(--btn-border-color);
+      color: #000;
+    }
+    .hero-box .btn-cta + .btn-cta {
+      margin-left: 12px;
     }
 
     /* Project button style */
@@ -416,7 +434,7 @@
       border: 1px solid var(--btn-border-color);
       color: var(--btn-border-color);
       font-weight: 600;
-      border-radius: 4px;
+      border-radius: 25px;
       transition: background-color 0.3s ease, color 0.3s ease;
     }
     .btn-project:hover {
@@ -500,7 +518,7 @@
 
     /* Box styling for the contact section. This creates a dark grey container similar to the hero box with a subtle glass effect */
     .contact-box {
-      background: var(--hero-box-bg);
+      background: var(--contact-box-bg);
       padding: 40px;
       border-radius: 30px;
       backdrop-filter: blur(10px);
@@ -597,7 +615,7 @@
   <section id="about">
     <div class="container about-content" data-aos="fade-up">
       <!-- Use the abstract profile illustration stored in the images folder -->
-      <img src="images/profile.png" alt="Imagen de perfil de Luca David Castro" />
+      <img src="profile.png" alt="Imagen de perfil de Luca David Castro" />
       <div class="about-text">
         <h2>Sobre mí</h2>
         <p>Estratega digital y productor de contenidos con más de 6 años de experiencia en gestión de redes, branding y storytelling audiovisual. Especializado en desarrollo de identidad de marca, campañas 360° y posicionamiento (orgánico y pago) en plataformas sociales. Enfocado en optimizar el rendimiento del contenido y potenciar el engagement mediante estrategias basadas en datos y creatividad aplicada.</p>
