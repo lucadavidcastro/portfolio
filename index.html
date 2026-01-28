@@ -14,6 +14,16 @@
   <!-- Favicon: use the profile illustration as the site icon -->
   <!-- Point to the profile illustration within the images folder so the favicon loads correctly -->
   <link rel="icon" type="image/png" href="profile.png" />
+  <!-- Google Translate script: allows visitors to select their preferred language. The widget will render inside the element with ID 'google_translate_element' -->
+  <script type="text/javascript">
+    function googleTranslateElementInit() {
+      new google.translate.TranslateElement({
+        pageLanguage: 'es',
+        layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+      }, 'google_translate_element');
+    }
+  </script>
+  <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
   <style>
     /* Root Variables */
     :root {
@@ -36,7 +46,7 @@
       /* Background colour for the hero content box. Use a very light opacity (10 % opaque) to let the textured backdrop show through, creating a pronounced glass effect */
       --hero-box-bg: rgba(34, 34, 34, 0.1);
       /* Darker overlay used specifically for the contact section box to ensure it stands out even on the dark page. Increase opacity for a richer dark feel */
-      --contact-box-bg: rgba(0, 0, 0, 0.95);
+      --contact-box-bg: rgba(0, 0, 0, 0.97);
     }
 
     /* Global Styles */
@@ -409,13 +419,13 @@
     .hero-box p {
       margin-bottom: 1em;
     }
-    .hero-box .btn-cta {
+     .hero-box .btn-cta {
        display: inline-block;
        /* Provide generous padding to create a defined button area */
        padding: 14px 28px;
-       /* Surround each call‑to‑action with a soft grey border and a semi‑transparent background to give the feeling of a rounded card */
+       /* Surround each call‑to‑action with a soft grey border and a semi‑transparent background.  Use a lower opacity (8%) so the default state is darker and the text remains legible */
        border: 1px solid var(--btn-border-color);
-       background: rgba(255, 255, 255, 0.05);
+       background: rgba(255, 255, 255, 0.08);
        color: var(--btn-border-color);
        /* Increase border‑radius to create pill/rounded square appearance */
        border-radius: 40px;
@@ -423,12 +433,12 @@
        margin-top: 20px;
        margin-right: 10px;
        transition: background-color 0.3s ease, color 0.3s ease;
-    }
-    .hero-box .btn-cta:hover {
+     }
+     .hero-box .btn-cta:hover {
        /* On hover, fill the button with the border colour for emphasis */
        background: var(--btn-border-color);
        color: #000;
-    }
+     }
     .hero-box .btn-cta + .btn-cta {
       margin-left: 12px;
     }
@@ -581,6 +591,12 @@
       #hero h2 {
         font-size: 1.5em;
       }
+
+      /* On small screens, reduce padding and border radius of the hero box to ensure it fits nicely */
+      .hero-box {
+        padding: 30px 20px;
+        border-radius: 20px;
+      }
     }
   </style>
 </head>
@@ -592,13 +608,17 @@
       <a href="#hero" class="brand">Inicio</a>
       <span id="nav-toggle" class="material-icons">menu</span>
       <ul class="menu" id="nav-menu">
-        <li><a href="#about">Sobre mí</a></li>
+        <!-- Removed the "Sobre mí" link as the about section has been removed -->
         <li><a href="#experience">Experiencia</a></li>
         <li><a href="#projects">Proyectos</a></li>
         <li><a href="#education">Educación</a></li>
         <li><a href="#skills">Habilidades</a></li>
         <!-- Removed the redundant "Resumen" nav item; the professional summary now lives inside the hero and doesn't require its own navigation link -->
         <li><a href="#contact">Contacto</a></li>
+        <!-- Language selector inserted at the end of the navigation menu for on‑the‑fly translation -->
+        <li id="language-select" style="margin-left: 1em;">
+          <div id="google_translate_element"></div>
+        </li>
       </ul>
     </div>
   </nav>
@@ -619,18 +639,7 @@
       </div>
     </section>
 
-  <!-- About Section -->
-  <section id="about">
-    <div class="container about-content" data-aos="fade-up">
-      <!-- Use the abstract profile illustration stored in the images folder -->
-      <img src="profile.png" alt="Imagen de perfil de Luca David Castro" />
-      <div class="about-text">
-        <h2>Sobre mí</h2>
-        <p>Estratega digital y productor de contenidos con más de 6 años de experiencia en gestión de redes, branding y storytelling audiovisual. Especializado en desarrollo de identidad de marca, campañas 360° y posicionamiento (orgánico y pago) en plataformas sociales. Enfocado en optimizar el rendimiento del contenido y potenciar el engagement mediante estrategias basadas en datos y creatividad aplicada.</p>
-        <p>Experiencia en Latinoamérica trabajando con marcas, artistas y emprendimientos del sector cultural y comercial.</p>
-      </div>
-    </div>
-  </section>
+  <!-- About Section removed to avoid duplicating information. -->
 
   <!-- Experience Section -->
   <section id="experience">
