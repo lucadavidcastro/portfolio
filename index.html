@@ -3,6 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Set theme colour for supported browsers to match the dark aesthetic -->
+    <meta name="theme-color" content="#000000" />
   <title>Luca David Castro - Portfolio</title>
   <!-- Google Fonts -->
   <!-- Load Bebas Neue for headings and Montserrat for body text -->
@@ -194,6 +196,46 @@
       border: 1px solid var(--btn-border-color);
       padding: 6px 8px;
       border-radius: 4px;
+    }
+
+    /* Remove any border or background around the language selector list item itself */
+    #language-select {
+      border: none;
+      background: transparent;
+      padding: 0;
+    }
+
+    /* Skip link styles: hidden off screen until keyboard focus */
+    .skip-link {
+      position: absolute;
+      left: -999px;
+      top: auto;
+      width: 1px;
+      height: 1px;
+      overflow: hidden;
+      z-index: 1000;
+    }
+    .skip-link:focus {
+      left: 10px;
+      top: 10px;
+      width: auto;
+      height: auto;
+      padding: 8px 12px;
+      background: var(--secondary-color);
+      color: var(--text-color);
+      border-radius: 4px;
+    }
+
+    /* Provide visible focus outlines for keyboard navigation on interactive elements */
+    a:focus,
+    button:focus,
+    input:focus,
+    textarea:focus,
+    .btn-cta:focus,
+    .btn-project:focus,
+    #lang-icon:focus {
+      outline: 2px dashed var(--btn-border-color);
+      outline-offset: 2px;
     }
     /* Hamburger menu icon (for mobile) */
     #nav-toggle {
@@ -488,14 +530,14 @@
       font-weight: 600;
       margin-bottom: 0.5em;
     }
-     .hero-box .btn-cta {
+    .hero-box .btn-cta {
        display: inline-block;
        /* Provide generous padding to create a defined button area */
        padding: 14px 28px;
        /* Surround each call‑to‑action with a soft grey border and a semi‑transparent background.  Use a lower opacity (8%) so the default state is darker and the text remains legible */
        border: 1px solid var(--btn-border-color);
-       /* Darken the default CTA background slightly (8% opacity) so the text stands out against the textured background */
-       background: rgba(255, 255, 255, 0.08);
+       /* Darken the default CTA background: use 10% white so the button stands out more against the grey overlay */
+       background: rgba(255, 255, 255, 0.1);
        color: var(--btn-border-color);
        /* Increase border‑radius to create pill/rounded square appearance */
        border-radius: 40px;
@@ -725,7 +767,7 @@
 </head>
 <body>
   <!-- Navigation -->
-  <nav id="navbar">
+  <nav id="navbar" role="navigation" aria-label="Navegación principal">
     <div class="container">
       <!-- The brand acts as a “Back to top” link labelled Inicio; it appears when the user scrolls down -->
       <a href="#hero" class="brand" aria-label="Volver al inicio">Inicio</a>
@@ -748,6 +790,12 @@
       </ul>
     </div>
   </nav>
+
+    <!-- Skip link for screen reader users to jump directly to the main content -->
+    <a href="#main-content" class="skip-link">Saltar al contenido</a>
+
+    <!-- Main content wrapper starts -->
+    <main id="main-content">
 
     <!-- Hero Section -->
     <section id="hero">
@@ -830,19 +878,19 @@
       <h2>Proyectos destacados</h2>
       <div class="projects-grid">
         <div class="project" data-aos="fade-up">
-               <img src="project1.png" alt="Icono abstracto que representa el concierto de fin de año del Ballet UNCUYO" />
+              <img src="project1.png" alt="Icono abstracto que representa el concierto de fin de año del Ballet UNCUYO" loading="lazy" />
           <h3>Ballet UNCUYO – Concierto de fin de año</h3>
           <p>Integración estratégica de contenido audiovisual en evento cultural para ampliar su alcance y valor cultural.</p>
           <a href="https://drive.google.com/drive/folders/1uzIOFAOW1CsSzQlawsg68XiVz6wb8KR0?usp=drive_link" class="btn-project" target="_blank" rel="noopener noreferrer">Ver material</a>
         </div>
         <div class="project" data-aos="fade-up">
-               <img src="project2.png" alt="Icono de disco de vinilo estilizado para Backbeat Records" />
+              <img src="project2.png" alt="Icono de disco de vinilo estilizado para Backbeat Records" loading="lazy" />
           <h3>Backbeat Records</h3>
           <p>Estrategia integral de comunicación para un sello discográfico independiente, logrando presencia en charts y alta visibilidad regional.</p>
           <a href="https://drive.google.com/drive/folders/1UL3O82JRSamirN-EtStVF5Asz3TzGagU?usp=drive_link" class="btn-project" target="_blank" rel="noopener noreferrer">Ver material</a>
         </div>
         <div class="project" data-aos="fade-up">
-               <img src="project3.png" alt="Icono de manos rezando estilizadas para Sagrado Tattoo" />
+              <img src="project3.png" alt="Icono de manos rezando estilizadas para Sagrado Tattoo" loading="lazy" />
           <h3>Sagrado Tattoo</h3>
           <p>Reordenamiento identitario y estrategia digital para estudio de tatuajes, definiendo una dirección clara de marca y expandiendo su audiencia.</p>
           <a href="https://drive.google.com/drive/folders/15msR6zZuA3v6787WyRXc_Qh-vhOw7OW2?usp=drive_link" class="btn-project" target="_blank" rel="noopener noreferrer">Ver material</a>
@@ -896,17 +944,20 @@
           <form name="contact" method="POST" data-netlify="true">
             <input type="hidden" name="form-name" value="contact" />
             <label for="name">Nombre</label>
-            <input type="text" id="name" name="name" placeholder="Tu nombre" required />
+            <input type="text" id="name" name="name" placeholder="Tu nombre" autocomplete="name" required />
             <label for="email">Email</label>
-            <input type="email" id="email" name="email" placeholder="Tu email" required />
+            <input type="email" id="email" name="email" placeholder="Tu email" autocomplete="email" required />
             <label for="message">Mensaje</label>
-            <textarea id="message" name="message" placeholder="Tu mensaje" required></textarea>
+            <textarea id="message" name="message" placeholder="Tu mensaje" autocomplete="off" required></textarea>
             <button type="submit">Enviar</button>
           </form>
         </div>
       </div>
     </div>
   </section>
+
+    <!-- End of main content -->
+    </main>
 
   <!-- Footer -->
   <footer>
