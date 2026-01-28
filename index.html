@@ -137,6 +137,35 @@
       color: #fff;
       font-weight: 600;
     }
+
+    /* Language icon styling */
+    #language-select img {
+      width: 24px;
+      height: 24px;
+      cursor: pointer;
+      /* invert colours so the dark icon appears white on a dark background */
+      /* Invert the colours and increase brightness so the language icon appears white and clearly visible on dark backgrounds */
+      filter: invert(1) brightness(2);
+    }
+    /* Hide the Google Translate dropdown by default and style its container */
+    #google_translate_element {
+      display: none;
+      position: absolute;
+      top: 40px;
+      right: 0;
+      background: var(--secondary-color);
+      padding: 10px;
+      border-radius: 6px;
+      z-index: 1000;
+    }
+    /* Style the select dropdown inside the Google Translate widget to blend with the dark theme */
+    #google_translate_element select {
+      background: var(--primary-color);
+      color: var(--text-color);
+      border: 1px solid var(--btn-border-color);
+      padding: 6px 8px;
+      border-radius: 4px;
+    }
     /* Hamburger menu icon (for mobile) */
     #nav-toggle {
       display: none;
@@ -425,7 +454,8 @@
        padding: 14px 28px;
        /* Surround each call‑to‑action with a soft grey border and a semi‑transparent background.  Use a lower opacity (8%) so the default state is darker and the text remains legible */
        border: 1px solid var(--btn-border-color);
-       background: rgba(255, 255, 255, 0.08);
+       /* Slightly increase the opacity of the CTA buttons so the text stands out against the textured background */
+       background: rgba(255, 255, 255, 0.1);
        color: var(--btn-border-color);
        /* Increase border‑radius to create pill/rounded square appearance */
        border-radius: 40px;
@@ -616,7 +646,10 @@
         <!-- Removed the redundant "Resumen" nav item; the professional summary now lives inside the hero and doesn't require its own navigation link -->
         <li><a href="#contact">Contacto</a></li>
         <!-- Language selector inserted at the end of the navigation menu for on‑the‑fly translation -->
-        <li id="language-select" style="margin-left: 1em;">
+        <li id="language-select" style="margin-left: 1em; position: relative;">
+          <!-- Custom icon that toggles the translation dropdown. The icon is white by default to match the navigation bar. -->
+          <img src="translation-icon.png" id="lang-icon" alt="Seleccionar idioma" />
+          <!-- Google Translate element is hidden by default and will appear when the language icon is clicked -->
           <div id="google_translate_element"></div>
         </li>
       </ul>
@@ -819,6 +852,19 @@
       toggleBrand();
       window.addEventListener('scroll', toggleBrand);
     });
+
+    // Toggle the language dropdown when clicking the language icon
+    const langIcon = document.getElementById('lang-icon');
+    const translateEl = document.getElementById('google_translate_element');
+    if (langIcon && translateEl) {
+      langIcon.addEventListener('click', () => {
+        if (translateEl.style.display === 'block') {
+          translateEl.style.display = 'none';
+        } else {
+          translateEl.style.display = 'block';
+        }
+      });
+    }
   </script>
 </body>
 </html>
