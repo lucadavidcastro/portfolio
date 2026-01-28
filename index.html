@@ -33,10 +33,10 @@
       --accent-color: #aaaaaa;
       /* Button border and text colour for call‑to‑action elements */
       --btn-border-color: #aaaaaa;
-      /* Background colour for the hero content box. Using semi‑transparent grey to create a glass effect */
-      --hero-box-bg: rgba(34, 34, 34, 0.9);
-      /* Darker overlay used specifically for the contact section box to ensure it stands out */
-      --contact-box-bg: rgba(15, 15, 15, 0.92);
+      /* Background colour for the hero content box. Use a very light opacity (10 % opaque) to let the textured backdrop show through, creating a pronounced glass effect */
+      --hero-box-bg: rgba(34, 34, 34, 0.1);
+      /* Darker overlay used specifically for the contact section box to ensure it stands out even on the dark page. Increase opacity for a richer dark feel */
+      --contact-box-bg: rgba(0, 0, 0, 0.95);
     }
 
     /* Global Styles */
@@ -207,7 +207,8 @@
 
     /* Experience Section */
     #experience {
-      padding: 80px 20px;
+      /* Reduce vertical spacing to minimise large gaps between sections */
+      padding: 60px 20px;
       background: var(--secondary-color);
     }
     #experience h2 {
@@ -237,8 +238,9 @@
 
     /* Projects Section */
     #projects {
-      padding: 80px 20px;
-      background: var(--bg-color);
+      /* Reduce vertical spacing and darken the entire projects section for better contrast */
+      padding: 60px 20px;
+      background: var(--secondary-color);
     }
     #projects h2 {
       text-align: center;
@@ -250,7 +252,7 @@
       gap: 20px;
     }
     .project {
-      background: var(--bg-color);
+      background: var(--primary-color);
       padding: 15px;
       border-radius: 5px;
       text-align: center;
@@ -281,10 +283,11 @@
       margin-bottom: 30px;
     }
     .education-list {
-      list-style: none;
-      padding: 0;
-      max-width: 600px;
-      margin: 0 auto 30px auto;
+       list-style: none;
+       padding: 0;
+       max-width: 600px;
+       /* Reduce bottom margin to minimise gaps at the end of the section */
+       margin: 0 auto 20px auto;
     }
     .education-list li {
       background: var(--bg-color);
@@ -407,20 +410,24 @@
       margin-bottom: 1em;
     }
     .hero-box .btn-cta {
-      display: inline-block;
-      padding: 12px 24px;
-      border: 1px solid var(--btn-border-color);
-      background: rgba(170, 170, 170, 0.1);
-      color: var(--btn-border-color);
-      border-radius: 25px;
-      font-weight: 600;
-      margin-top: 20px;
-      margin-right: 10px;
-      transition: background-color 0.3s ease, color 0.3s ease;
+       display: inline-block;
+       /* Provide generous padding to create a defined button area */
+       padding: 14px 28px;
+       /* Surround each call‑to‑action with a soft grey border and a semi‑transparent background to give the feeling of a rounded card */
+       border: 1px solid var(--btn-border-color);
+       background: rgba(255, 255, 255, 0.05);
+       color: var(--btn-border-color);
+       /* Increase border‑radius to create pill/rounded square appearance */
+       border-radius: 40px;
+       font-weight: 600;
+       margin-top: 20px;
+       margin-right: 10px;
+       transition: background-color 0.3s ease, color 0.3s ease;
     }
     .hero-box .btn-cta:hover {
-      background: var(--btn-border-color);
-      color: #000;
+       /* On hover, fill the button with the border colour for emphasis */
+       background: var(--btn-border-color);
+       color: #000;
     }
     .hero-box .btn-cta + .btn-cta {
       margin-left: 12px;
@@ -461,7 +468,8 @@
       justify-content: center;
       gap: 30px;
       flex-wrap: wrap;
-      margin-bottom: 40px;
+     /* Reduce bottom margin to tighten up spacing below the contact details */
+     margin-bottom: 20px;
     }
     .contact-info p {
       margin: 0;
