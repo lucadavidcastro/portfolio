@@ -70,9 +70,8 @@
       background-color: var(--bg-color);
       line-height: 1.6;
 
-      /* Start with transparent body for fade‑in effect */
-      opacity: 0;
-      transition: opacity 0.5s ease;
+      /* Ensure the body is visible immediately.  Removed the fade‑in effect to prevent blank pages on slow connections. */
+      opacity: 1;
     }
 
     /* Smooth scrolling for anchor links: defined once at the top of the stylesheet */
@@ -993,10 +992,9 @@
     }, { threshold: 0.5 });
     sections.forEach(section => observer.observe(section));
 
-    // Fade the body in once the page is fully loaded
-    window.addEventListener('load', () => {
-      document.body.style.opacity = '1';
-    });
+    // We previously faded the body in on load to create a smooth appearance.  This has been
+    // removed to prevent the page from remaining blank on slow connections.  The body
+    // now starts visible by default.
   </script>
 </body>
 </html>
