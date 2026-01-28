@@ -139,13 +139,30 @@
     }
 
     /* Language icon styling */
+    /*
+      Style the language selector icon to look like a proper button.  It has a subtle semi‑transparent
+      background and a border so it feels like an interactive control rather than a floating icon.
+      On hover, the background fills with the border colour to indicate it’s clickable.  The icon is
+      inverted so the dark glyph appears white on dark backgrounds.  We increase brightness so it
+      remains clearly visible.
+    */
     #language-select img {
-      width: 24px;
-      height: 24px;
+      width: 32px;
+      height: 32px;
+      padding: 6px;
+      border: 1px solid var(--btn-border-color);
+      border-radius: 6px;
+      background: rgba(255, 255, 255, 0.05);
       cursor: pointer;
       /* invert colours so the dark icon appears white on a dark background */
-      /* Invert the colours and increase brightness so the language icon appears white and clearly visible on dark backgrounds */
       filter: invert(1) brightness(2);
+      transition: background-color 0.3s ease, filter 0.3s ease;
+    }
+    #language-select img:hover {
+      /* Fill the icon background on hover to make it stand out */
+      background: var(--btn-border-color);
+      /* Reverse the invert so the icon appears dark on a light background */
+      filter: invert(0) brightness(1);
     }
     /* Hide the Google Translate dropdown by default and style its container */
     #google_translate_element {
@@ -455,7 +472,7 @@
        /* Surround each call‑to‑action with a soft grey border and a semi‑transparent background.  Use a lower opacity (8%) so the default state is darker and the text remains legible */
        border: 1px solid var(--btn-border-color);
        /* Slightly increase the opacity of the CTA buttons so the text stands out against the textured background */
-       background: rgba(255, 255, 255, 0.1);
+       background: rgba(255, 255, 255, 0.05);
        color: var(--btn-border-color);
        /* Increase border‑radius to create pill/rounded square appearance */
        border-radius: 40px;
