@@ -246,8 +246,8 @@
 
     /* Hero Section */
     #hero {
-      /* Remove static background so the video can be seen; fallback is set via the video element */
-      background: none;
+      /* Use the swirling pattern as a fallback background in case the video fails to load.  The fixed attachment creates a subtle parallax effect. */
+      background: url('hero-bg.png') center/cover no-repeat fixed;
       color: var(--text-color);
       /* Reduce top padding so the hero content box aligns closer to the navigation bar */
       padding: 60px 20px;
@@ -552,8 +552,8 @@
        display: inline-block;
        padding: 14px 28px;
        border: 1px solid var(--btn-border-color);
-       /* Further darken the button background for better legibility on the hero overlay.  A lower opacity (5%) of white yields a darker shade. */
-       background: rgba(255, 255, 255, 0.05);
+       /* Darken the default background further for better legibility.  A 15% opacity of white produces a subtle yet more contrasted button that still respects the minimalist palette. */
+       background: rgba(255, 255, 255, 0.15);
        color: var(--btn-border-color);
        border-radius: 40px;
        font-weight: 600;
