@@ -246,9 +246,8 @@
 
     /* Hero Section */
     #hero {
-      /* Use a textured background image instead of a simple gradient */
-      background: url('hero-bg.png') center/cover no-repeat fixed;
-      /* Default colour for generic text inside hero */
+      /* Remove static background so the video can be seen; fallback is set via the video element */
+      background: none;
       color: var(--text-color);
       /* Reduce top padding so the hero content box aligns closer to the navigation bar */
       padding: 60px 20px;
@@ -257,6 +256,19 @@
       border-bottom-right-radius: 50px;
       position: relative;
       overflow: hidden;
+    }
+
+    /* Style the background video that sits behind the hero content.  It covers the entire section and uses object-fit to maintain aspect ratio. */
+    #hero video {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: -2;
+      /* Ensure the video does not capture pointer events */
+      pointer-events: none;
     }
     #hero .container {
       min-height: calc(100vh - 60px);
@@ -317,16 +329,22 @@
 
     /* Experience Section */
     #experience {
-      /* Reduce vertical spacing to minimise large gaps between sections */
       padding: 60px 20px;
       background: var(--secondary-color);
+      /* Apply a subtle parallax effect by fixing the section's background relative to the viewport.  This gives depth as users scroll. */
+      background-attachment: fixed;
     }
     #experience h2 {
       text-align: center;
       margin-bottom: 40px;
     }
     .job {
+      /* Display each position as a card with its own dark background and soft shadow. */
+      background: var(--bg-color);
+      border-radius: 12px;
+      padding: 20px;
       margin-bottom: 40px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.4);
     }
     .job h3 {
       font-size: 1.3em;
@@ -348,9 +366,10 @@
 
     /* Projects Section */
     #projects {
-      /* Reduce vertical spacing and darken the entire projects section for better contrast */
       padding: 60px 20px;
       background: var(--secondary-color);
+      /* Fix the background so it moves more slowly than the foreground, creating a parallax effect. */
+      background-attachment: fixed;
     }
     #projects h2 {
       text-align: center;
@@ -384,9 +403,9 @@
 
     /* Education Section */
     #education {
-      /* Reduce vertical spacing between sections */
       padding: 60px 20px;
       background: var(--secondary-color);
+      background-attachment: fixed;
     }
     #education h2 {
       text-align: center;
@@ -430,10 +449,9 @@
 
     /* Skills Section */
     #skills {
-      /* Reduce vertical spacing between sections */
       padding: 60px 20px;
-      /* Match the education section background for consistency */
       background: var(--secondary-color);
+      background-attachment: fixed;
     }
     #skills h2 {
       text-align: center;
@@ -530,16 +548,13 @@
       font-weight: 600;
       margin-bottom: 0.5em;
     }
-    .hero-box .btn-cta {
+     .hero-box .btn-cta {
        display: inline-block;
-       /* Provide generous padding to create a defined button area */
        padding: 14px 28px;
-       /* Surround each call‑to‑action with a soft grey border and a semi‑transparent background.  Use a lower opacity (8%) so the default state is darker and the text remains legible */
        border: 1px solid var(--btn-border-color);
-       /* Darken the default CTA background: use 10% white so the button stands out more against the grey overlay */
-       background: rgba(255, 255, 255, 0.1);
+       /* Further darken the button background for better legibility on the hero overlay.  A lower opacity (5%) of white yields a darker shade. */
+       background: rgba(255, 255, 255, 0.05);
        color: var(--btn-border-color);
-       /* Increase border‑radius to create pill/rounded square appearance */
        border-radius: 40px;
        font-weight: 600;
        margin-top: 20px;
@@ -799,6 +814,12 @@
 
     <!-- Hero Section -->
     <section id="hero">
+      <!-- Video background for the hero section.  Autoplay, muted and loop ensure a seamless background animation. -->
+      <video autoplay muted loop playsinline>
+        <source src="hero-dust.mp4" type="video/mp4">
+        <!-- Provide a fallback for browsers that do not support the video element -->
+        Tu navegador no soporta el elemento de video.
+      </video>
       <div class="container" data-aos="fade-up">
         <div class="hero-box">
           <h1>Luca David Castro</h1>
