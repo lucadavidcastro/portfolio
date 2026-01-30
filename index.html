@@ -48,10 +48,10 @@
       --accent-color: #aaaaaa;
       /* Button border and text colour for call‑to‑action elements */
       --btn-border-color: #aaaaaa;
-      /* Background colour for the hero content box. Use a very light opacity (10 % opaque) to let the textured backdrop show through, creating a pronounced glass effect */
-      --hero-box-bg: rgba(34, 34, 34, 0.1);
-      /* Darker overlay used specifically for the contact section box to ensure it stands out even on the dark page. Increase opacity for a richer dark feel */
-      --contact-box-bg: rgba(0, 0, 0, 0.97);
+      /* Background colour for the hero content box. Increase opacity (40%) so the text remains readable without relying on shadows */
+      --hero-box-bg: rgba(34, 34, 34, 0.4);
+      /* Overlay used for the contact section box. Match the hero’s glass opacity for consistency (40% dark) */
+      --contact-box-bg: rgba(34, 34, 34, 0.4);
     }
 
     /* Global Styles */
@@ -74,6 +74,24 @@
 
       /* Ensure the body is visible immediately.  Removed the fade‑in effect to prevent blank pages on slow connections. */
       opacity: 1;
+    }
+
+    /* Noise overlay: applies a subtle grain across the entire page.  Two radial gradients create light and dark speckles.  Pointer events are disabled so it doesn't interfere with interactions. */
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 0;
+      background-image:
+        radial-gradient(circle, rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+        radial-gradient(circle, rgba(0, 0, 0, 0.04) 1px, transparent 1px);
+      background-size: 4px 4px;
+      /* Blend normally so noise is visible but subtle */
+      mix-blend-mode: normal;
     }
 
     /* Smooth scrolling for anchor links: defined once at the top of the stylesheet */
@@ -246,8 +264,8 @@
 
     /* Hero Section */
     #hero {
-      /* Use the swirling pattern as a fallback background in case the video fails to load.  The fixed attachment creates a subtle parallax effect. */
-      background: url('hero-bg.png') center/cover no-repeat fixed;
+      /* Use the supplied high‑resolution background image as the primary backdrop for the hero.  A fixed attachment creates a subtle parallax effect and ensures the same image is also used at the bottom of the page. */
+      background: url('fondo-portfolio.png') center/cover no-repeat fixed;
       color: var(--text-color);
       /* Reduce top padding so the hero content box aligns closer to the navigation bar */
       padding: 60px 20px;
@@ -281,23 +299,23 @@
       font-size: 4em;
       margin-bottom: 0.2em;
       color: var(--heading-color);
-      /* Increase text shadow for stronger contrast */
-      text-shadow: 0 4px 8px rgba(0, 0, 0, 0.7);
+      /* Remove text shadow now that the glass effect is more opaque */
+      text-shadow: none;
     }
     #hero h2 {
       font-size: 2.2em;
       font-weight: 600;
       margin-bottom: 0.5em;
       color: var(--subheading-color);
-      /* Increase text shadow for stronger contrast */
-      text-shadow: 0 4px 8px rgba(0, 0, 0, 0.7);
+      /* Remove text shadow to rely on the more opaque background */
+      text-shadow: none;
     }
     #hero p {
       font-size: 1.3em;
       max-width: 700px;
       color: var(--text-color);
-      /* Stronger shadow for readability */
-      text-shadow: 0 4px 8px rgba(0, 0, 0, 0.7);
+      /* Remove text shadow to rely on the more opaque background */
+      text-shadow: none;
     }
 
     /* About Section */
@@ -625,7 +643,8 @@
     #contact {
       /* Reduce vertical spacing between sections */
       padding: 60px 20px;
-      background: var(--secondary-color);
+      /* Use the same high‑resolution background as the hero for visual continuity.  The fixed attachment gives a subtle parallax effect. */
+      background: url('fondo-portfolio.png') center/cover no-repeat fixed;
     }
     #contact h2 {
       text-align: center;
