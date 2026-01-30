@@ -797,6 +797,34 @@
         transition: none !important;
       }
     }
+
+    /*
+      Combined Education and Skills Section.
+      Define a wrapper section to display the education and skills columns side by side on larger screens
+      and stacked on smaller devices.
+    */
+    #education-skills {
+      padding: 60px 20px;
+      background: var(--secondary-color);
+      background-attachment: fixed;
+    }
+    #education-skills .edu-skills-wrapper {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 2%;
+    }
+    #education-skills .education-column,
+    #education-skills .skills-column {
+      flex: 1 1 48%;
+    }
+    @media (max-width: 768px) {
+      #education-skills .education-column,
+      #education-skills .skills-column {
+        flex: 1 1 100%;
+        margin-bottom: 30px;
+      }
+    }
   </style>
 </head>
 <body>
@@ -939,30 +967,28 @@
     </div>
   </section>
 
-  <!-- Education Section -->
-  <section id="education">
-    <div class="container" data-aos="fade-up">
-      <h2>Educación &amp; Formación</h2>
-      <ul class="education-list">
-        <li><strong>Fundamentals of Digital Marketing</strong> – Google <span>(2024)</span></li>
-        <li><strong>Community Manager &amp; Publicidad</strong> – Coderhouse <span>(2023)</span></li>
-        <li><strong>Bachiller en Economía y Administración</strong> – Escuela de Comercio Martín Zapata, UNCuyo <span>(2017)</span></li>
-      </ul>
-    </div>
-  </section>
-
-  <!-- Skills Section -->
-  <section id="skills">
-    <div class="container" data-aos="fade-up">
-      <h2>Habilidades técnicas</h2>
-      <ul class="skills-list">
-        <li>Gestión Digital: Estrategia de redes, posicionamiento orgánico y pago, growth marketing, campañas de performance.</li>
-        <li>Herramientas Ads: Meta Ads, TikTok Ads, Google Ads.</li>
-        <li>Producción Audiovisual: Photoshop, Illustrator, Premiere Pro, After Effects, Canva.</li>
-        <li>IA Creativa: Aplicaciones de IA para generación de imagen, video y copywriting.</li>
-        <li>Gestión de Equipos: Coordinación de equipos creativos, planificación de campañas 360°, liderazgo de proyectos.</li>
-        <li>Idiomas: Español nativo | Inglés intermedio-avanzado (B2).</li>
-      </ul>
+  <!-- Combined Education and Skills Section -->
+  <section id="education-skills">
+    <div class="container edu-skills-wrapper" data-aos="fade-up">
+      <div id="education" class="education-column">
+        <h2>Educación &amp; Formación</h2>
+        <ul class="education-list">
+          <li><strong>Fundamentals of Digital Marketing</strong> – Google <span>(2024)</span></li>
+          <li><strong>Community Manager &amp; Publicidad</strong> – Coderhouse <span>(2023)</span></li>
+          <li><strong>Bachiller en Economía y Administración</strong> – Escuela de Comercio Martín Zapata, UNCuyo <span>(2017)</span></li>
+        </ul>
+      </div>
+      <div id="skills" class="skills-column">
+        <h2>Habilidades técnicas</h2>
+        <ul class="skills-list">
+          <li>Gestión Digital: Estrategia de redes, posicionamiento orgánico y pago, growth marketing, campañas de performance.</li>
+          <li>Herramientas Ads: Meta Ads, TikTok Ads, Google Ads.</li>
+          <li>Producción Audiovisual: Photoshop, Illustrator, Premiere Pro, After Effects, Canva.</li>
+          <li>IA Creativa: Aplicaciones de IA para generación de imagen, video y copywriting.</li>
+          <li>Gestión de Equipos: Coordinación de equipos creativos, planificación de campañas 360°, liderazgo de proyectos.</li>
+          <li>Idiomas: Español nativo | Inglés intermedio-avanzado (B2).</li>
+        </ul>
+      </div>
     </div>
   </section>
 
