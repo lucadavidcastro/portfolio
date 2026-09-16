@@ -22,9 +22,16 @@ jobs:
       OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
     steps:
       - uses: actions/checkout@v4
+      - name: Preflight secrets
+        shell: bash
+        run: |
+          test -n "$OPENAI_API_KEY" || { echo 'MISSING_SECRET: OPENAI_API_KEY'; exit 1; }
+          test -n "$OWNER_EMAIL" || { echo 'MISSING_SECRET: UNICO_OWNER_EMAIL'; exit 1; }
+          echo 'PREFLIGHT_OK'
       - name: Run UNICO
         run: python3 UNICO/agent.py
       - name: Persist UNICO state
+        if: ${{ always() }}
         run: |
           git config user.name 'UNICO Agent'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
