@@ -6,6 +6,7 @@ on:
     paths:
       - '.github/workflows/unico-agent.yml'
       - 'UNICO/agent.py'
+      - 'UNICO/agent_v2.py'
   schedule:
     - cron: '17 */6 * * *'
 
@@ -33,7 +34,7 @@ jobs:
           test -n "$OWNER_EMAIL" || { echo 'MISSING_SECRET: UNICO_OWNER_EMAIL'; exit 1; }
           echo 'PREFLIGHT_OK'
       - name: Run UNICO
-        run: python3 UNICO/agent.py
+        run: python3 UNICO/agent_v2.py
       - name: Persist UNICO state
         if: ${{ always() }}
         run: |
