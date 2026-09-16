@@ -1,0 +1,3 @@
+date,client,service,status,value_usd,payment_status,next_step,evidence
+2026-09-16,OSUNCUYO,audiovisual/orchestra videos,PAYMENT_PENDING,,pending,Confirm exact amount and send payment follow-up,User-reported unpaid delivered work
+2026-09-16,Walter,sound card sale,PAYMENT_PENDING,,pending,Confirm exact amount and collect,User-reported pending sale payment
