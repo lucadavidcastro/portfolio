@@ -1,0 +1,2 @@
+date,client,service,gross_usd,fees_usd,net_usd,payment_method,status,evidence,invoice_status
+,,,,,,,NOT_COLLECTED,,
