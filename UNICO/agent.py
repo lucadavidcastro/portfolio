@@ -1,4 +1,4 @@
-import json, os, re, subprocess, sys
+import json, os, re
 from datetime import datetime, timezone
 from pathlib import Path
 from urllib.request import Request, urlopen
@@ -8,48 +8,49 @@ BASE = Path(__file__).resolve().parent
 RUNTIME = BASE / "runtime.json"
 LOG = BASE / "agent.log"
 TOKU = "https://www.toku.agency/api"
-OWNER_EMAIL = os.environ.get("OWNER_EMAIL", "13.luca.castro@gmail.com")
+OWNER_EMAIL = os.environ.get("OWNER_EMAIL", "")
 PORTFOLIO = os.environ.get("PORTFOLIO_URL", "https://lucadavidcastro.myportfolio.com/")
 AGENT_NAME = os.environ.get("TOKU_AGENT_NAME", "UNICO-Ludaca")
 OPENAI_KEY = os.environ.get("OPENAI_API_KEY", "")
 
+# High-value text/strategy services: designed to be fulfilled autonomously.
 SERVICES = [
     {
         "title": "Creative Campaign Concept + Content System",
         "description": "Turn a product, release, event or campaign brief into a usable creative direction: concept, narrative angle, content architecture, hooks, formats, shot logic and production plan. Built by an audiovisual producer with music and cultural-industry experience. Portfolio: " + PORTFOLIO,
         "category": "creative",
-        "tags": ["creative-direction", "campaign", "content", "audiovisual", "music", "social"],
+        "tags": ["creative-direction", "campaign", "content", "audiovisual", "music", "social", "strategy"],
         "tiers": [
-            {"name": "Basic", "description": "One campaign concept + 5 content ideas + hooks.", "priceCents": 15000, "deliveryDays": 1, "features": ["Campaign concept", "5 content ideas", "Hooks"]},
-            {"name": "Standard", "description": "Creative system for a launch or campaign with narrative, formats and production logic.", "priceCents": 35000, "deliveryDays": 2, "features": ["Creative direction", "Content architecture", "10 concepts", "Production plan"]},
-            {"name": "Premium", "description": "Full creative campaign system ready for production and iteration.", "priceCents": 75000, "deliveryDays": 4, "features": ["Creative platform", "Narrative system", "Content matrix", "Hooks and scripts", "Production roadmap"]}
+            {"name": "Basic", "description": "One campaign concept + 5 content ideas + hooks.", "priceCents": 25000, "deliveryDays": 1, "features": ["Campaign concept", "5 content ideas", "Hooks"]},
+            {"name": "Standard", "description": "Creative system for a launch or campaign with narrative, formats and production logic.", "priceCents": 60000, "deliveryDays": 2, "features": ["Creative direction", "Content architecture", "10 concepts", "Production plan"]},
+            {"name": "Premium", "description": "Full creative campaign system ready for production and iteration.", "priceCents": 150000, "deliveryDays": 4, "features": ["Creative platform", "Narrative system", "Content matrix", "Hooks and scripts", "Production roadmap"]}
         ]
     },
     {
         "title": "Short-form Video Strategy + Editing Blueprint",
         "description": "Performance-oriented short-form video direction: hooks, pacing, retention logic, edit structure, captions, sound and variation plan for Reels/TikTok/Shorts. Portfolio: " + PORTFOLIO,
         "category": "creative",
-        "tags": ["video", "editing", "ugc", "reels", "tiktok", "short-form", "motion"],
+        "tags": ["video", "editing", "ugc", "reels", "tiktok", "short-form", "motion", "strategy"],
         "tiers": [
-            {"name": "Basic", "description": "Audit of up to 3 videos with concrete edit improvements.", "priceCents": 10000, "deliveryDays": 1, "features": ["3-video audit", "Hook analysis", "Edit recommendations"]},
-            {"name": "Standard", "description": "Strategy and edit blueprint for up to 8 short-form videos.", "priceCents": 30000, "deliveryDays": 2, "features": ["8-video system", "Hooks", "Pacing", "Caption structure", "Variation plan"]},
-            {"name": "Premium", "description": "Creative performance system for a recurring short-form production pipeline.", "priceCents": 60000, "deliveryDays": 4, "features": ["Content system", "Creative testing plan", "10+ concepts", "Edit blueprints", "Iteration framework"]}
+            {"name": "Basic", "description": "Audit of up to 3 videos with concrete edit improvements.", "priceCents": 15000, "deliveryDays": 1, "features": ["3-video audit", "Hook analysis", "Edit recommendations"]},
+            {"name": "Standard", "description": "Strategy and edit blueprint for up to 8 short-form videos.", "priceCents": 50000, "deliveryDays": 2, "features": ["8-video system", "Hooks", "Pacing", "Caption structure", "Variation plan"]},
+            {"name": "Premium", "description": "Creative performance system for a recurring short-form production pipeline.", "priceCents": 120000, "deliveryDays": 4, "features": ["Content system", "Creative testing plan", "10+ concepts", "Edit blueprints", "Iteration framework"]}
         ]
     },
     {
         "title": "Music Release Content Package",
         "description": "Creative release system for artists: narrative angle, visual direction, launch content, short-form concepts, captions and production roadmap. Designed for singles, EPs and albums. Portfolio: " + PORTFOLIO,
         "category": "creative",
-        "tags": ["music", "artist", "release", "content", "campaign", "audiovisual"],
+        "tags": ["music", "artist", "release", "content", "campaign", "audiovisual", "strategy"],
         "tiers": [
-            {"name": "Basic", "description": "Release concept + 7 content ideas.", "priceCents": 12000, "deliveryDays": 1, "features": ["Release angle", "7 content ideas", "Hooks"]},
-            {"name": "Standard", "description": "Complete single-release content system.", "priceCents": 35000, "deliveryDays": 2, "features": ["Narrative", "Visual direction", "10 content pieces", "Scripts", "Calendar"]},
-            {"name": "Premium", "description": "Album/EP launch creative system with reusable content architecture.", "priceCents": 80000, "deliveryDays": 4, "features": ["Campaign platform", "Visual system", "Content matrix", "Scripts", "Production roadmap", "Iteration plan"]}
+            {"name": "Basic", "description": "Release concept + 7 content ideas.", "priceCents": 20000, "deliveryDays": 1, "features": ["Release angle", "7 content ideas", "Hooks"]},
+            {"name": "Standard", "description": "Complete single-release content system.", "priceCents": 70000, "deliveryDays": 2, "features": ["Narrative", "Visual direction", "10 content pieces", "Scripts", "Calendar"]},
+            {"name": "Premium", "description": "Album/EP launch creative system with reusable content architecture.", "priceCents": 180000, "deliveryDays": 4, "features": ["Campaign platform", "Visual system", "Content matrix", "Scripts", "Production roadmap", "Iteration plan"]}
         ]
     }
 ]
 
-KEYWORDS = re.compile(r"(creative|content|video|editor|editing|motion|social|campaign|music|artist|brand|reels|tiktok|ugc|script|story|launch|marketing)", re.I)
+KEYWORDS = re.compile(r"(creative|content|video|editor|editing|motion|social|campaign|music|artist|brand|reels|tiktok|ugc|script|story|launch|marketing|strategy|creative direction)", re.I)
 
 
 def now():
@@ -71,7 +72,7 @@ def http(method, path, body=None, token=None):
         headers["Authorization"] = f"Bearer {token}"
     req = Request(TOKU + path, data=data, headers=headers, method=method)
     try:
-        with urlopen(req, timeout=20) as r:
+        with urlopen(req, timeout=30) as r:
             raw = r.read().decode("utf-8")
             return r.status, json.loads(raw) if raw else {}
     except HTTPError as e:
@@ -97,6 +98,8 @@ def load_runtime():
         "created_at": now(),
         "cycles": 0,
         "toku_agent": None,
+        "toku_setup": None,
+        "toku_wallet": None,
         "services": [],
         "jobs_seen": {},
         "jobs_completed": {},
@@ -116,11 +119,11 @@ def openai(prompt):
     body = {
         "model": "gpt-5-mini",
         "input": prompt,
-        "max_output_tokens": 1800
+        "max_output_tokens": 2200
     }
     req = Request("https://api.openai.com/v1/responses", data=json.dumps(body).encode(), headers={"Authorization": f"Bearer {OPENAI_KEY}", "Content-Type": "application/json"}, method="POST")
     try:
-        with urlopen(req, timeout=45) as r:
+        with urlopen(req, timeout=60) as r:
             data = json.loads(r.read().decode())
             if isinstance(data.get("output"), list):
                 chunks = []
@@ -136,6 +139,8 @@ def openai(prompt):
 
 
 def register_agent(state):
+    if not OWNER_EMAIL:
+        raise RuntimeError("OWNER_EMAIL secret is empty")
     status, data = http("POST", "/agents/register", {
         "name": AGENT_NAME,
         "description": "UNICO is an autonomous creative/content strategy agent operated by Luca David Castro. It specializes in audiovisual direction, short-form video strategy, music-release campaigns, creative systems and content architecture. Portfolio: " + PORTFOLIO,
@@ -149,6 +154,25 @@ def register_agent(state):
         raise RuntimeError("Toku returned no API key")
     state["toku_agent"] = {k: agent.get(k) for k in ("id", "name", "status", "referralCode")}
     return token
+
+
+def inspect_setup_and_wallet(token, state):
+    setup_status, setup = http("GET", "/agents/me/setup", token=token)
+    if setup_status == 200:
+        state["toku_setup"] = setup
+        log(f"TOKU_SETUP {setup.get('setupScore')} ready={setup.get('ready')}")
+    else:
+        log(f"TOKU_SETUP_FAILED {setup_status} {setup}")
+    wallet_status, wallet = http("GET", "/agents/wallet", token=token)
+    if wallet_status == 200:
+        state["toku_wallet"] = {"balanceCents": wallet.get("balanceCents"), "transactions": wallet.get("transactions", [])[:20]}
+        log(f"TOKU_WALLET balanceCents={wallet.get('balanceCents')}")
+        # Only count verified wallet earnings as collected revenue.
+        earnings = sum((tx.get("amountCents") or 0) for tx in wallet.get("transactions", []) if tx.get("type") == "JOB_EARNING")
+        if earnings:
+            state["collected_usd"] = round(earnings / 100.0, 2)
+    else:
+        log(f"TOKU_WALLET_FAILED {wallet_status} {wallet}")
 
 
 def ensure_services(token, state):
@@ -165,11 +189,12 @@ def ensure_services(token, state):
 
 
 def handle_jobs(token, state):
-    status, data = http("GET", "/agents/jobs?q=creative&status=OPEN&limit=50")
+    status, data = http("GET", "/agents/jobs?q=creative&status=OPEN&limit=100")
     if status != 200:
         log(f"JOB_DISCOVERY_FAILED {status} {data}")
         return
     posts = data.get("jobPosts", [])
+    log(f"JOB_DISCOVERY count={len(posts)}")
     for post in posts:
         jid = post.get("id")
         if not jid or jid in state.setdefault("jobs_seen", {}):
@@ -179,16 +204,14 @@ def handle_jobs(token, state):
         if not KEYWORDS.search(blob):
             continue
         budget = int(post.get("budgetCents") or 0)
-        if budget < 5000:
+        # Prefer work above $50; avoid consuming the agent on commodity jobs.
+        if budget < 5000 or not OPENAI_KEY:
             continue
-        # Do not claim tasks we cannot execute without an LLM.
-        if not OPENAI_KEY:
-            continue
-        offer = openai(f"Write a concise bid for this creative task. Never invent credentials. State that you are an AI creative/content strategy agent operated by Luca David Castro and include portfolio {PORTFOLIO}. Only bid if you can fulfill the text/strategy portion without source files. Task:\n{blob}")
+        offer = openai(f"Write a concise bid for this creative task. Never invent credentials. State that you are an AI creative/content strategy agent operated by Luca David Castro and include portfolio {PORTFOLIO}. Only bid if you can fulfill the strategy/text portion autonomously without source files. Prefer a premium positioning and quote a price that preserves margin. Task:\n{blob}")
         if not offer:
             continue
         bid_price = max(5000, min(budget, int(budget * 0.85)))
-        st, bd = http("POST", f"/agents/jobs/{jid}/bids", {"priceCents": bid_price, "message": offer}, token)
+        st, _ = http("POST", f"/agents/jobs/{jid}/bids", {"priceCents": bid_price, "message": offer}, token)
         log(f"BID {jid} status={st} price={bid_price}")
 
 
@@ -207,14 +230,16 @@ def handle_accepted_jobs(token, state):
         inp = job.get("input", "")
         if not OPENAI_KEY:
             continue
-        st, _ = http("PATCH", f"/jobs/{jid}", {"action": "start"}, token) if jstatus == "ACCEPTED" else (200, {})
-        if st not in (200, 204):
-            continue
-        prompt = f"You are UNICO, an autonomous creative strategist. Deliver the requested task below. Use evidence from the input only; do not invent facts. Produce a client-ready deliverable in clean markdown. This is a paid task.\nSERVICE: {title}\nREQUEST:\n{inp}\nPORTFOLIO: {PORTFOLIO}"
+        if jstatus == "ACCEPTED":
+            st, _ = http("PATCH", f"/jobs/{jid}", {"action": "start"}, token)
+            if st not in (200, 204):
+                log(f"JOB_START_FAILED {jid} {st}")
+                continue
+        prompt = f"You are UNICO, an autonomous creative strategist. Deliver the requested paid task below. Use evidence from the input only; do not invent facts. Produce a client-ready deliverable in clean markdown. SERVICE: {title}\nREQUEST:\n{inp}\nPORTFOLIO: {PORTFOLIO}"
         output = openai(prompt)
         if not output:
             continue
-        st, bd = http("PATCH", f"/jobs/{jid}", {"action": "deliver", "output": output}, token)
+        st, _ = http("PATCH", f"/jobs/{jid}", {"action": "deliver", "output": output}, token)
         log(f"DELIVERY {jid} status={st}")
         if st in (200, 204):
             state["jobs_completed"][jid] = {"deliveredAt": now(), "priceCents": job.get("priceCents", 0), "title": title}
@@ -227,9 +252,11 @@ def main():
     state["last_error"] = None
     try:
         token = register_agent(state)
+        inspect_setup_and_wallet(token, state)
         ensure_services(token, state)
         handle_jobs(token, state)
         handle_accepted_jobs(token, state)
+        inspect_setup_and_wallet(token, state)
         log(f"CYCLE_OK cycles={state['cycles']} collected={state['collected_usd']}")
     except Exception as e:
         state["last_error"] = str(e)
