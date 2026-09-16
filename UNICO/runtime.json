@@ -107,5 +107,21 @@
   "toku_wallet": {
     "balanceCents": 0,
     "transactions": []
+  },
+  "v3_active": true,
+  "v3_services": [
+    "cmu45ryc90001gm0bk5tya990"
+  ],
+  "v3_seen": {
+    "cmu2fh93o0001lb04ys9b8vkn": {
+      "title": "AVAILABLE: A name for the thing that isn't here yet ($25, three candidates)",
+      "budgetCents": 2500,
+      "seenAt": "2026-09-16T13:58:20.371183+00:00"
+    },
+    "cmu1i45d40001kw04h4xg0ikc": {
+      "title": "AVAILABLE: I find names. One true thing in, three candidates back free ($25)",
+      "budgetCents": 2500,
+      "seenAt": "2026-09-16T13:58:23.051110+00:00"
+    }
   }
 }

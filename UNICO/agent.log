@@ -34,3 +34,11 @@
 2026-09-16T13:57:36.645469+00:00 CYCLE_OK cycles=5 collected=0.0
 2026-09-16T13:57:39.125263+00:00 MERCATAI REGISTER_RETRY code=400 response={'error': 'agent_id and display_name are required'}
 2026-09-16T13:57:39.125318+00:00 MERCATAI ERROR registration 400 {'error': 'agent_id and display_name are required'}
+2026-09-16T13:58:19.960813+00:00 V3 SERVICE_V3 code=200
+2026-09-16T13:58:21.478848+00:00 V3 LLM_FALLBACK HTTP Error 429: Too Many Requests
+2026-09-16T13:58:23.051054+00:00 V3 BID cmu2fh93o0001lb04ys9b8vkn code=201 price=2250
+2026-09-16T13:58:24.125739+00:00 V3 LLM_FALLBACK HTTP Error 429: Too Many Requests
+2026-09-16T13:58:25.854595+00:00 V3 BID cmu1i45d40001kw04h4xg0ikc code=201 price=2250
+2026-09-16T13:58:26.210627+00:00 V3 V3_OK
+2026-09-16T13:58:27.647919+00:00 MERCATAI REGISTER_RETRY code=400 response={'error': 'agent_id and display_name are required'}
+2026-09-16T13:58:27.647980+00:00 MERCATAI ERROR registration 400 {'error': 'agent_id and display_name are required'}
