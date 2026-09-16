@@ -8,49 +8,54 @@ DAYS_REMAINING: 45
 
 TARGET_USD: 5000
 COLLECTED_USD: 0
-PENDING_USD: UNKNOWN
+PENDING_USD: 0 counted toward target; receivables recorded separately
 COMMITTED_USD: 0
-PIPELINE_USD: 0
+PIPELINE_USD: 0 confirmed; live opportunities recorded separately
 STATUS: ACTIVE
-GATE: 1 — OFFER / immediate first-cash collection
+GATE: 1 — OFFER / 2 — PROSPECTION
 
-## User / collection data
+## User / payment profile
 LEGAL_NAME: Luca David Castro
 COUNTRY: Argentina
-TAX_STATUS: Monotributista
-PREFERRED_CURRENCY: USD; ARS acceptable
-INTERNATIONAL_METHODS: Bitso; PayPal; Lemon Card
-LOCAL_METHODS: Banco Patagonia; Mercado Pago; Bitso; PayPal
-LEGAL_RESTRICTIONS: none reported
+FISCAL_STATUS: Monotributista
+PREFERRED_CURRENCY: USD or ARS
+PAYMENT_METHODS: Bitso; PayPal; Lemon Card; Banco Patagonia; Mercado Pago
+LEGAL_RESTRICTIONS_REPORTED: none
 
-## Current known revenue events
-- OSUNCUYO: user reports two delivered orchestra videos remain unpaid. Amount not yet recorded; collection status is PENDING, not collected.
-- Walter: user reports payment is pending for a sound card sold directly. Amount not yet recorded; collection status is PENDING, not collected.
+## Revenue rule
+Only money effectively received counts toward TARGET_USD. Existing receivables are excluded from target progress until payment is evidenced.
 
-## User capabilities/assets already established
-- Advanced video editing: Premiere Pro; strong Photoshop/Illustrator; intermediate After Effects and DaVinci.
-- Audiovisual production, motion, visual narrative, content strategy, design, campaign concepts.
-- Music production/audio and artist development context.
-- Cultural/music industry experience through La Nave, Backbeat Records, Sagrado Tattoo, OSUNCUYO and independent artist project Ludaca.
-- Portfolio and CV reported complete on 2026-09-10.
+## Existing receivables — NOT counted toward target
+- Walter: ARS 150,000 for sound card sale; PAYMENT_PENDING.
+- OSUNCUYO: ARS 100,000 total for two delivered orchestra videos; PAYMENT_PENDING.
+Combined receivables: ARS 250,000. Excluded from COLLECTED_USD and target progress.
+
+## Current known capabilities/assets
+- Advanced Premiere Pro; strong Photoshop/Illustrator; intermediate After Effects/DaVinci.
+- Audiovisual production, motion, visual narrative, content strategy, design and campaign concepts.
+- Music production/audio and artist-industry experience.
+- La Nave/UNCUYO cultural production; Backbeat Records digital/content strategy; Sagrado Tattoo content direction.
+- Portfolio and CV completed as of 2026-09-10.
 - Existing network in culture, music, audiovisual and institutional production.
 
-## Commercial constraints
-- Initial budget: USD 0.
-- Primary near-term focus: fastest legitimate path to cash using existing skills/assets/network.
-- Do not count invoices, signed work or promises as collected revenue.
+## Live market evidence found 2026-09-16
+- Xentara.ai: freelance remote video editor, Premiere + After Effects; application asks for 2 relevant pieces, rate and availability; short paid test for shortlisted applicants.
+- Binalogue: freelance creative producer for PR/lauch of fiction/documentary; remote; requires Spanish/English and audiovisual network; application via jobs@binalogue.com, reference CPPRL-01.
+- Zabota LLC: remote LATAM video editor contract, advertised USD 2,000–4,000/month; high-volume Meta ad creatives, Premiere/CapCut and AI-assisted workflows.
+- HireHawk: remote Argentina video editor contractor, USD 1,500–1,800/month; founder-led personal-brand social content.
+- Paracas Entertainment Filming: remote contract video editor, advertised USD 423–893/month.
+- Current Upwork motion-design lead found: USD 100 one-off; fast deadline but low ticket, therefore secondary.
 
-## Current Gate 1/2 situation
-- Collection rails are available, but receiving/fiscal mechanics must still be applied correctly per client and transaction.
-- ARCA currently states that monotributistas use type C invoices for ordinary domestic operations and type E for exports of services; export invoices can be issued in foreign currency or pesos. citeturn199203search0turn199203search9
-- PayPal Argentina states international receipts can incur international-payment and currency-conversion fees. citeturn199203search10turn199203search13
-- Bitso Argentina currently offers eligible USD receiving details via ACH/wire; incoming USD are automatically converted to USDC. citeturn199203search5turn199203search16
+## Collection verification
+- ARCA states export-of-services activity for monotributistas is documented with factura E; foreign-currency or ARS billing is possible under the applicable exchange-rate rule. Verify specific tax/currency treatment at time of invoicing.
+- Bitso currently advertises USD account receipt through ACH/wire for Argentina-eligible users; published fees include ACH USD 2.99 and wire USD 11.99 + 0.17%.
+- PayPal Argentina states international/commercial receipt can incur transaction and currency-conversion fees; exact applicable fee depends on transaction/market.
 
-## Known commercial direction
-Primary objective is not to redesign positioning. Existing skills support immediately sellable services around video editing, audiovisual production, motion, content strategy, design, campaign production and creative direction. Existing network in music/culture/audiovisual should be exploited alongside targeted external prospecting.
+## Current bottleneck
+Getting from market evidence to actual client conversations/proposals. No money has yet been collected through the new program.
 
 ## NEXT_ACTION
-Obtain exact amounts and payment status for the two existing receivables (OSUNCUYO and Walter) and pursue the fastest collectible money before expanding prospecting. In parallel, convert existing capabilities into one concrete sellable offer with explicit scope, price, deadline and upfront payment.
+Contact the highest-speed/high-value live opportunities, starting with Xentara.ai and Binalogue, while building a direct-outreach list for agencies/brands that can buy editing/motion/content production immediately.
 
 LAST_UPDATE: 2026-09-16
 LAST_REVENUE_EVENT: none verified as collected
