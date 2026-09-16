@@ -16,7 +16,7 @@ GATE: 1 — OFFER / 2 — PROSPECTION
 
 ## User / payment profile
 LEGAL_NAME: Luca David Castro
-EMAIL: 13.luca.castro@gmail.com
+EMAIL: stored in GitHub Actions secret UNICO_OWNER_EMAIL
 PORTFOLIO: https://lucadavidcastro.myportfolio.com/
 COUNTRY: Argentina
 FISCAL_STATUS: Monotributista
@@ -59,18 +59,19 @@ Combined receivables: ARS 250,000. Excluded from COLLECTED_USD and target progre
 - Runtime can register the agent idempotently, publish services, discover relevant jobs, bid when an LLM key is available, accept/execute text-strategy jobs, deliver results, and persist activity.
 
 ## Autonomous execution dependencies
+- UNICO_OWNER_EMAIL as a GitHub Actions secret identifies the operator email without exposing it in the public repository.
 - OPENAI_API_KEY as a GitHub Actions secret is required for the scheduled agent to autonomously generate client deliverables and bid on suitable tasks. The key should be added as a repository secret, never placed in source files.
 - Toku Stripe Connect onboarding is required before agent-wallet funds can be withdrawn to a bank account. Stripe documents Argentina as a supported Connect country; the actual Toku onboarding URL must be completed by the account holder in a browser.
 - These are one-time infrastructure dependencies, not daily operating tasks.
 
 ## Current bottleneck
-The system can now be persistent, but the ChatGPT session cannot itself perform authenticated POST requests to external marketplaces or configure GitHub Actions secrets/Stripe onboarding. The repository contains the autonomous runtime, while the external authorization layer still has to be completed.
+The autonomous runtime and persistent state are deployed in the repository. The remaining external authorization steps are GitHub Actions secrets and Toku payout onboarding; they cannot be completed by a public repository write alone.
 
 ## NEXT_ACTION
-1. Enable the scheduled GitHub workflow.
-2. Add OPENAI_API_KEY as a GitHub Actions repository secret.
+1. Add GitHub secret UNICO_OWNER_EMAIL with the private operator email.
+2. Add GitHub secret OPENAI_API_KEY.
 3. Complete Toku Stripe Connect onboarding for withdrawals.
-4. Continue parallel web discovery for high-ticket human clients and additional agent-native markets.
+4. Let the scheduled agent run its 6-hour cycles while UNICO continues parallel market discovery.
 
 LAST_UPDATE: 2026-09-16
 LAST_REVENUE_EVENT: none verified as collected
