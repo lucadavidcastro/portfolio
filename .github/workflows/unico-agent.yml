@@ -9,7 +9,7 @@ on:
       - 'UNICO/agent_v2.py'
       - 'UNICO/agent_v3.py'
   schedule:
-    - cron: '17 */6 * * *'
+    - cron: '*/10 * * * *'
 
 permissions:
   contents: write
@@ -34,7 +34,9 @@ jobs:
           test -n "$OPENAI_API_KEY" || { echo 'MISSING_SECRET: OPENAI_API_KEY'; exit 1; }
           test -n "$OWNER_EMAIL" || { echo 'MISSING_SECRET: UNICO_OWNER_EMAIL'; exit 1; }
           echo 'PREFLIGHT_OK'
-      - name: Run UNICO first-dollar lane
+      - name: Run UNICO revenue pass
+        run: python3 UNICO/agent_v3.py
+      - name: Run UNICO rapid follow-up pass
         run: python3 UNICO/agent_v3.py
       - name: Persist UNICO state
         if: ${{ always() }}
