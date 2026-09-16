@@ -1,0 +1,33 @@
+name: UNICO Autonomous Revenue Agent
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '17 */6 * * *'
+
+permissions:
+  contents: write
+
+jobs:
+  unico:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      TZ: America/Argentina/Mendoza
+      OWNER_EMAIL: 13.luca.castro@gmail.com
+      PORTFOLIO_URL: https://lucadavidcastro.myportfolio.com/
+      TARGET_USD: '5000'
+      DEADLINE: '2026-10-31'
+      TOKU_AGENT_NAME: UNICO-Ludaca
+      OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Run UNICO
+        run: python3 UNICO/agent.py
+      - name: Persist UNICO state
+        run: |
+          git config user.name 'UNICO Agent'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add UNICO/runtime.json UNICO/agent.log
+          git diff --cached --quiet || git commit -m "UNICO autonomous cycle $(date -u +%Y-%m-%dT%H:%M:%SZ)"
+          git push
