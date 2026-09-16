@@ -12,11 +12,20 @@ PENDING_USD: UNKNOWN
 COMMITTED_USD: 0
 PIPELINE_USD: 0
 STATUS: ACTIVE
-GATE: 0 — INFORMATION
+GATE: 1 — OFFER / immediate first-cash collection
+
+## User / collection data
+LEGAL_NAME: Luca David Castro
+COUNTRY: Argentina
+TAX_STATUS: Monotributista
+PREFERRED_CURRENCY: USD; ARS acceptable
+INTERNATIONAL_METHODS: Bitso; PayPal; Lemon Card
+LOCAL_METHODS: Banco Patagonia; Mercado Pago; Bitso; PayPal
+LEGAL_RESTRICTIONS: none reported
 
 ## Current known revenue events
-- OSUNCUYO: user reports two delivered orchestra videos remain unpaid. Amount not yet recorded.
-- Walter: user reports payment is pending for a sound card sold directly. Amount not yet recorded.
+- OSUNCUYO: user reports two delivered orchestra videos remain unpaid. Amount not yet recorded; collection status is PENDING, not collected.
+- Walter: user reports payment is pending for a sound card sold directly. Amount not yet recorded; collection status is PENDING, not collected.
 
 ## User capabilities/assets already established
 - Advanced video editing: Premiere Pro; strong Photoshop/Illustrator; intermediate After Effects and DaVinci.
@@ -26,25 +35,22 @@ GATE: 0 — INFORMATION
 - Portfolio and CV reported complete on 2026-09-10.
 - Existing network in culture, music, audiovisual and institutional production.
 
-## Known commercial constraints
+## Commercial constraints
 - Initial budget: USD 0.
 - Primary near-term focus: fastest legitimate path to cash using existing skills/assets/network.
 - Do not count invoices, signed work or promises as collected revenue.
 
-## Missing Gate 0 data — request once, then persist without re-asking
-- Legal full name
-- Country of residence
-- Current fiscal status needed for invoicing
-- International payment methods currently available
-- Minimum payment-receipt details, only after selecting a method
-- Preferred collection currency
-- Relevant legal/operational restrictions
+## Current Gate 1/2 situation
+- Collection rails are available, but receiving/fiscal mechanics must still be applied correctly per client and transaction.
+- ARCA currently states that monotributistas use type C invoices for ordinary domestic operations and type E for exports of services; export invoices can be issued in foreign currency or pesos. citeturn199203search0turn199203search9
+- PayPal Argentina states international receipts can incur international-payment and currency-conversion fees. citeturn199203search10turn199203search13
+- Bitso Argentina currently offers eligible USD receiving details via ACH/wire; incoming USD are automatically converted to USDC. citeturn199203search5turn199203search16
 
-## Current blocking issue
-Payment/fiscal data is not yet known, so the final collection route cannot be selected or verified. Commercial work can still be prepared while this is resolved.
+## Known commercial direction
+Primary objective is not to redesign positioning. Existing skills support immediately sellable services around video editing, audiovisual production, motion, content strategy, design, campaign production and creative direction. Existing network in music/culture/audiovisual should be exploited alongside targeted external prospecting.
 
 ## NEXT_ACTION
-Obtain only the seven Gate 0 payment/fiscal inputs, then verify the current Argentina-compatible collection/invoicing routes and immediately move to Gate 1/2.
+Obtain exact amounts and payment status for the two existing receivables (OSUNCUYO and Walter) and pursue the fastest collectible money before expanding prospecting. In parallel, convert existing capabilities into one concrete sellable offer with explicit scope, price, deadline and upfront payment.
 
 LAST_UPDATE: 2026-09-16
 LAST_REVENUE_EVENT: none verified as collected
