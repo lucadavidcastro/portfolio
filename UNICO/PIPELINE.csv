@@ -1,9 +1,17 @@
 date,client,service,status,value_usd,payment_status,next_step,evidence
-2026-09-16,OSUNCUYO,audiovisual/orchestra videos,PAYMENT_PENDING,ARS 100000,pending,Follow up for payment,User-reported delivered work
-2026-09-16,Walter,sound card sale,PAYMENT_PENDING,ARS 150000,pending,Collect payment,User-reported pending sale
-2026-09-16,Xentara.ai,video editing + motion freelance,DISCOVERY,UNSPECIFIED,not started,Apply with 2 motion-heavy pieces + rate + weekly availability; target paid test,Current listing explicitly seeks Premiere Pro + After Effects and offers paid test; Sep 7 2026
-2026-09-16,Binalogue,creative producer for audiovisual launches,DISCOVERY,UNSPECIFIED,not started,Send targeted application with CV and Ref CPPRL-01,Current listing Sep 10 2026; remote freelance; jobs@binalogue.com
-2026-09-16,Zabota LLC,high-volume Meta ad video editing,DISCOVERY,USD 2000-4000/mo advertised,not started,Apply for LATAM remote contractor role,Current listing Sep 7 2026; Premiere/CapCut; Meta creatives
-2026-09-16,HireHawk,remote founder-led social video editing,DISCOVERY,USD 1500-1800/mo advertised,not started,Apply for Argentina remote contractor role,Current listing Sep 9 2026
-2026-09-16,Paracas Entertainment Filming,YouTube automation video editing,DISCOVERY,USD 423-893/mo advertised,not started,Apply with long-form sample,Current listing in Argentina remote; Premiere/CapCut; Sep 14 2026
-2026-09-16,Upwork client,corporate motion inserts,DISCOVERY,USD 100,not started,Apply only if capacity permits,Current one-off job posted Sep 10 2026; tight deadline and 10-15 proposals
+2026-09-16,OSUNCUYO,audiovisual/orchestra videos,PAYMENT_PENDING,ARS 100000,pending,Follow up for payment,User-reported delivered work; excluded from target
+2026-09-16,Walter,sound card sale,PAYMENT_PENDING,ARS 150000,pending,Collect payment,User-reported pending sale; excluded from target
+2026-09-16,Xentara.ai,video editing + motion freelance,DISCOVERY,UNSPECIFIED,not started,Apply with 2 motion-heavy pieces + rate + weekly availability; target paid test,Current listing explicitly seeks Premiere Pro + After Effects and offers paid test
+2026-09-16,Binalogue,creative producer for audiovisual launches,DISCOVERY,UNSPECIFIED,not started,Send targeted application with CV and Ref CPPRL-01,Current remote freelance listing; jobs@binalogue.com
+2026-09-16,Zabota LLC,high-volume Meta ad video editing,DISCOVERY,USD 2000-4000/mo advertised,not started,Apply for LATAM remote contractor role,Current remote LATAM listing
+2026-09-16,HireHawk,remote founder-led social video editing,DISCOVERY,USD 1500-1800/mo advertised,not started,Apply for Argentina remote contractor role,Current remote Argentina listing
+2026-09-16,Paracas Entertainment Filming,YouTube automation video editing,DISCOVERY,USD 423-893/mo advertised,not started,Apply with long-form sample,Current remote Argentina listing
+2026-09-16,Upwork client,corporate motion inserts,DISCOVERY,USD 100,not started,Apply only if capacity permits,Current one-off job; secondary due to low ticket
+2026-09-16,Marketinlab,Video Editor,DISCOVERY,UNSPECIFIED,not started,Send targeted application to contact@marketinlab.com,100% remote; Premiere + After Effects; short/long form; global hiring
+2026-09-16,RECAST Agency,Senior Video Editor,DISCOVERY,USD 95000-130000/year gross advertised,not started,Send targeted application to info@recast-agency.com,Remote worldwide; 4+ years; commercial/personal-brand/advertising video
+2026-09-16,Collier.Simon,Freelance Video Editor & Motion Designer,DISCOVERY,UNSPECIFIED,not started,Submit application when authenticated application access exists,Remote; Premiere + After Effects; social/digital ads; motion; AI workflow
+2026-09-16,NewForm.ai,Video Editor UGC Argentina,DISCOVERY,USD 12000-36000/year advertised,not started,Apply through platform when authenticated access exists,Remote Argentina; paid-social creative
+2026-09-16,New Paradigm Venture,Performance Marketing Video Editor,DISCOVERY,Competitive USD compensation,not started,Submit targeted application,Remote Argentina; Premiere/CapCut/After Effects + AI tools
+2026-09-16,FoviMedia,Freelance Video Editor,DISCOVERY,USD 600-3200+/month stated depending on volume,not started,Apply through application page,Remote worldwide; per-project editing
+2026-09-16,Avey Creative,Freelance Video Editor roster,DISCOVERY,USD 300-500/day advertised,not started,Apply through platform when authenticated access exists,Remote freelance/contract commercial video
+2026-09-16,ESE Agency,Video Editor Reels/TikTok,DISCOVERY,UNSPECIFIED,not started,Apply through application page,Worldwide remote; 3-5 short-form videos/week
