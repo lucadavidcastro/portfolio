@@ -1,9 +1,9 @@
 {
   "status": "ACTIVE",
   "target_usd": 5000,
-  "collected_usd": 0,
+  "collected_usd": 0.0,
   "created_at": "2026-09-16T00:00:00-03:00",
-  "cycles": 3,
+  "cycles": 4,
   "toku_agent": {
     "id": "cmu3kcadt0003l804wdkgi3cu",
     "name": "UNICO-Ludaca",
@@ -22,6 +22,10 @@
     {
       "id": "cmu3kccgh000kl80421vut3fu",
       "title": "Music Release Content Package"
+    },
+    {
+      "id": "cmu45ryc90001gm0bk5tya990",
+      "title": "Creative Naming Sprint"
     }
   ],
   "jobs_seen": {
@@ -38,7 +42,7 @@
   },
   "jobs_completed": {},
   "revenue_events": [],
-  "last_cycle": "2026-09-16T11:27:39.855902+00:00",
+  "last_cycle": "2026-09-16T13:50:44.495707+00:00",
   "last_error": null,
   "toku_setup": {
     "setupScore": "3/5",
