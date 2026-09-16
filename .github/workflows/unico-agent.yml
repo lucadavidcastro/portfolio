@@ -8,7 +8,6 @@ on:
       - 'UNICO/agent.py'
       - 'UNICO/agent_v2.py'
       - 'UNICO/agent_v3.py'
-      - 'UNICO/mercatai_agent.py'
   schedule:
     - cron: '17 */6 * * *'
 
@@ -37,8 +36,6 @@ jobs:
           echo 'PREFLIGHT_OK'
       - name: Run UNICO first-dollar lane
         run: python3 UNICO/agent_v3.py
-      - name: Run UNICO Mercatai lane
-        run: python3 UNICO/mercatai_agent.py || true
       - name: Persist UNICO state
         if: ${{ always() }}
         run: |
