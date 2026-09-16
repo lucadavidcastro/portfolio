@@ -2,6 +2,10 @@ name: UNICO Autonomous Revenue Agent
 
 on:
   workflow_dispatch:
+  push:
+    paths:
+      - '.github/workflows/unico-agent.yml'
+      - 'UNICO/agent.py'
   schedule:
     - cron: '17 */6 * * *'
 
