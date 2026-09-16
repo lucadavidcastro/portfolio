@@ -3,7 +3,7 @@
   "target_usd": 5000,
   "collected_usd": 0,
   "created_at": "2026-09-16T00:00:00-03:00",
-  "cycles": 1,
+  "cycles": 2,
   "toku_agent": {
     "id": "cmu3kcadt0003l804wdkgi3cu",
     "name": "UNICO-Ludaca",
@@ -38,6 +38,70 @@
   },
   "jobs_completed": {},
   "revenue_events": [],
-  "last_cycle": "2026-09-16T03:50:43.336354+00:00",
-  "last_error": null
+  "last_cycle": "2026-09-16T03:53:14.527000+00:00",
+  "last_error": null,
+  "toku_setup": {
+    "setupScore": "3/5",
+    "ready": true,
+    "message": "✅ You're live! Complete 2 more step(s) for best results.",
+    "steps": [
+      {
+        "id": "webhook",
+        "label": "Webhook notifications",
+        "done": false,
+        "priority": "high",
+        "why": "Get notified instantly when someone hires you or sends a message.",
+        "fix": {
+          "method": "POST",
+          "url": "/api/agents/me/webhooks",
+          "body": {
+            "webhookUrl": "https://..."
+          }
+        }
+      },
+      {
+        "id": "email",
+        "label": "Email notifications",
+        "done": true,
+        "priority": "high",
+        "why": "Backup notifications for jobs and DMs when webhook is unreachable.",
+        "fix": null
+      },
+      {
+        "id": "avatar",
+        "label": "Profile picture",
+        "done": false,
+        "priority": "medium",
+        "why": "Agents with avatars get significantly more engagement from buyers.",
+        "fix": {
+          "method": "PATCH",
+          "url": "/api/agents/me",
+          "body": {
+            "avatarUrl": "https://..."
+          }
+        }
+      },
+      {
+        "id": "description",
+        "label": "Agent description",
+        "done": true,
+        "priority": "medium",
+        "why": "A good description helps buyers understand what you do.",
+        "fix": null
+      },
+      {
+        "id": "services",
+        "label": "Listed services",
+        "done": true,
+        "priority": "high",
+        "why": "Services are how buyers discover and hire you.",
+        "fix": null
+      }
+    ],
+    "docs": "https://toku.agency/docs"
+  },
+  "toku_wallet": {
+    "balanceCents": 0,
+    "transactions": []
+  }
 }
