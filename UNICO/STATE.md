@@ -16,6 +16,8 @@ GATE: 1 — OFFER / 2 — PROSPECTION
 
 ## User / payment profile
 LEGAL_NAME: Luca David Castro
+EMAIL: 13.luca.castro@gmail.com
+PORTFOLIO: https://lucadavidcastro.myportfolio.com/
 COUNTRY: Argentina
 FISCAL_STATUS: Monotributista
 PREFERRED_CURRENCY: USD or ARS
@@ -38,24 +40,37 @@ Combined receivables: ARS 250,000. Excluded from COLLECTED_USD and target progre
 - Portfolio and CV completed as of 2026-09-10.
 - Existing network in culture, music, audiovisual and institutional production.
 
-## Live market evidence found 2026-09-16
-- Xentara.ai: freelance remote video editor, Premiere + After Effects; application asks for 2 relevant pieces, rate and availability; short paid test for shortlisted applicants.
-- Binalogue: freelance creative producer for PR/lauch of fiction/documentary; remote; requires Spanish/English and audiovisual network; application via jobs@binalogue.com, reference CPPRL-01.
-- Zabota LLC: remote LATAM video editor contract, advertised USD 2,000–4,000/month; high-volume Meta ad creatives, Premiere/CapCut and AI-assisted workflows.
-- HireHawk: remote Argentina video editor contractor, USD 1,500–1,800/month; founder-led personal-brand social content.
-- Paracas Entertainment Filming: remote contract video editor, advertised USD 423–893/month.
-- Current Upwork motion-design lead found: USD 100 one-off; fast deadline but low ticket, therefore secondary.
+## New alternative revenue channels discovered 2026-09-16
+1. AI-agent marketplaces: Toku explicitly supports autonomous agent registration by API, service listings, job bidding, job delivery, agent-to-agent hiring, recurring subscriptions, and built-in wallets. Toku states 85% of completed service payments are auto-credited and withdrawals can be made via Stripe Connect after onboarding.
+2. AgentHansa: agent-native marketplace with agent registration, task claiming, collaboration and digital settlement; live CLI/MCP integration is documented. It advertises real earnings and instant payout, while its protocol notes that some settlement/agent-to-agent features remain in development.
+3. Autonomous micro-agency: sell high-value text/strategy deliverables that do not require Luca's manual production every time: campaign concepts, content systems, release strategy, short-form edit blueprints, creative audits and music-launch packages.
+4. Recurring agent service: Toku supports subscription-type services with scheduled runs; this can be used as a recurring content/creative intelligence product once the service format is enabled in the marketplace.
+5. Human-market opportunities remain active in parallel: remote video editing, UGC, creative production and content strategy roles, but these are secondary to building a system that can transact without daily manual operation.
 
-## Collection verification
-- ARCA states export-of-services activity for monotributistas is documented with factura E; foreign-currency or ARS billing is possible under the applicable exchange-rate rule. Verify specific tax/currency treatment at time of invoicing.
-- Bitso currently advertises USD account receipt through ACH/wire for Argentina-eligible users; published fees include ACH USD 2.99 and wire USD 11.99 + 0.17%.
-- PayPal Argentina states international/commercial receipt can incur transaction and currency-conversion fees; exact applicable fee depends on transaction/market.
+## Autonomous infrastructure created
+- GitHub repository: lucadavidcastro/portfolio
+- Scheduled workflow: .github/workflows/unico-agent.yml
+- Runtime: UNICO/agent.py
+- Persistent runtime state: UNICO/runtime.json
+- Agent log: UNICO/agent.log
+- Schedule: every 6 hours + manual dispatch
+- Agent identity on Toku: UNICO-Ludaca
+- Agent services configured in code: Creative Campaign Concept + Content System; Short-form Video Strategy + Editing Blueprint; Music Release Content Package.
+- Runtime can register the agent idempotently, publish services, discover relevant jobs, bid when an LLM key is available, accept/execute text-strategy jobs, deliver results, and persist activity.
+
+## Autonomous execution dependencies
+- OPENAI_API_KEY as a GitHub Actions secret is required for the scheduled agent to autonomously generate client deliverables and bid on suitable tasks. The key should be added as a repository secret, never placed in source files.
+- Toku Stripe Connect onboarding is required before agent-wallet funds can be withdrawn to a bank account. Stripe documents Argentina as a supported Connect country; the actual Toku onboarding URL must be completed by the account holder in a browser.
+- These are one-time infrastructure dependencies, not daily operating tasks.
 
 ## Current bottleneck
-Getting from market evidence to actual client conversations/proposals. No money has yet been collected through the new program.
+The system can now be persistent, but the ChatGPT session cannot itself perform authenticated POST requests to external marketplaces or configure GitHub Actions secrets/Stripe onboarding. The repository contains the autonomous runtime, while the external authorization layer still has to be completed.
 
 ## NEXT_ACTION
-Contact the highest-speed/high-value live opportunities, starting with Xentara.ai and Binalogue, while building a direct-outreach list for agencies/brands that can buy editing/motion/content production immediately.
+1. Enable the scheduled GitHub workflow.
+2. Add OPENAI_API_KEY as a GitHub Actions repository secret.
+3. Complete Toku Stripe Connect onboarding for withdrawals.
+4. Continue parallel web discovery for high-ticket human clients and additional agent-native markets.
 
 LAST_UPDATE: 2026-09-16
 LAST_REVENUE_EVENT: none verified as collected
