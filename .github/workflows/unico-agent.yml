@@ -8,24 +8,42 @@ on:
       - 'UNICO/agent.py'
       - 'UNICO/agent_v2.py'
       - 'UNICO/agent_v3.py'
+      - 'UNICO/competition_agent.py'
+      - 'UNICO/competition_reconcile.py'
   schedule:
     - cron: '*/10 * * * *'
+
+concurrency:
+  group: unico-revenue-loop
+  cancel-in-progress: true
 
 permissions:
   contents: write
 
+env:
+  TZ: America/Argentina/Mendoza
+  OWNER_EMAIL: ${{ secrets.UNICO_OWNER_EMAIL }}
+  PORTFOLIO_URL: https://lucadavidcastro.myportfolio.com/
+  TARGET_USD: '5000'
+  DEADLINE: '2026-10-31'
+  OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+  COMPETITION_END: '2026-09-17T23:59:59-03:00'
+  INCUMBENT_NAME: 'UNICO-Ludaca'
+  HUNTER_NAME: 'UNICO-Hunter'
+  SPECIALIST_NAME: 'UNICO-Specialist'
+
 jobs:
-  unico:
+  competition:
+    name: UNICO competitor — ${{ matrix.lane }}
     runs-on: ubuntu-latest
-    timeout-minutes: 30
+    timeout-minutes: 10
+    strategy:
+      fail-fast: false
+      matrix:
+        lane: [incumbent, hunter, specialist]
     env:
-      TZ: America/Argentina/Mendoza
-      OWNER_EMAIL: ${{ secrets.UNICO_OWNER_EMAIL }}
-      PORTFOLIO_URL: https://lucadavidcastro.myportfolio.com/
-      TARGET_USD: '5000'
-      DEADLINE: '2026-10-31'
-      TOKU_AGENT_NAME: UNICO-Ludaca
-      OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+      UNICO_LANE: ${{ matrix.lane }}
+      TOKU_AGENT_NAME: ${{ matrix.lane == 'incumbent' && 'UNICO-Ludaca' || matrix.lane == 'hunter' && 'UNICO-Hunter' || 'UNICO-Specialist' }}
     steps:
       - uses: actions/checkout@v4
       - name: Preflight secrets
@@ -33,16 +51,24 @@ jobs:
         run: |
           test -n "$OPENAI_API_KEY" || { echo 'MISSING_SECRET: OPENAI_API_KEY'; exit 1; }
           test -n "$OWNER_EMAIL" || { echo 'MISSING_SECRET: UNICO_OWNER_EMAIL'; exit 1; }
-          echo 'PREFLIGHT_OK'
-      - name: Run UNICO revenue pass
+          echo "PREFLIGHT_OK lane=$UNICO_LANE"
+      - name: Run audited competitor
         run: python3 UNICO/agent_v3.py
-      - name: Run UNICO rapid follow-up pass
-        run: python3 UNICO/agent_v3.py
-      - name: Persist UNICO state
-        if: ${{ always() }}
+
+  reconcile:
+    name: Reconcile competition and revenue
+    needs: competition
+    if: ${{ always() }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - name: Reconcile ledgers, wallets and winner
+        run: python3 UNICO/competition_reconcile.py
+      - name: Persist UNICO state and competition board
         run: |
           git config user.name 'UNICO Agent'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add UNICO/runtime.json UNICO/agent.log
-          git diff --cached --quiet || git commit -m "UNICO autonomous cycle $(date -u +%Y-%m-%dT%H:%M:%SZ)"
+          git add UNICO/runtime.json UNICO/competition
+          git diff --cached --quiet || git commit -m "UNICO reconcile competition $(date -u +%Y-%m-%dT%H:%M:%SZ)"
           git push
