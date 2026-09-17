@@ -6,8 +6,8 @@
   "retired": false,
   "competition_end": "2026-09-17T23:59:59-03:00",
   "created_at": "2026-09-17T13:58:22.791124+00:00",
-  "last_cycle": "2026-09-17T17:59:47.454843+00:00",
-  "cycles": 5,
+  "last_cycle": "2026-09-17T18:00:22.788806+00:00",
+  "cycles": 6,
   "seen": {},
   "attempts": {
     "cmu55gcoi000gl904ai0phase": {
@@ -556,6 +556,10 @@
     },
     {
       "time": "2026-09-17T17:59:48.986359+00:00",
+      "error": "maximum recursion depth exceeded"
+    },
+    {
+      "time": "2026-09-17T18:00:24.986291+00:00",
       "error": "maximum recursion depth exceeded"
     }
   ],
