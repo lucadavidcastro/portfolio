@@ -1,30 +1,30 @@
 {
   "version": "v4-adaptive",
-  "updated_at": "2026-09-17T21:55:42.714363+00:00",
+  "updated_at": "2026-09-17T23:47:59.232930+00:00",
   "lanes": {
     "incumbent": {
       "min_budget": 150,
       "max_bids": 14,
-      "base_ratio": 0.0992,
-      "high_bid_cutoff": 45
+      "base_ratio": 0.0813,
+      "high_bid_cutoff": 40
     },
     "hunter": {
       "min_budget": 150,
       "max_bids": 16,
-      "base_ratio": 0.0882,
-      "high_bid_cutoff": 45
+      "base_ratio": 0.08,
+      "high_bid_cutoff": 40
     },
     "specialist": {
       "min_budget": 300,
       "max_bids": 12,
-      "base_ratio": 0.1213,
-      "high_bid_cutoff": 45
+      "base_ratio": 0.0995,
+      "high_bid_cutoff": 40
     }
   },
   "global": {
     "total_bids": 120,
     "verified_revenue_usd": 0.0,
-    "last_reason": "incumbent: zero acceptance after 48 bids -> ratio 0.1210->0.0992; crowded-job cutoff 55->45 | hunter: zero acceptance after 40 bids -> ratio 0.1076->0.0882; crowded-job cutoff 55->45 | specialist: zero acceptance after 32 bids -> ratio 0.1479->0.1213; crowded-job cutoff 55->45",
-    "controller_runs": 3
+    "last_reason": "incumbent: zero acceptance after 48 bids -> ratio 0.0992->0.0813; crowded-job cutoff 45->40 | hunter: zero acceptance after 40 bids -> ratio 0.0882->0.0800; crowded-job cutoff 45->40 | specialist: zero acceptance after 32 bids -> ratio 0.1213->0.0995; crowded-job cutoff 45->40",
+    "controller_runs": 4
   }
 }
