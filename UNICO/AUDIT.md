@@ -35,3 +35,12 @@
 - Add historical conversion scoring by platform, category, price and lane.
 - Add direct-client acquisition and referral tracking.
 - Add automated model/cost selection based on expected margin.
+
+## Adaptive controller 2026-09-17T18:01:25.761952+00:00
+
+- incumbent: zero acceptance after 48 bids -> ratio 0.1800->0.1476; crowded-job cutoff 75->65
+- hunter: zero acceptance after 40 bids -> ratio 0.1600->0.1312; crowded-job cutoff 75->65
+- specialist: zero acceptance after 32 bids -> ratio 0.2200->0.1804; crowded-job cutoff 75->65
+- Aggregate bids: 120
+- Verified revenue: USD 0.00
+
