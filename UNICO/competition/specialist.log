@@ -52,3 +52,5 @@
 2026-09-17T17:59:48.354653+00:00 [specialist] CYCLE_ERROR maximum recursion depth exceeded
 2026-09-17T18:00:24.472622+00:00 [specialist] WALLET balance=0 earnings_total=0 new_events=0
 2026-09-17T18:00:25.163303+00:00 [specialist] CYCLE_ERROR maximum recursion depth exceeded
+2026-09-17T18:58:31.295173+00:00 [specialist] WALLET balance=0 earnings_total=0 new_events=0
+2026-09-17T18:58:31.644434+00:00 [specialist] CYCLE_ERROR maximum recursion depth exceeded
