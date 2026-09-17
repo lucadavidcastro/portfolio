@@ -21,12 +21,26 @@ def load(path, default):
         return default
 
 
+def now_dt():
+    return datetime.now(timezone.utc)
+
+
 def now():
-    return datetime.now(timezone.utc).isoformat()
+    return now_dt().isoformat()
 
 
 def main():
     strategy = load(STRATEGY, {"version": "v4", "lanes": DEFAULTS, "global": {}})
+    last = strategy.get("updated_at")
+    if last:
+        try:
+            elapsed = (now_dt() - datetime.fromisoformat(last).astimezone(timezone.utc)).total_seconds()
+            if elapsed < 1800:
+                print(json.dumps({"updated": False, "skipped": True, "reason": f"30m gate; only {int(elapsed)}s elapsed"}))
+                return
+        except Exception:
+            pass
+
     board = load(COMP / "board.json", {"agents": {}})
     lanes = strategy.setdefault("lanes", {})
     changes = []
@@ -43,7 +57,6 @@ def main():
         revenue = float(agent.get("earnings_total_cents", 0)) / 100.0
         total_bids += bids
         total_revenue += revenue
-        acceptance = (accepted / bids) if bids else 0.0
 
         if bids >= 20 and accepted == 0:
             old_ratio = float(state["base_ratio"])
@@ -73,8 +86,7 @@ def main():
     STRATEGY.write_text(json.dumps(strategy, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
 
     old_audit = AUDIT.read_text(encoding="utf-8") if AUDIT.exists() else "# UNICO Audit\n"
-    stamp = now()
-    entry = "\n\n## Adaptive controller " + stamp + "\n\n" + "\n".join(f"- {c}" for c in changes) + f"\n- Aggregate bids: {total_bids}\n- Verified revenue: USD {total_revenue:.2f}\n"
+    entry = "\n\n## Adaptive controller " + now() + "\n\n" + "\n".join(f"- {c}" for c in changes) + f"\n- Aggregate bids: {total_bids}\n- Verified revenue: USD {total_revenue:.2f}\n"
     AUDIT.write_text(old_audit.rstrip() + entry + "\n", encoding="utf-8")
     print(json.dumps({"updated": True, "total_bids": total_bids, "verified_revenue_usd": round(total_revenue, 2), "changes": changes}, ensure_ascii=False))
 
