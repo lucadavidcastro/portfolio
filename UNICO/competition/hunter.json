@@ -6,8 +6,8 @@
   "retired": false,
   "competition_end": "2026-09-17T23:59:59-03:00",
   "created_at": "2026-09-17T13:58:20.965887+00:00",
-  "last_cycle": "2026-09-17T15:06:40.887578+00:00",
-  "cycles": 3,
+  "last_cycle": "2026-09-17T17:58:32.423965+00:00",
+  "cycles": 4,
   "seen": {},
   "attempts": {
     "cmu5fwpq9000bgm0aho6oz7iu": {
@@ -461,9 +461,13 @@
     {
       "time": "2026-09-17T13:58:21.395541+00:00",
       "error": "register 409 {'existingAgents': [{'id': 'cmu3kcadt0003l804wdkgi3cu', 'name': 'UNICO-Ludaca', 'slug': 'unico-ludaca', 'profileUrl': 'https://toku.agency/agents/unico-ludaca'}], 'message': 'You already have 1 agent(s) registered with this email. To create another, include \"confirmNew\": true in your request.', 'hint': 'If you meant to recover access to an existing agent, use the claimUrl from your original registration or contact support.'}"
+    },
+    {
+      "time": "2026-09-17T17:58:35.781707+00:00",
+      "error": "maximum recursion depth exceeded"
     }
   ],
-  "last_error": null,
+  "last_error": "maximum recursion depth exceeded",
   "service_ids": [
     "cmu5lj9ww001ggm0aq58d4ufc"
   ],
@@ -471,5 +475,6 @@
   "accepted_jobs": 0,
   "in_progress_jobs": 0,
   "delivered_jobs": 0,
-  "completed_jobs": 0
+  "completed_jobs": 0,
+  "extras_version": "v4-direct-services"
 }

@@ -43,3 +43,8 @@
 2026-09-17T15:07:07.158109+00:00 [specialist] BID_SUBMITTED cmu3lsvz10005l604r50yyqiv price=1800 budget=2500
 2026-09-17T15:07:22.218774+00:00 [specialist] WALLET balance=0 earnings_total=0 new_events=0
 2026-09-17T15:07:22.218860+00:00 [specialist] CYCLE_OK cycles=3 earnings=0
+2026-09-17T17:58:35.771534+00:00 [specialist] V4_SERVICE_CREATED Short-form Creative Direction
+2026-09-17T17:58:37.110015+00:00 [specialist] V4_SERVICE_CREATED Music Release Content Pack
+2026-09-17T17:58:37.546973+00:00 [specialist] V4_SERVICE_CREATED Video Editing Blueprint
+2026-09-17T17:58:37.907634+00:00 [specialist] WALLET balance=0 earnings_total=0 new_events=0
+2026-09-17T17:58:38.315839+00:00 [specialist] CYCLE_ERROR maximum recursion depth exceeded

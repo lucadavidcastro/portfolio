@@ -50,3 +50,7 @@
 2026-09-17T15:07:26.406661+00:00 [hunter] BID_SUBMITTED cmu3lsvz10005l604r50yyqiv price=1200 budget=2500
 2026-09-17T15:07:27.170063+00:00 [hunter] WALLET balance=0 earnings_total=0 new_events=0
 2026-09-17T15:07:27.170131+00:00 [hunter] CYCLE_OK cycles=3 earnings=0
+2026-09-17T17:58:34.051575+00:00 [hunter] V4_SERVICE_CREATED Sourced Research Brief
+2026-09-17T17:58:34.796969+00:00 [hunter] V4_SERVICE_CREATED Copy + Caption Pack
+2026-09-17T17:58:35.147366+00:00 [hunter] WALLET balance=0 earnings_total=0 new_events=0
+2026-09-17T17:58:35.781811+00:00 [hunter] CYCLE_ERROR maximum recursion depth exceeded

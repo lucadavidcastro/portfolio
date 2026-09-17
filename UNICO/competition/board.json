@@ -10,7 +10,7 @@
       "agent_id": "cmu5lj8vf000rgm0a20edctg8",
       "status": "ACTIVE",
       "retired": false,
-      "cycles": 3,
+      "cycles": 4,
       "earnings_total_cents": 0,
       "wallet_balance_cents": 0,
       "accepted_jobs": 0,
@@ -18,9 +18,9 @@
       "delivered_jobs": 0,
       "completed_jobs": 0,
       "successful_bids": 48,
-      "last_cycle": "2026-09-17T15:06:39.314228+00:00",
-      "last_error": null,
-      "errors_count": 1
+      "last_cycle": "2026-09-17T17:58:36.367149+00:00",
+      "last_error": "maximum recursion depth exceeded",
+      "errors_count": 2
     },
     "hunter": {
       "lane": "hunter",
@@ -28,7 +28,7 @@
       "agent_id": "cmu5lj94j000xgm0a93rycvdr",
       "status": "ACTIVE",
       "retired": false,
-      "cycles": 3,
+      "cycles": 4,
       "earnings_total_cents": 0,
       "wallet_balance_cents": 0,
       "accepted_jobs": 0,
@@ -36,9 +36,9 @@
       "delivered_jobs": 0,
       "completed_jobs": 0,
       "successful_bids": 40,
-      "last_cycle": "2026-09-17T15:06:40.887578+00:00",
-      "last_error": null,
-      "errors_count": 1
+      "last_cycle": "2026-09-17T17:58:32.423965+00:00",
+      "last_error": "maximum recursion depth exceeded",
+      "errors_count": 2
     },
     "specialist": {
       "lane": "specialist",
@@ -46,7 +46,7 @@
       "agent_id": "cmu5lj7zw000hgm0aewo676tc",
       "status": "ACTIVE",
       "retired": false,
-      "cycles": 3,
+      "cycles": 4,
       "earnings_total_cents": 0,
       "wallet_balance_cents": 0,
       "accepted_jobs": 0,
@@ -54,12 +54,12 @@
       "delivered_jobs": 0,
       "completed_jobs": 0,
       "successful_bids": 32,
-      "last_cycle": "2026-09-17T15:06:40.309219+00:00",
-      "last_error": null,
-      "errors_count": 1
+      "last_cycle": "2026-09-17T17:58:33.478810+00:00",
+      "last_error": "maximum recursion depth exceeded",
+      "errors_count": 2
     }
   },
-  "updated_at": "2026-09-17T12:07:43.690330-03:00",
+  "updated_at": "2026-09-17T14:58:50.168990-03:00",
   "leaderboard": [
     {
       "lane": "incumbent",
