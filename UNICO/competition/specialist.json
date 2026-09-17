@@ -6,8 +6,8 @@
   "retired": false,
   "competition_end": "2026-09-17T23:59:59-03:00",
   "created_at": "2026-09-17T13:58:20.895702+00:00",
-  "last_cycle": "2026-09-17T13:59:38.997297+00:00",
-  "cycles": 2,
+  "last_cycle": "2026-09-17T15:06:40.309219+00:00",
+  "cycles": 3,
   "seen": {},
   "attempts": {
     "cmu55gcoi000gl904ai0phase": {
@@ -105,6 +105,102 @@
       "lastAt": "2026-09-17T14:00:12.052611+00:00",
       "status": 201,
       "success": true
+    },
+    "cmu4mmbzo0001gm0as3rfzk76": {
+      "count": 1,
+      "lastAt": "2026-09-17T15:06:45.293308+00:00",
+      "status": 201,
+      "success": true
+    },
+    "cmu4g8wnd0003l204whccmo3q": {
+      "count": 1,
+      "lastAt": "2026-09-17T15:06:47.062242+00:00",
+      "status": 201,
+      "success": true
+    },
+    "cmu4cq8j10001jw04hkszh0ds": {
+      "count": 1,
+      "lastAt": "2026-09-17T15:06:48.587153+00:00",
+      "status": 201,
+      "success": true
+    },
+    "cmu4c3wpy05ltjj04rwfufkv1": {
+      "count": 1,
+      "lastAt": "2026-09-17T15:06:49.872751+00:00",
+      "status": 201,
+      "success": true
+    },
+    "cmu4antc7000gjh049cwam9qu": {
+      "count": 1,
+      "lastAt": "2026-09-17T15:06:51.216769+00:00",
+      "status": 201,
+      "success": true
+    },
+    "cmu4a85i90005lb0483zjawax": {
+      "count": 1,
+      "lastAt": "2026-09-17T15:06:52.435206+00:00",
+      "status": 201,
+      "success": true
+    },
+    "cmu444gqi000ggm0aa7g969mn": {
+      "count": 1,
+      "lastAt": "2026-09-17T15:06:53.599442+00:00",
+      "status": 201,
+      "success": true
+    },
+    "cmu43bi9c05qpl8041pdxizsa": {
+      "count": 1,
+      "lastAt": "2026-09-17T15:06:55.028079+00:00",
+      "status": 201,
+      "success": true
+    },
+    "cmu41xs0b0001lc0464op5twt": {
+      "count": 1,
+      "lastAt": "2026-09-17T15:06:56.323750+00:00",
+      "status": 201,
+      "success": true
+    },
+    "cmu406z0a0001jt04yr392ozo": {
+      "count": 1,
+      "lastAt": "2026-09-17T15:06:57.530823+00:00",
+      "status": 201,
+      "success": true
+    },
+    "cmu3xpcys01tigm0ajre1cg4v": {
+      "count": 1,
+      "lastAt": "2026-09-17T15:06:58.832987+00:00",
+      "status": 201,
+      "success": true
+    },
+    "cmu3xn2ut000cgm0adnxxas9c": {
+      "count": 1,
+      "lastAt": "2026-09-17T15:06:59.986411+00:00",
+      "status": 201,
+      "success": true
+    },
+    "cmu3w1spo0001l504a4khayhi": {
+      "count": 1,
+      "lastAt": "2026-09-17T15:07:01.253745+00:00",
+      "status": 201,
+      "success": true
+    },
+    "cmu3uzj560001le04kkmppng0": {
+      "count": 1,
+      "lastAt": "2026-09-17T15:07:03.539615+00:00",
+      "status": 201,
+      "success": true
+    },
+    "cmu3s8lxy0001gm09b4xzmqgr": {
+      "count": 1,
+      "lastAt": "2026-09-17T15:07:05.674012+00:00",
+      "status": 201,
+      "success": true
+    },
+    "cmu3lsvz10005l604r50yyqiv": {
+      "count": 1,
+      "lastAt": "2026-09-17T15:07:07.157977+00:00",
+      "status": 201,
+      "success": true
     }
   },
   "bids": {
@@ -186,6 +282,86 @@
     "cmu4nz82h0016gm0alv2lkfef": {
       "priceCents": 1800,
       "time": "2026-09-17T14:00:12.052627+00:00",
+      "status": "SUBMITTED"
+    },
+    "cmu4mmbzo0001gm0as3rfzk76": {
+      "priceCents": 1800,
+      "time": "2026-09-17T15:06:45.293326+00:00",
+      "status": "SUBMITTED"
+    },
+    "cmu4g8wnd0003l204whccmo3q": {
+      "priceCents": 1800,
+      "time": "2026-09-17T15:06:47.062260+00:00",
+      "status": "SUBMITTED"
+    },
+    "cmu4cq8j10001jw04hkszh0ds": {
+      "priceCents": 1800,
+      "time": "2026-09-17T15:06:48.587203+00:00",
+      "status": "SUBMITTED"
+    },
+    "cmu4c3wpy05ltjj04rwfufkv1": {
+      "priceCents": 1800,
+      "time": "2026-09-17T15:06:49.872768+00:00",
+      "status": "SUBMITTED"
+    },
+    "cmu4antc7000gjh049cwam9qu": {
+      "priceCents": 1800,
+      "time": "2026-09-17T15:06:51.216786+00:00",
+      "status": "SUBMITTED"
+    },
+    "cmu4a85i90005lb0483zjawax": {
+      "priceCents": 1800,
+      "time": "2026-09-17T15:06:52.435224+00:00",
+      "status": "SUBMITTED"
+    },
+    "cmu444gqi000ggm0aa7g969mn": {
+      "priceCents": 1800,
+      "time": "2026-09-17T15:06:53.599458+00:00",
+      "status": "SUBMITTED"
+    },
+    "cmu43bi9c05qpl8041pdxizsa": {
+      "priceCents": 1800,
+      "time": "2026-09-17T15:06:55.028096+00:00",
+      "status": "SUBMITTED"
+    },
+    "cmu41xs0b0001lc0464op5twt": {
+      "priceCents": 1800,
+      "time": "2026-09-17T15:06:56.323767+00:00",
+      "status": "SUBMITTED"
+    },
+    "cmu406z0a0001jt04yr392ozo": {
+      "priceCents": 1800,
+      "time": "2026-09-17T15:06:57.530840+00:00",
+      "status": "SUBMITTED"
+    },
+    "cmu3xpcys01tigm0ajre1cg4v": {
+      "priceCents": 1800,
+      "time": "2026-09-17T15:06:58.833004+00:00",
+      "status": "SUBMITTED"
+    },
+    "cmu3xn2ut000cgm0adnxxas9c": {
+      "priceCents": 1800,
+      "time": "2026-09-17T15:06:59.986428+00:00",
+      "status": "SUBMITTED"
+    },
+    "cmu3w1spo0001l504a4khayhi": {
+      "priceCents": 1800,
+      "time": "2026-09-17T15:07:01.253762+00:00",
+      "status": "SUBMITTED"
+    },
+    "cmu3uzj560001le04kkmppng0": {
+      "priceCents": 1800,
+      "time": "2026-09-17T15:07:03.539632+00:00",
+      "status": "SUBMITTED"
+    },
+    "cmu3s8lxy0001gm09b4xzmqgr": {
+      "priceCents": 1800,
+      "time": "2026-09-17T15:07:05.674023+00:00",
+      "status": "SUBMITTED"
+    },
+    "cmu3lsvz10005l604r50yyqiv": {
+      "priceCents": 1800,
+      "time": "2026-09-17T15:07:07.157994+00:00",
       "status": "SUBMITTED"
     }
   },

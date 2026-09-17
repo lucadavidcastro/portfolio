@@ -22,3 +22,24 @@
 2026-09-17T14:00:12.052787+00:00 [specialist] BID_SUBMITTED cmu4nz82h0016gm0alv2lkfef price=1800 budget=2500
 2026-09-17T14:00:13.459147+00:00 [specialist] WALLET balance=0 earnings_total=0 new_events=0
 2026-09-17T14:00:13.459232+00:00 [specialist] CYCLE_OK cycles=2 earnings=0
+2026-09-17T15:06:41.612859+00:00 [specialist] WALLET balance=0 earnings_total=0 new_events=0
+2026-09-17T15:06:42.047679+00:00 [specialist] COMPETITION_AWARE peers={'incumbent': {'revenue_usd': 0.0, 'completed': 0, 'accepted': 0, 'successful_bids': 24}, 'hunter': {'revenue_usd': 0.0, 'completed': 0, 'accepted': 0, 'successful_bids': 20}, 'specialist': {'revenue_usd': 0.0, 'completed': 0, 'accepted': 0, 'successful_bids': 16}}
+2026-09-17T15:06:43.476016+00:00 [specialist] LLM_429_DISABLED_FOR_CYCLE
+2026-09-17T15:06:45.293436+00:00 [specialist] BID_SUBMITTED cmu4mmbzo0001gm0as3rfzk76 price=1800 budget=2500
+2026-09-17T15:06:47.062369+00:00 [specialist] BID_SUBMITTED cmu4g8wnd0003l204whccmo3q price=1800 budget=2500
+2026-09-17T15:06:48.587317+00:00 [specialist] BID_SUBMITTED cmu4cq8j10001jw04hkszh0ds price=1800 budget=2500
+2026-09-17T15:06:49.872872+00:00 [specialist] BID_SUBMITTED cmu4c3wpy05ltjj04rwfufkv1 price=1800 budget=2500
+2026-09-17T15:06:51.216895+00:00 [specialist] BID_SUBMITTED cmu4antc7000gjh049cwam9qu price=1800 budget=2500
+2026-09-17T15:06:52.435338+00:00 [specialist] BID_SUBMITTED cmu4a85i90005lb0483zjawax price=1800 budget=2500
+2026-09-17T15:06:53.599562+00:00 [specialist] BID_SUBMITTED cmu444gqi000ggm0aa7g969mn price=1800 budget=2500
+2026-09-17T15:06:55.028232+00:00 [specialist] BID_SUBMITTED cmu43bi9c05qpl8041pdxizsa price=1800 budget=2500
+2026-09-17T15:06:56.323875+00:00 [specialist] BID_SUBMITTED cmu41xs0b0001lc0464op5twt price=1800 budget=2500
+2026-09-17T15:06:57.530950+00:00 [specialist] BID_SUBMITTED cmu406z0a0001jt04yr392ozo price=1800 budget=2500
+2026-09-17T15:06:58.833113+00:00 [specialist] BID_SUBMITTED cmu3xpcys01tigm0ajre1cg4v price=1800 budget=2500
+2026-09-17T15:06:59.986538+00:00 [specialist] BID_SUBMITTED cmu3xn2ut000cgm0adnxxas9c price=1800 budget=2500
+2026-09-17T15:07:01.253869+00:00 [specialist] BID_SUBMITTED cmu3w1spo0001l504a4khayhi price=1800 budget=2500
+2026-09-17T15:07:03.539733+00:00 [specialist] BID_SUBMITTED cmu3uzj560001le04kkmppng0 price=1800 budget=2500
+2026-09-17T15:07:05.674114+00:00 [specialist] BID_SUBMITTED cmu3s8lxy0001gm09b4xzmqgr price=1800 budget=2500
+2026-09-17T15:07:07.158109+00:00 [specialist] BID_SUBMITTED cmu3lsvz10005l604r50yyqiv price=1800 budget=2500
+2026-09-17T15:07:22.218774+00:00 [specialist] WALLET balance=0 earnings_total=0 new_events=0
+2026-09-17T15:07:22.218860+00:00 [specialist] CYCLE_OK cycles=3 earnings=0

@@ -10,15 +10,15 @@
       "agent_id": "cmu5lj8vf000rgm0a20edctg8",
       "status": "ACTIVE",
       "retired": false,
-      "cycles": 2,
+      "cycles": 3,
       "earnings_total_cents": 0,
       "wallet_balance_cents": 0,
       "accepted_jobs": 0,
       "in_progress_jobs": 0,
       "delivered_jobs": 0,
       "completed_jobs": 0,
-      "successful_bids": 24,
-      "last_cycle": "2026-09-17T13:59:40.484773+00:00",
+      "successful_bids": 48,
+      "last_cycle": "2026-09-17T15:06:39.314228+00:00",
       "last_error": null,
       "errors_count": 1
     },
@@ -28,15 +28,15 @@
       "agent_id": "cmu5lj94j000xgm0a93rycvdr",
       "status": "ACTIVE",
       "retired": false,
-      "cycles": 2,
+      "cycles": 3,
       "earnings_total_cents": 0,
       "wallet_balance_cents": 0,
       "accepted_jobs": 0,
       "in_progress_jobs": 0,
       "delivered_jobs": 0,
       "completed_jobs": 0,
-      "successful_bids": 20,
-      "last_cycle": "2026-09-17T13:59:40.313055+00:00",
+      "successful_bids": 40,
+      "last_cycle": "2026-09-17T15:06:40.887578+00:00",
       "last_error": null,
       "errors_count": 1
     },
@@ -46,44 +46,44 @@
       "agent_id": "cmu5lj7zw000hgm0aewo676tc",
       "status": "ACTIVE",
       "retired": false,
-      "cycles": 2,
+      "cycles": 3,
       "earnings_total_cents": 0,
       "wallet_balance_cents": 0,
       "accepted_jobs": 0,
       "in_progress_jobs": 0,
       "delivered_jobs": 0,
       "completed_jobs": 0,
-      "successful_bids": 16,
-      "last_cycle": "2026-09-17T13:59:38.997297+00:00",
+      "successful_bids": 32,
+      "last_cycle": "2026-09-17T15:06:40.309219+00:00",
       "last_error": null,
       "errors_count": 1
     }
   },
-  "updated_at": "2026-09-17T11:00:44.174747-03:00",
+  "updated_at": "2026-09-17T12:07:43.690330-03:00",
   "leaderboard": [
     {
       "lane": "incumbent",
-      "score": 24,
+      "score": 48,
       "revenue_usd": 0.0,
       "completed": 0,
       "accepted": 0,
-      "successful_bids": 24
+      "successful_bids": 48
     },
     {
       "lane": "hunter",
-      "score": 20,
+      "score": 40,
       "revenue_usd": 0.0,
       "completed": 0,
       "accepted": 0,
-      "successful_bids": 20
+      "successful_bids": 40
     },
     {
       "lane": "specialist",
-      "score": 16,
+      "score": 32,
       "revenue_usd": 0.0,
       "completed": 0,
       "accepted": 0,
-      "successful_bids": 16
+      "successful_bids": 32
     }
   ]
 }
