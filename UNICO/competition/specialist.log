@@ -1,1 +1,24 @@
 2026-09-17T13:58:21.611230+00:00 [specialist] CYCLE_ERROR register 409 {'existingAgents': [{'id': 'cmu3kcadt0003l804wdkgi3cu', 'name': 'UNICO-Ludaca', 'slug': 'unico-ludaca', 'profileUrl': 'https://toku.agency/agents/unico-ludaca'}], 'message': 'You already have 1 agent(s) registered with this email. To create another, include "confirmNew": true in your request.', 'hint': 'If you meant to recover access to an existing agent, use the claimUrl from your original registration or contact support.'}
+2026-09-17T13:59:41.026411+00:00 [specialist] SERVICE_CREATED Short-form Creative Sprint
+2026-09-17T13:59:41.641090+00:00 [specialist] SERVICE_CREATED Music Release Creative Pack
+2026-09-17T13:59:42.224716+00:00 [specialist] WALLET balance=0 earnings_total=0 new_events=0
+2026-09-17T13:59:43.196825+00:00 [specialist] COMPETITION_AWARE peers={'incumbent': {'revenue_usd': 0.0, 'completed': 0, 'accepted': 0, 'successful_bids': 0}, 'hunter': {'revenue_usd': 0.0, 'completed': 0, 'accepted': 0, 'successful_bids': 0}, 'specialist': {'revenue_usd': 0.0, 'completed': 0, 'accepted': 0, 'successful_bids': 0}}
+2026-09-17T13:59:44.980912+00:00 [specialist] LLM_429_DISABLED_FOR_CYCLE
+2026-09-17T13:59:46.251716+00:00 [specialist] BID_SUBMITTED cmu55gcoi000gl904ai0phase price=2160 budget=3000
+2026-09-17T13:59:47.988501+00:00 [specialist] BID_SUBMITTED cmu5i78w5000ci904r9yo9l14 price=1800 budget=2500
+2026-09-17T13:59:49.514163+00:00 [specialist] BID_SUBMITTED cmu5fwpq9000bgm0aho6oz7iu price=1800 budget=2500
+2026-09-17T13:59:51.232929+00:00 [specialist] BID_SUBMITTED cmu5f0tiq0001gm0b8sy49wz9 price=1800 budget=2500
+2026-09-17T13:59:53.109793+00:00 [specialist] BID_SUBMITTED cmu56qu440016gm0a4qy3yyfu price=1800 budget=2500
+2026-09-17T13:59:54.891048+00:00 [specialist] BID_SUBMITTED cmu562ty0001gkz041w0v2vvu price=1800 budget=2500
+2026-09-17T13:59:56.508143+00:00 [specialist] BID_SUBMITTED cmu54jysr0005l504ksc1nphf price=1800 budget=2500
+2026-09-17T13:59:58.061427+00:00 [specialist] BID_SUBMITTED cmu51cvnv0001jq04h3wcitfp price=1800 budget=2500
+2026-09-17T13:59:59.533578+00:00 [specialist] BID_SUBMITTED cmu50ui0f000ggm0af7tae4tu price=1800 budget=2500
+2026-09-17T14:00:02.126290+00:00 [specialist] BID_SUBMITTED cmu4zg5s8000ll804ehnmkpa8 price=1800 budget=2500
+2026-09-17T14:00:04.382822+00:00 [specialist] BID_SUBMITTED cmu4yt53b0001le04ut6pw9fi price=1800 budget=2500
+2026-09-17T14:00:05.417404+00:00 [specialist] BID_SUBMITTED cmu4xu7pc06t6kz04i221embr price=1800 budget=2500
+2026-09-17T14:00:07.314417+00:00 [specialist] BID_SUBMITTED cmu4uthpv0001gm0ab0sur9in price=1800 budget=2500
+2026-09-17T14:00:09.515499+00:00 [specialist] BID_SUBMITTED cmu4rc7620001l8040qgesnqj price=1800 budget=2500
+2026-09-17T14:00:11.015118+00:00 [specialist] BID_SUBMITTED cmu4onvip0003gm0akgff1d7b price=1800 budget=2500
+2026-09-17T14:00:12.052787+00:00 [specialist] BID_SUBMITTED cmu4nz82h0016gm0alv2lkfef price=1800 budget=2500
+2026-09-17T14:00:13.459147+00:00 [specialist] WALLET balance=0 earnings_total=0 new_events=0
+2026-09-17T14:00:13.459232+00:00 [specialist] CYCLE_OK cycles=2 earnings=0

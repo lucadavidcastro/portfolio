@@ -1,16 +1,194 @@
 {
   "lane": "specialist",
   "agent_name": "UNICO-Specialist",
-  "agent_id": null,
+  "agent_id": "cmu5lj7zw000hgm0aewo676tc",
   "status": "ACTIVE",
   "retired": false,
   "competition_end": "2026-09-17T23:59:59-03:00",
   "created_at": "2026-09-17T13:58:20.895702+00:00",
-  "last_cycle": "2026-09-17T13:58:20.895759+00:00",
-  "cycles": 1,
+  "last_cycle": "2026-09-17T13:59:38.997297+00:00",
+  "cycles": 2,
   "seen": {},
-  "attempts": {},
-  "bids": {},
+  "attempts": {
+    "cmu55gcoi000gl904ai0phase": {
+      "count": 1,
+      "lastAt": "2026-09-17T13:59:46.251599+00:00",
+      "status": 201,
+      "success": true
+    },
+    "cmu5i78w5000ci904r9yo9l14": {
+      "count": 1,
+      "lastAt": "2026-09-17T13:59:47.988392+00:00",
+      "status": 201,
+      "success": true
+    },
+    "cmu5fwpq9000bgm0aho6oz7iu": {
+      "count": 1,
+      "lastAt": "2026-09-17T13:59:49.514042+00:00",
+      "status": 201,
+      "success": true
+    },
+    "cmu5f0tiq0001gm0b8sy49wz9": {
+      "count": 1,
+      "lastAt": "2026-09-17T13:59:51.232810+00:00",
+      "status": 201,
+      "success": true
+    },
+    "cmu56qu440016gm0a4qy3yyfu": {
+      "count": 1,
+      "lastAt": "2026-09-17T13:59:53.109619+00:00",
+      "status": 201,
+      "success": true
+    },
+    "cmu562ty0001gkz041w0v2vvu": {
+      "count": 1,
+      "lastAt": "2026-09-17T13:59:54.890927+00:00",
+      "status": 201,
+      "success": true
+    },
+    "cmu54jysr0005l504ksc1nphf": {
+      "count": 1,
+      "lastAt": "2026-09-17T13:59:56.508023+00:00",
+      "status": 201,
+      "success": true
+    },
+    "cmu51cvnv0001jq04h3wcitfp": {
+      "count": 1,
+      "lastAt": "2026-09-17T13:59:58.061308+00:00",
+      "status": 201,
+      "success": true
+    },
+    "cmu50ui0f000ggm0af7tae4tu": {
+      "count": 1,
+      "lastAt": "2026-09-17T13:59:59.533458+00:00",
+      "status": 201,
+      "success": true
+    },
+    "cmu4zg5s8000ll804ehnmkpa8": {
+      "count": 1,
+      "lastAt": "2026-09-17T14:00:02.126165+00:00",
+      "status": 201,
+      "success": true
+    },
+    "cmu4yt53b0001le04ut6pw9fi": {
+      "count": 1,
+      "lastAt": "2026-09-17T14:00:04.382675+00:00",
+      "status": 201,
+      "success": true
+    },
+    "cmu4xu7pc06t6kz04i221embr": {
+      "count": 1,
+      "lastAt": "2026-09-17T14:00:05.417279+00:00",
+      "status": 201,
+      "success": true
+    },
+    "cmu4uthpv0001gm0ab0sur9in": {
+      "count": 1,
+      "lastAt": "2026-09-17T14:00:07.314297+00:00",
+      "status": 201,
+      "success": true
+    },
+    "cmu4rc7620001l8040qgesnqj": {
+      "count": 1,
+      "lastAt": "2026-09-17T14:00:09.515389+00:00",
+      "status": 201,
+      "success": true
+    },
+    "cmu4onvip0003gm0akgff1d7b": {
+      "count": 1,
+      "lastAt": "2026-09-17T14:00:11.014998+00:00",
+      "status": 201,
+      "success": true
+    },
+    "cmu4nz82h0016gm0alv2lkfef": {
+      "count": 1,
+      "lastAt": "2026-09-17T14:00:12.052611+00:00",
+      "status": 201,
+      "success": true
+    }
+  },
+  "bids": {
+    "cmu55gcoi000gl904ai0phase": {
+      "priceCents": 2160,
+      "time": "2026-09-17T13:59:46.251615+00:00",
+      "status": "SUBMITTED"
+    },
+    "cmu5i78w5000ci904r9yo9l14": {
+      "priceCents": 1800,
+      "time": "2026-09-17T13:59:47.988407+00:00",
+      "status": "SUBMITTED"
+    },
+    "cmu5fwpq9000bgm0aho6oz7iu": {
+      "priceCents": 1800,
+      "time": "2026-09-17T13:59:49.514058+00:00",
+      "status": "SUBMITTED"
+    },
+    "cmu5f0tiq0001gm0b8sy49wz9": {
+      "priceCents": 1800,
+      "time": "2026-09-17T13:59:51.232825+00:00",
+      "status": "SUBMITTED"
+    },
+    "cmu56qu440016gm0a4qy3yyfu": {
+      "priceCents": 1800,
+      "time": "2026-09-17T13:59:53.109635+00:00",
+      "status": "SUBMITTED"
+    },
+    "cmu562ty0001gkz041w0v2vvu": {
+      "priceCents": 1800,
+      "time": "2026-09-17T13:59:54.890943+00:00",
+      "status": "SUBMITTED"
+    },
+    "cmu54jysr0005l504ksc1nphf": {
+      "priceCents": 1800,
+      "time": "2026-09-17T13:59:56.508038+00:00",
+      "status": "SUBMITTED"
+    },
+    "cmu51cvnv0001jq04h3wcitfp": {
+      "priceCents": 1800,
+      "time": "2026-09-17T13:59:58.061324+00:00",
+      "status": "SUBMITTED"
+    },
+    "cmu50ui0f000ggm0af7tae4tu": {
+      "priceCents": 1800,
+      "time": "2026-09-17T13:59:59.533473+00:00",
+      "status": "SUBMITTED"
+    },
+    "cmu4zg5s8000ll804ehnmkpa8": {
+      "priceCents": 1800,
+      "time": "2026-09-17T14:00:02.126181+00:00",
+      "status": "SUBMITTED"
+    },
+    "cmu4yt53b0001le04ut6pw9fi": {
+      "priceCents": 1800,
+      "time": "2026-09-17T14:00:04.382690+00:00",
+      "status": "SUBMITTED"
+    },
+    "cmu4xu7pc06t6kz04i221embr": {
+      "priceCents": 1800,
+      "time": "2026-09-17T14:00:05.417295+00:00",
+      "status": "SUBMITTED"
+    },
+    "cmu4uthpv0001gm0ab0sur9in": {
+      "priceCents": 1800,
+      "time": "2026-09-17T14:00:07.314313+00:00",
+      "status": "SUBMITTED"
+    },
+    "cmu4rc7620001l8040qgesnqj": {
+      "priceCents": 1800,
+      "time": "2026-09-17T14:00:09.515404+00:00",
+      "status": "SUBMITTED"
+    },
+    "cmu4onvip0003gm0akgff1d7b": {
+      "priceCents": 1800,
+      "time": "2026-09-17T14:00:11.015015+00:00",
+      "status": "SUBMITTED"
+    },
+    "cmu4nz82h0016gm0alv2lkfef": {
+      "priceCents": 1800,
+      "time": "2026-09-17T14:00:12.052627+00:00",
+      "status": "SUBMITTED"
+    }
+  },
   "jobs": {},
   "wallet_balance_cents": 0,
   "earnings_total_cents": 0,
@@ -21,5 +199,14 @@
       "error": "register 409 {'existingAgents': [{'id': 'cmu3kcadt0003l804wdkgi3cu', 'name': 'UNICO-Ludaca', 'slug': 'unico-ludaca', 'profileUrl': 'https://toku.agency/agents/unico-ludaca'}], 'message': 'You already have 1 agent(s) registered with this email. To create another, include \"confirmNew\": true in your request.', 'hint': 'If you meant to recover access to an existing agent, use the claimUrl from your original registration or contact support.'}"
     }
   ],
-  "last_error": "register 409 {'existingAgents': [{'id': 'cmu3kcadt0003l804wdkgi3cu', 'name': 'UNICO-Ludaca', 'slug': 'unico-ludaca', 'profileUrl': 'https://toku.agency/agents/unico-ludaca'}], 'message': 'You already have 1 agent(s) registered with this email. To create another, include \"confirmNew\": true in your request.', 'hint': 'If you meant to recover access to an existing agent, use the claimUrl from your original registration or contact support.'}"
+  "last_error": null,
+  "service_ids": [
+    "cmu5lj8t60005jy04t7ckgj96",
+    "cmu5lj9c00010gm0ahmmz1mgj"
+  ],
+  "last_bid_batch": 16,
+  "accepted_jobs": 0,
+  "in_progress_jobs": 0,
+  "delivered_jobs": 0,
+  "completed_jobs": 0
 }

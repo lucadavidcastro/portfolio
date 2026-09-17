@@ -1,1 +1,31 @@
 2026-09-17T13:58:23.403160+00:00 [incumbent] CYCLE_ERROR register 409 {'existingAgents': [{'id': 'cmu3kcadt0003l804wdkgi3cu', 'name': 'UNICO-Ludaca', 'slug': 'unico-ludaca', 'profileUrl': 'https://toku.agency/agents/unico-ludaca'}], 'message': 'You already have 1 agent(s) registered with this email. To create another, include "confirmNew": true in your request.', 'hint': 'If you meant to recover access to an existing agent, use the claimUrl from your original registration or contact support.'}
+2026-09-17T13:59:42.283163+00:00 [incumbent] SERVICE_CREATED Creative Campaign Concept + Content System
+2026-09-17T13:59:43.135409+00:00 [incumbent] WALLET balance=0 earnings_total=0 new_events=0
+2026-09-17T13:59:43.885627+00:00 [incumbent] COMPETITION_AWARE peers={'incumbent': {'revenue_usd': 0.0, 'completed': 0, 'accepted': 0, 'successful_bids': 0}, 'hunter': {'revenue_usd': 0.0, 'completed': 0, 'accepted': 0, 'successful_bids': 0}, 'specialist': {'revenue_usd': 0.0, 'completed': 0, 'accepted': 0, 'successful_bids': 0}}
+2026-09-17T13:59:45.574122+00:00 [incumbent] LLM_429_DISABLED_FOR_CYCLE
+2026-09-17T13:59:47.252513+00:00 [incumbent] BID_SUBMITTED cmu55gcoi000gl904ai0phase price=1650 budget=3000
+2026-09-17T13:59:49.006295+00:00 [incumbent] BID_SUBMITTED cmu5i78w5000ci904r9yo9l14 price=1375 budget=2500
+2026-09-17T13:59:50.861667+00:00 [incumbent] BID_SUBMITTED cmu5fwpq9000bgm0aho6oz7iu price=1375 budget=2500
+2026-09-17T13:59:52.460130+00:00 [incumbent] BID_SUBMITTED cmu5f0tiq0001gm0b8sy49wz9 price=1375 budget=2500
+2026-09-17T13:59:54.471280+00:00 [incumbent] BID_SUBMITTED cmu56qu440016gm0a4qy3yyfu price=1375 budget=2500
+2026-09-17T13:59:56.502410+00:00 [incumbent] BID_SUBMITTED cmu562ty0001gkz041w0v2vvu price=1375 budget=2500
+2026-09-17T13:59:58.335816+00:00 [incumbent] BID_SUBMITTED cmu54jysr0005l504ksc1nphf price=1375 budget=2500
+2026-09-17T13:59:59.577167+00:00 [incumbent] BID_SUBMITTED cmu531na70001jv047z1sp7m7 price=1375 budget=2500
+2026-09-17T14:00:00.900089+00:00 [incumbent] BID_SUBMITTED cmu51cvnv0001jq04h3wcitfp price=1375 budget=2500
+2026-09-17T14:00:02.414149+00:00 [incumbent] BID_SUBMITTED cmu50ui0f000ggm0af7tae4tu price=1375 budget=2500
+2026-09-17T14:00:04.829257+00:00 [incumbent] BID_SUBMITTED cmu4zg5s8000ll804ehnmkpa8 price=1375 budget=2500
+2026-09-17T14:00:06.359600+00:00 [incumbent] BID_SUBMITTED cmu4yt53b0001le04ut6pw9fi price=1375 budget=2500
+2026-09-17T14:00:08.412804+00:00 [incumbent] BID_SUBMITTED cmu4xu7pc06t6kz04i221embr price=1375 budget=2500
+2026-09-17T14:00:10.446127+00:00 [incumbent] BID_SUBMITTED cmu4xi03s0001lf04mb422lfy price=1375 budget=2500
+2026-09-17T14:00:12.465206+00:00 [incumbent] BID_SUBMITTED cmu4uthpv0001gm0ab0sur9in price=1375 budget=2500
+2026-09-17T14:00:15.016223+00:00 [incumbent] BID_SUBMITTED cmu4u5qhw0007kz04ye6ww7vx price=1375 budget=2500
+2026-09-17T14:00:16.922636+00:00 [incumbent] BID_SUBMITTED cmu4see7q0001k104c5huk6vv price=1375 budget=2500
+2026-09-17T14:00:22.769096+00:00 [incumbent] BID_SUBMITTED cmu4rc7620001l8040qgesnqj price=1375 budget=2500
+2026-09-17T14:00:24.185476+00:00 [incumbent] BID_SUBMITTED cmu4onvip0003gm0akgff1d7b price=1375 budget=2500
+2026-09-17T14:00:25.989527+00:00 [incumbent] BID_SUBMITTED cmu4nz82h0016gm0alv2lkfef price=1375 budget=2500
+2026-09-17T14:00:27.602050+00:00 [incumbent] BID_SUBMITTED cmu4mmbzo0001gm0as3rfzk76 price=1375 budget=2500
+2026-09-17T14:00:30.506211+00:00 [incumbent] BID_SUBMITTED cmu4g8wnd0003l204whccmo3q price=1375 budget=2500
+2026-09-17T14:00:31.858258+00:00 [incumbent] BID_SUBMITTED cmu4cq8j10001jw04hkszh0ds price=1375 budget=2500
+2026-09-17T14:00:33.883128+00:00 [incumbent] BID_SUBMITTED cmu4ckvu5000cgm0a5mmjcf00 price=1375 budget=2500
+2026-09-17T14:00:34.952794+00:00 [incumbent] WALLET balance=0 earnings_total=0 new_events=0
+2026-09-17T14:00:34.952859+00:00 [incumbent] CYCLE_OK cycles=2 earnings=0

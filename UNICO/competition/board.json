@@ -7,83 +7,83 @@
     "incumbent": {
       "lane": "incumbent",
       "agent_name": "UNICO-Ludaca-Competitive",
-      "agent_id": null,
+      "agent_id": "cmu5lj8vf000rgm0a20edctg8",
       "status": "ACTIVE",
       "retired": false,
-      "cycles": 1,
+      "cycles": 2,
       "earnings_total_cents": 0,
       "wallet_balance_cents": 0,
       "accepted_jobs": 0,
       "in_progress_jobs": 0,
       "delivered_jobs": 0,
       "completed_jobs": 0,
-      "successful_bids": 0,
-      "last_cycle": "2026-09-17T13:58:22.791162+00:00",
-      "last_error": "register 409 {'existingAgents': [{'id': 'cmu3kcadt0003l804wdkgi3cu', 'name': 'UNICO-Ludaca', 'slug': 'unico-ludaca', 'profileUrl': 'https://toku.agency/agents/unico-ludaca'}], 'message': 'You already have 1 agent(s) registered with this email. To create another, include \"confirmNew\": true in your request.', 'hint': 'If you meant to recover access to an existing agent, use the claimUrl from your original registration or contact support.'}",
+      "successful_bids": 24,
+      "last_cycle": "2026-09-17T13:59:40.484773+00:00",
+      "last_error": null,
       "errors_count": 1
     },
     "hunter": {
       "lane": "hunter",
       "agent_name": "UNICO-Hunter",
-      "agent_id": null,
+      "agent_id": "cmu5lj94j000xgm0a93rycvdr",
       "status": "ACTIVE",
       "retired": false,
-      "cycles": 1,
+      "cycles": 2,
       "earnings_total_cents": 0,
       "wallet_balance_cents": 0,
       "accepted_jobs": 0,
       "in_progress_jobs": 0,
       "delivered_jobs": 0,
       "completed_jobs": 0,
-      "successful_bids": 0,
-      "last_cycle": "2026-09-17T13:58:20.965946+00:00",
-      "last_error": "register 409 {'existingAgents': [{'id': 'cmu3kcadt0003l804wdkgi3cu', 'name': 'UNICO-Ludaca', 'slug': 'unico-ludaca', 'profileUrl': 'https://toku.agency/agents/unico-ludaca'}], 'message': 'You already have 1 agent(s) registered with this email. To create another, include \"confirmNew\": true in your request.', 'hint': 'If you meant to recover access to an existing agent, use the claimUrl from your original registration or contact support.'}",
+      "successful_bids": 20,
+      "last_cycle": "2026-09-17T13:59:40.313055+00:00",
+      "last_error": null,
       "errors_count": 1
     },
     "specialist": {
       "lane": "specialist",
       "agent_name": "UNICO-Specialist",
-      "agent_id": null,
+      "agent_id": "cmu5lj7zw000hgm0aewo676tc",
       "status": "ACTIVE",
       "retired": false,
-      "cycles": 1,
+      "cycles": 2,
       "earnings_total_cents": 0,
       "wallet_balance_cents": 0,
       "accepted_jobs": 0,
       "in_progress_jobs": 0,
       "delivered_jobs": 0,
       "completed_jobs": 0,
-      "successful_bids": 0,
-      "last_cycle": "2026-09-17T13:58:20.895759+00:00",
-      "last_error": "register 409 {'existingAgents': [{'id': 'cmu3kcadt0003l804wdkgi3cu', 'name': 'UNICO-Ludaca', 'slug': 'unico-ludaca', 'profileUrl': 'https://toku.agency/agents/unico-ludaca'}], 'message': 'You already have 1 agent(s) registered with this email. To create another, include \"confirmNew\": true in your request.', 'hint': 'If you meant to recover access to an existing agent, use the claimUrl from your original registration or contact support.'}",
+      "successful_bids": 16,
+      "last_cycle": "2026-09-17T13:59:38.997297+00:00",
+      "last_error": null,
       "errors_count": 1
     }
   },
-  "updated_at": "2026-09-17T10:58:35.271474-03:00",
+  "updated_at": "2026-09-17T11:00:44.174747-03:00",
   "leaderboard": [
     {
       "lane": "incumbent",
-      "score": 0,
+      "score": 24,
       "revenue_usd": 0.0,
       "completed": 0,
       "accepted": 0,
-      "successful_bids": 0
+      "successful_bids": 24
     },
     {
       "lane": "hunter",
-      "score": 0,
+      "score": 20,
       "revenue_usd": 0.0,
       "completed": 0,
       "accepted": 0,
-      "successful_bids": 0
+      "successful_bids": 20
     },
     {
       "lane": "specialist",
-      "score": 0,
+      "score": 16,
       "revenue_usd": 0.0,
       "completed": 0,
       "accepted": 0,
-      "successful_bids": 0
+      "successful_bids": 16
     }
   ]
 }

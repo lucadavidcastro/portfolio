@@ -1,1 +1,27 @@
 2026-09-17T13:58:21.395730+00:00 [hunter] CYCLE_ERROR register 409 {'existingAgents': [{'id': 'cmu3kcadt0003l804wdkgi3cu', 'name': 'UNICO-Ludaca', 'slug': 'unico-ludaca', 'profileUrl': 'https://toku.agency/agents/unico-ludaca'}], 'message': 'You already have 1 agent(s) registered with this email. To create another, include "confirmNew": true in your request.', 'hint': 'If you meant to recover access to an existing agent, use the claimUrl from your original registration or contact support.'}
+2026-09-17T13:59:42.406793+00:00 [hunter] SERVICE_CREATED Rapid Research & Writing Sprint
+2026-09-17T13:59:43.333093+00:00 [hunter] WALLET balance=0 earnings_total=0 new_events=0
+2026-09-17T13:59:43.859657+00:00 [hunter] COMPETITION_AWARE peers={'incumbent': {'revenue_usd': 0.0, 'completed': 0, 'accepted': 0, 'successful_bids': 0}, 'hunter': {'revenue_usd': 0.0, 'completed': 0, 'accepted': 0, 'successful_bids': 0}, 'specialist': {'revenue_usd': 0.0, 'completed': 0, 'accepted': 0, 'successful_bids': 0}}
+2026-09-17T13:59:45.533720+00:00 [hunter] LLM_429_DISABLED_FOR_CYCLE
+2026-09-17T13:59:47.498330+00:00 [hunter] BID_SUBMITTED cmu5fwpq9000bgm0aho6oz7iu price=1200 budget=2500
+2026-09-17T13:59:49.535311+00:00 [hunter] BID_SUBMITTED cmu54jysr0005l504ksc1nphf price=1200 budget=2500
+2026-09-17T13:59:51.301860+00:00 [hunter] BID_SUBMITTED cmu4xi03s0001lf04mb422lfy price=1200 budget=2500
+2026-09-17T13:59:53.026973+00:00 [hunter] BID_SUBMITTED cmu4cq8j10001jw04hkszh0ds price=1200 budget=2500
+2026-09-17T13:59:54.542935+00:00 [hunter] BID_SUBMITTED cmu4antc7000gjh049cwam9qu price=1200 budget=2500
+2026-09-17T13:59:56.274517+00:00 [hunter] BID_SUBMITTED cmu444gqi000ggm0aa7g969mn price=1200 budget=2500
+2026-09-17T13:59:57.820786+00:00 [hunter] BID_SUBMITTED cmu2z4d0l0001gm0aoriknes2 price=1200 budget=2500
+2026-09-17T13:59:59.357480+00:00 [hunter] BID_SUBMITTED cmu2fms8h03p1lb04xmzease4 price=1200 budget=2500
+2026-09-17T14:00:00.947965+00:00 [hunter] BID_SUBMITTED cmu2dbef10003gm0ajou3w8zf price=1200 budget=2500
+2026-09-17T14:00:02.785652+00:00 [hunter] BID_SUBMITTED cmu5i78w5000ci904r9yo9l14 price=1200 budget=2500
+2026-09-17T14:00:04.913595+00:00 [hunter] BID_SUBMITTED cmu5f0tiq0001gm0b8sy49wz9 price=1200 budget=2500
+2026-09-17T14:00:06.648079+00:00 [hunter] BID_SUBMITTED cmu4u5qhw0007kz04ye6ww7vx price=1200 budget=2500
+2026-09-17T14:00:08.883544+00:00 [hunter] BID_SUBMITTED cmu4nz82h0016gm0alv2lkfef price=1200 budget=2500
+2026-09-17T14:00:10.591098+00:00 [hunter] BID_SUBMITTED cmu4a85i90005lb0483zjawax price=1200 budget=2500
+2026-09-17T14:00:11.967204+00:00 [hunter] BID_SUBMITTED cmu450hjx0001kx04a8zbry4m price=1200 budget=2500
+2026-09-17T14:00:12.963170+00:00 [hunter] BID_SUBMITTED cmu42snrb0001l804ci4y10hf price=1200 budget=2500
+2026-09-17T14:00:15.030428+00:00 [hunter] BID_SUBMITTED cmu3xpcys01tigm0ajre1cg4v price=1200 budget=2500
+2026-09-17T14:00:16.085943+00:00 [hunter] BID_SUBMITTED cmu3w1spo0001l504a4khayhi price=1200 budget=2500
+2026-09-17T14:00:17.423632+00:00 [hunter] BID_SUBMITTED cmu3uzj560001le04kkmppng0 price=1200 budget=2500
+2026-09-17T14:00:19.002926+00:00 [hunter] BID_SUBMITTED cmu196fie0001gm0bejfzqbbe price=1200 budget=2500
+2026-09-17T14:00:21.094539+00:00 [hunter] WALLET balance=0 earnings_total=0 new_events=0
+2026-09-17T14:00:21.094619+00:00 [hunter] CYCLE_OK cycles=2 earnings=0
