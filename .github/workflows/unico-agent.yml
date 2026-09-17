@@ -28,7 +28,7 @@ env:
   DEADLINE: '2026-10-31'
   OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
   COMPETITION_END: '2026-09-17T23:59:59-03:00'
-  INCUMBENT_NAME: 'UNICO-Ludaca'
+  INCUMBENT_NAME: 'UNICO-Ludaca-Competitive'
   HUNTER_NAME: 'UNICO-Hunter'
   SPECIALIST_NAME: 'UNICO-Specialist'
 
@@ -43,7 +43,7 @@ jobs:
         lane: [incumbent, hunter, specialist]
     env:
       UNICO_LANE: ${{ matrix.lane }}
-      TOKU_AGENT_NAME: ${{ matrix.lane == 'incumbent' && 'UNICO-Ludaca' || matrix.lane == 'hunter' && 'UNICO-Hunter' || 'UNICO-Specialist' }}
+      TOKU_AGENT_NAME: ${{ matrix.lane == 'incumbent' && 'UNICO-Ludaca-Competitive' || matrix.lane == 'hunter' && 'UNICO-Hunter' || 'UNICO-Specialist' }}
     steps:
       - uses: actions/checkout@v4
       - name: Preflight secrets
@@ -54,6 +54,16 @@ jobs:
           echo "PREFLIGHT_OK lane=$UNICO_LANE"
       - name: Run audited competitor
         run: python3 UNICO/agent_v3.py
+      - name: Upload lane state
+        if: ${{ always() }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: unico-${{ matrix.lane }}
+          path: |
+            UNICO/competition/${{ matrix.lane }}.json
+            UNICO/competition/${{ matrix.lane }}.log
+          if-no-files-found: warn
+          retention-days: 7
 
   reconcile:
     name: Reconcile competition and revenue
@@ -63,12 +73,27 @@ jobs:
     timeout-minutes: 10
     steps:
       - uses: actions/checkout@v4
+      - name: Download lane states
+        uses: actions/download-artifact@v4
+        with:
+          pattern: unico-*
+          path: UNICO/competition
+          merge-multiple: true
       - name: Reconcile ledgers, wallets and winner
         run: python3 UNICO/competition_reconcile.py
       - name: Persist UNICO state and competition board
         run: |
+          set -e
           git config user.name 'UNICO Agent'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
           git add UNICO/runtime.json UNICO/competition
-          git diff --cached --quiet || git commit -m "UNICO reconcile competition $(date -u +%Y-%m-%dT%H:%M:%SZ)"
-          git push
+          git diff --cached --quiet && exit 0
+          git commit -m "UNICO reconcile competition $(date -u +%Y-%m-%dT%H:%M:%SZ)"
+          for attempt in 1 2 3; do
+            git fetch origin main
+            git rebase origin/main && git push && exit 0
+            git rebase --abort || true
+            sleep 2
+          done
+          echo 'PERSIST_PUSH_FAILED_AFTER_RETRIES' >&2
+          exit 1
