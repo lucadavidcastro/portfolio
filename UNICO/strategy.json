@@ -1,0 +1,10 @@
+{
+  "version": "v4-conversion-control",
+  "updated_at": null,
+  "lanes": {
+    "incumbent": {"min_budget": 150, "max_bids": 14, "base_ratio": 0.18, "high_bid_cutoff": 75},
+    "hunter": {"min_budget": 150, "max_bids": 16, "base_ratio": 0.16, "high_bid_cutoff": 75},
+    "specialist": {"min_budget": 300, "max_bids": 12, "base_ratio": 0.22, "high_bid_cutoff": 75}
+  },
+  "global": {"total_cycles": 0, "reason": "initial configuration"}
+}
