@@ -1,6 +1,33 @@
+import json
+from pathlib import Path
 import competition_agent as ca
 
 LANE = ca.LANE
+BASE = Path(__file__).resolve().parent
+STRATEGY_FILE = BASE / "strategy.json"
+
+
+def load_strategy():
+    default = {
+        "lanes": {
+            "incumbent": {"min_budget": 150, "max_bids": 14, "base_ratio": 0.18, "high_bid_cutoff": 75},
+            "hunter": {"min_budget": 150, "max_bids": 16, "base_ratio": 0.16, "high_bid_cutoff": 75},
+            "specialist": {"min_budget": 300, "max_bids": 12, "base_ratio": 0.22, "high_bid_cutoff": 75}
+        }
+    }
+    try:
+        data = json.loads(STRATEGY_FILE.read_text(encoding="utf-8")) if STRATEGY_FILE.exists() else default
+        return data.get("lanes", {}).get(LANE, default["lanes"][LANE])
+    except Exception:
+        return default["lanes"].get(LANE, default["lanes"]["incumbent"])
+
+
+STRATEGY = load_strategy()
+ca.CFG["min_budget"] = int(STRATEGY.get("min_budget", 150))
+ca.CFG["max_bids"] = int(STRATEGY.get("max_bids", 14))
+ca.CFG["price_ratio"] = float(STRATEGY.get("base_ratio", 0.18))
+HIGH_BID_CUTOFF = int(STRATEGY.get("high_bid_cutoff", 75))
+
 
 # Toku requires explicit confirmation when the same owner creates additional agents.
 def register_confirmed(ledger):
@@ -24,15 +51,6 @@ def register_confirmed(ledger):
 
 ca.register = register_confirmed
 
-STRATEGY = {
-    "incumbent": {"min_budget": 150, "max_bids": 14, "base_ratio": 0.18},
-    "hunter": {"min_budget": 150, "max_bids": 16, "base_ratio": 0.16},
-    "specialist": {"min_budget": 300, "max_bids": 12, "base_ratio": 0.22},
-}.get(LANE, {"min_budget": 150, "max_bids": 14, "base_ratio": 0.18})
-ca.CFG["min_budget"] = STRATEGY["min_budget"]
-ca.CFG["max_bids"] = STRATEGY["max_bids"]
-ca.CFG["price_ratio"] = STRATEGY["base_ratio"]
-
 
 def adaptive_lane_score(post):
     text = ca.blob(post)
@@ -41,7 +59,7 @@ def adaptive_lane_score(post):
     if score < 0:
         return score
     instant = post.get("instantAcceptCents") or post.get("instantAcceptPriceCents")
-    if bids >= 75 and not instant:
+    if bids >= HIGH_BID_CUTOFF and not instant:
         return -1
     if bids >= 40:
         score -= 55
@@ -64,7 +82,7 @@ def adaptive_price(budget, bids, instant):
     elif bids >= 10:
         ratio = 0.13
     else:
-        ratio = STRATEGY["base_ratio"]
+        ratio = float(STRATEGY.get("base_ratio", 0.18))
     if LANE == "specialist" and bids < 10:
         ratio = min(0.25, ratio + 0.04)
     floor = 25 if budget >= 500 else 10
@@ -80,10 +98,10 @@ def adaptive_create_bids(token, ledger, board):
     posts = [p for p in data.get("jobPosts", []) if adaptive_lane_score(p) >= 0]
     posts.sort(key=adaptive_lane_score, reverse=True)
     peer_scores = ca.score_from_board(board)
-    ca.log(f"V4_STRATEGY lane={LANE} peers={peer_scores} candidates={len(posts)}")
+    ca.log(f"V4_STRATEGY lane={LANE} strategy={STRATEGY} peers={peer_scores} candidates={len(posts)}")
     sent = 0
     for post in posts:
-        if sent >= STRATEGY["max_bids"]:
+        if sent >= int(STRATEGY.get("max_bids", 14)):
             break
         jid = post.get("id")
         if not jid:
