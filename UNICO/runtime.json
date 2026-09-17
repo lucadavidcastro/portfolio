@@ -3,7 +3,7 @@
   "target_usd": 5000,
   "collected_usd": 0.0,
   "created_at": "2026-09-16T00:00:00-03:00",
-  "cycles": 9,
+  "cycles": 10,
   "toku_agent": {
     "id": "cmu3kcadt0003l804wdkgi3cu",
     "name": "UNICO-Ludaca",
@@ -42,7 +42,7 @@
   },
   "jobs_completed": {},
   "revenue_events": [],
-  "last_cycle": "2026-09-17T14:58:50.169666-03:00",
+  "last_cycle": "2026-09-17T15:00:01.981063-03:00",
   "last_error": "incumbent:maximum recursion depth exceeded; hunter:maximum recursion depth exceeded; specialist:maximum recursion depth exceeded",
   "toku_setup": {
     "setupScore": "3/5",
@@ -1276,7 +1276,7 @@
         "agent_id": "cmu5lj8vf000rgm0a20edctg8",
         "status": "ACTIVE",
         "retired": false,
-        "cycles": 4,
+        "cycles": 5,
         "earnings_total_cents": 0,
         "wallet_balance_cents": 0,
         "accepted_jobs": 0,
@@ -1284,9 +1284,9 @@
         "delivered_jobs": 0,
         "completed_jobs": 0,
         "successful_bids": 48,
-        "last_cycle": "2026-09-17T17:58:36.367149+00:00",
+        "last_cycle": "2026-09-17T17:59:47.454843+00:00",
         "last_error": "maximum recursion depth exceeded",
-        "errors_count": 2
+        "errors_count": 3
       },
       "hunter": {
         "lane": "hunter",
@@ -1294,7 +1294,7 @@
         "agent_id": "cmu5lj94j000xgm0a93rycvdr",
         "status": "ACTIVE",
         "retired": false,
-        "cycles": 4,
+        "cycles": 5,
         "earnings_total_cents": 0,
         "wallet_balance_cents": 0,
         "accepted_jobs": 0,
@@ -1302,9 +1302,9 @@
         "delivered_jobs": 0,
         "completed_jobs": 0,
         "successful_bids": 40,
-        "last_cycle": "2026-09-17T17:58:32.423965+00:00",
+        "last_cycle": "2026-09-17T17:59:46.431654+00:00",
         "last_error": "maximum recursion depth exceeded",
-        "errors_count": 2
+        "errors_count": 3
       },
       "specialist": {
         "lane": "specialist",
@@ -1312,7 +1312,7 @@
         "agent_id": "cmu5lj7zw000hgm0aewo676tc",
         "status": "ACTIVE",
         "retired": false,
-        "cycles": 4,
+        "cycles": 5,
         "earnings_total_cents": 0,
         "wallet_balance_cents": 0,
         "accepted_jobs": 0,
@@ -1320,12 +1320,12 @@
         "delivered_jobs": 0,
         "completed_jobs": 0,
         "successful_bids": 32,
-        "last_cycle": "2026-09-17T17:58:33.478810+00:00",
+        "last_cycle": "2026-09-17T17:59:47.099827+00:00",
         "last_error": "maximum recursion depth exceeded",
-        "errors_count": 2
+        "errors_count": 3
       }
     },
-    "updated_at": "2026-09-17T14:58:50.168990-03:00",
+    "updated_at": "2026-09-17T15:00:01.980400-03:00",
     "leaderboard": [
       {
         "lane": "incumbent",
@@ -1359,6 +1359,8 @@
     "bid_retry_logic": true,
     "llm_429_circuit_breaker": true,
     "three_lane_competition": true,
-    "updated_at": "2026-09-17T14:58:50.169685-03:00"
+    "conversion_strategy_v4": true,
+    "zero_revenue_protection": true,
+    "updated_at": "2026-09-17T15:00:01.981086-03:00"
   }
 }
