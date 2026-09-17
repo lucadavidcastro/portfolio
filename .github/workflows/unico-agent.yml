@@ -10,6 +10,7 @@ on:
       - 'UNICO/agent_v3.py'
       - 'UNICO/competition_agent.py'
       - 'UNICO/competition_reconcile.py'
+      - 'UNICO/meta_controller.py'
   schedule:
     - cron: '*/10 * * * *'
 
@@ -96,4 +97,33 @@ jobs:
             sleep 2
           done
           echo 'PERSIST_PUSH_FAILED_AFTER_RETRIES' >&2
+          exit 1
+
+  meta_control:
+    name: Adaptive 30-minute strategy control
+    needs: reconcile
+    if: ${{ always() }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - name: Fetch latest reconciled state
+        run: git pull --rebase origin main
+      - name: Run adaptive controller
+        run: python3 UNICO/meta_controller.py
+      - name: Persist strategy changes
+        run: |
+          set -e
+          git config user.name 'UNICO Agent'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add UNICO/strategy.json UNICO/AUDIT.md
+          git diff --cached --quiet && exit 0
+          git commit -m "UNICO adaptive strategy control $(date -u +%Y-%m-%dT%H:%M:%SZ)"
+          for attempt in 1 2 3; do
+            git fetch origin main
+            git rebase origin/main && git push && exit 0
+            git rebase --abort || true
+            sleep 2
+          done
+          echo 'META_PERSIST_PUSH_FAILED_AFTER_RETRIES' >&2
           exit 1
