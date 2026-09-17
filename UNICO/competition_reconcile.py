@@ -29,12 +29,11 @@ def load(path, default):
 
 
 def score(v):
-    # Revenue dominates; completed/accepted/successful-bid counts are tie-breakers.
     return (
         int(v.get("earnings_total_cents", 0)) * 1000
         + int(v.get("completed_jobs", 0)) * 100
         + int(v.get("accepted_jobs", 0)) * 10
-        + int(sum(1 for b in v.get("bids", {}).values() if b.get("status") == "SUBMITTED"))
+        + int(v.get("successful_bids", 0))
     )
 
 
@@ -73,7 +72,7 @@ def main():
     board["agents"] = agents
     board["updated_at"] = now_iso()
     board["leaderboard"] = sorted(
-        [{"lane": k, "score": score({**v, "bids": {str(i): {"status": "SUBMITTED"} for i in range(v.get("successful_bids", 0))}}), "revenue_usd": round(v["earnings_total_cents"] / 100, 2), "completed": v["completed_jobs"], "accepted": v["accepted_jobs"], "successful_bids": v["successful_bids"]} for k, v in agents.items()],
+        [{"lane": k, "score": score(v), "revenue_usd": round(v["earnings_total_cents"] / 100, 2), "completed": v["completed_jobs"], "accepted": v["accepted_jobs"], "successful_bids": v["successful_bids"]} for k, v in agents.items()],
         key=lambda x: x["score"], reverse=True
     )
 
@@ -81,19 +80,26 @@ def main():
     now_dt = datetime.now(end_dt.tzinfo)
     if now_dt >= end_dt and not board.get("finalized"):
         ranked = board["leaderboard"]
-        winner = ranked[0]["lane"] if ranked else "incumbent"
-        losers = [x["lane"] for x in ranked[1:]]
-        board["finalized"] = True
-        board["finalized_at"] = now_iso()
-        board["winner"] = winner
-        board["retired"] = losers
-        for lane in losers:
-            path = COMP / f"{lane}.json"
-            ledger = load(path, {})
-            ledger["retired"] = True
-            ledger["status"] = "RETIRED"
-            ledger["retired_at"] = now_iso()
-            save(path, ledger)
+        top_revenue = ranked[0]["revenue_usd"] if ranked else 0
+        if top_revenue > 0:
+            winner = ranked[0]["lane"]
+            losers = [x["lane"] for x in ranked[1:]]
+            board["finalized"] = True
+            board["finalized_at"] = now_iso()
+            board["winner"] = winner
+            board["retired"] = losers
+            for lane in losers:
+                path = COMP / f"{lane}.json"
+                ledger = load(path, {})
+                ledger["retired"] = True
+                ledger["status"] = "RETIRED"
+                ledger["retired_at"] = now_iso()
+                save(path, ledger)
+        else:
+            # Never retire active revenue lanes merely because a timed experiment ended with zero verified revenue.
+            board["finalization_deferred"] = True
+            board["finalization_reason"] = "No verified revenue; all lanes remain active for continued optimization."
+            board["finalization_deferred_at"] = now_iso()
 
     runtime = load(RUNTIME, {"status": "ACTIVE", "target_usd": 5000, "collected_usd": 0.0, "cycles": 0, "revenue_events": []})
     runtime["cycles"] = int(runtime.get("cycles", 0)) + 1
@@ -108,11 +114,13 @@ def main():
         "bid_retry_logic": True,
         "llm_429_circuit_breaker": True,
         "three_lane_competition": True,
+        "conversion_strategy_v4": True,
+        "zero_revenue_protection": True,
         "updated_at": now_iso()
     }
     RUNTIME.write_text(json.dumps(runtime, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
     BOARD.write_text(json.dumps(board, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
-    print(json.dumps({"winner": board.get("winner"), "finalized": board.get("finalized"), "revenue_usd": runtime["collected_usd"], "agents": board["leaderboard"]}, ensure_ascii=False))
+    print(json.dumps({"winner": board.get("winner"), "finalized": board.get("finalized"), "finalization_deferred": board.get("finalization_deferred", False), "revenue_usd": runtime["collected_usd"], "agents": board["leaderboard"]}, ensure_ascii=False))
 
 
 if __name__ == "__main__":
