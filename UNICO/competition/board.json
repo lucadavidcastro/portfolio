@@ -10,7 +10,7 @@
       "agent_id": "cmu5lj8vf000rgm0a20edctg8",
       "status": "ACTIVE",
       "retired": false,
-      "cycles": 7,
+      "cycles": 8,
       "earnings_total_cents": 0,
       "wallet_balance_cents": 0,
       "accepted_jobs": 0,
@@ -18,9 +18,9 @@
       "delivered_jobs": 0,
       "completed_jobs": 0,
       "successful_bids": 48,
-      "last_cycle": "2026-09-17T18:58:28.818247+00:00",
+      "last_cycle": "2026-09-17T21:55:20.956480+00:00",
       "last_error": "maximum recursion depth exceeded",
-      "errors_count": 5
+      "errors_count": 6
     },
     "hunter": {
       "lane": "hunter",
@@ -28,7 +28,7 @@
       "agent_id": "cmu5lj94j000xgm0a93rycvdr",
       "status": "ACTIVE",
       "retired": false,
-      "cycles": 7,
+      "cycles": 8,
       "earnings_total_cents": 0,
       "wallet_balance_cents": 0,
       "accepted_jobs": 0,
@@ -36,9 +36,9 @@
       "delivered_jobs": 0,
       "completed_jobs": 0,
       "successful_bids": 40,
-      "last_cycle": "2026-09-17T18:58:29.410979+00:00",
+      "last_cycle": "2026-09-17T21:55:20.980573+00:00",
       "last_error": "maximum recursion depth exceeded",
-      "errors_count": 5
+      "errors_count": 6
     },
     "specialist": {
       "lane": "specialist",
@@ -46,7 +46,7 @@
       "agent_id": "cmu5lj7zw000hgm0aewo676tc",
       "status": "ACTIVE",
       "retired": false,
-      "cycles": 7,
+      "cycles": 8,
       "earnings_total_cents": 0,
       "wallet_balance_cents": 0,
       "accepted_jobs": 0,
@@ -54,12 +54,12 @@
       "delivered_jobs": 0,
       "completed_jobs": 0,
       "successful_bids": 32,
-      "last_cycle": "2026-09-17T18:58:29.478827+00:00",
+      "last_cycle": "2026-09-17T21:55:21.942054+00:00",
       "last_error": "maximum recursion depth exceeded",
-      "errors_count": 5
+      "errors_count": 6
     }
   },
-  "updated_at": "2026-09-17T15:58:42.114262-03:00",
+  "updated_at": "2026-09-17T18:55:32.685804-03:00",
   "leaderboard": [
     {
       "lane": "incumbent",

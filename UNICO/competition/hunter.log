@@ -60,3 +60,5 @@
 2026-09-17T18:01:02.964993+00:00 [hunter] CYCLE_ERROR maximum recursion depth exceeded
 2026-09-17T18:58:31.001397+00:00 [hunter] WALLET balance=0 earnings_total=0 new_events=0
 2026-09-17T18:58:31.521589+00:00 [hunter] CYCLE_ERROR maximum recursion depth exceeded
+2026-09-17T21:55:22.344399+00:00 [hunter] WALLET balance=0 earnings_total=0 new_events=0
+2026-09-17T21:55:22.908937+00:00 [hunter] CYCLE_ERROR maximum recursion depth exceeded
