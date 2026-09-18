@@ -3,11 +3,13 @@
   "agent_name": "UNICO-Sniper",
   "agent_id": "cmu6ctd3c000cgm0av36kqbo9",
   "status": "ACTIVE",
-  "cycles": 2,
-  "last_cycle": "2026-09-18T07:38:14.567584+00:00",
+  "cycles": 3,
+  "last_cycle": "2026-09-18T12:22:32.860247+00:00",
   "last_error": null,
   "errors": [],
   "service_ids": [
+    "cmu6ctf8d001bgm0a90pkih8u",
+    "cmu6ctg7e001ngm0a5llofhkj",
     "cmu6ctf8d001bgm0a90pkih8u",
     "cmu6ctg7e001ngm0a5llofhkj",
     "cmu6ctf8d001bgm0a90pkih8u",
@@ -15,10 +17,10 @@
   ],
   "attempts": {
     "cmu4xu7pc06t6kz04i221embr": {
-      "count": 2,
+      "count": 3,
       "status": 409,
       "success": true,
-      "time": "2026-09-18T07:38:32.287336+00:00",
+      "time": "2026-09-18T12:22:37.157295+00:00",
       "pendingBidCount": 6
     },
     "cmu2xovyu0001l2047um28p2y": {
@@ -120,10 +122,10 @@
       "pendingBidCount": 7
     },
     "cmu4u5qhw0007kz04ye6ww7vx": {
-      "count": 2,
+      "count": 3,
       "status": 409,
       "success": true,
-      "time": "2026-09-18T07:38:33.380141+00:00",
+      "time": "2026-09-18T12:22:37.747539+00:00",
       "pendingBidCount": 6
     },
     "cmu4see7q0001k104c5huk6vv": {
@@ -148,18 +150,18 @@
       "pendingBidCount": 7
     },
     "cmu4nz82h0016gm0alv2lkfef": {
-      "count": 2,
+      "count": 3,
       "status": 409,
       "success": true,
-      "time": "2026-09-18T07:38:34.792747+00:00",
+      "time": "2026-09-18T12:22:40.434782+00:00",
       "pendingBidCount": 7
     },
     "cmu6jp136000gl304pyltjrn4": {
-      "count": 1,
-      "status": 201,
+      "count": 2,
+      "status": 409,
       "success": true,
-      "time": "2026-09-18T07:38:26.662858+00:00",
-      "pendingBidCount": 3
+      "time": "2026-09-18T12:22:35.955934+00:00",
+      "pendingBidCount": 6
     },
     "cmu6fg7750001gm0awan1oebw": {
       "count": 1,
@@ -169,11 +171,11 @@
       "pendingBidCount": 6
     },
     "cmu4g8wnd0003l204whccmo3q": {
-      "count": 1,
-      "status": 201,
+      "count": 2,
+      "status": 409,
       "success": true,
-      "time": "2026-09-18T07:38:35.870230+00:00",
-      "pendingBidCount": 5
+      "time": "2026-09-18T12:22:40.849430+00:00",
+      "pendingBidCount": 6
     },
     "cmu4ckvu5000cgm0a5mmjcf00": {
       "count": 1,
@@ -183,18 +185,18 @@
       "pendingBidCount": 7
     },
     "cmu4antc7000gjh049cwam9qu": {
-      "count": 1,
-      "status": 201,
+      "count": 2,
+      "status": 409,
       "success": true,
-      "time": "2026-09-18T07:38:40.637245+00:00",
-      "pendingBidCount": 5
+      "time": "2026-09-18T12:22:41.639583+00:00",
+      "pendingBidCount": 6
     },
     "cmu4a85i90005lb0483zjawax": {
-      "count": 1,
-      "status": 201,
+      "count": 2,
+      "status": 409,
       "success": true,
-      "time": "2026-09-18T07:38:42.600289+00:00",
-      "pendingBidCount": 6
+      "time": "2026-09-18T12:22:42.439038+00:00",
+      "pendingBidCount": 7
     },
     "cmu47671m0001jp04l1w6bh2a": {
       "count": 1,
@@ -204,25 +206,25 @@
       "pendingBidCount": 7
     },
     "cmu450hjx0001kx04a8zbry4m": {
-      "count": 1,
-      "status": 201,
+      "count": 2,
+      "status": 409,
       "success": true,
-      "time": "2026-09-18T07:38:45.911976+00:00",
-      "pendingBidCount": 5
+      "time": "2026-09-18T12:22:42.874879+00:00",
+      "pendingBidCount": 6
     },
     "cmu444gqi000ggm0aa7g969mn": {
-      "count": 1,
-      "status": 201,
+      "count": 2,
+      "status": 409,
       "success": true,
-      "time": "2026-09-18T07:38:47.518859+00:00",
-      "pendingBidCount": 5
+      "time": "2026-09-18T12:22:43.797396+00:00",
+      "pendingBidCount": 6
     },
     "cmu42snrb0001l804ci4y10hf": {
-      "count": 1,
-      "status": 201,
+      "count": 2,
+      "status": 409,
       "success": true,
-      "time": "2026-09-18T07:38:48.615735+00:00",
-      "pendingBidCount": 5
+      "time": "2026-09-18T12:22:44.893020+00:00",
+      "pendingBidCount": 6
     },
     "cmu41xs0b0001lc0464op5twt": {
       "count": 1,
@@ -232,18 +234,18 @@
       "pendingBidCount": 7
     },
     "cmu3w1spo0001l504a4khayhi": {
-      "count": 1,
-      "status": 201,
+      "count": 2,
+      "status": 409,
       "success": true,
-      "time": "2026-09-18T07:38:51.592247+00:00",
-      "pendingBidCount": 6
+      "time": "2026-09-18T12:22:45.794067+00:00",
+      "pendingBidCount": 7
     },
     "cmu3uzj560001le04kkmppng0": {
-      "count": 1,
-      "status": 201,
+      "count": 2,
+      "status": 409,
       "success": true,
-      "time": "2026-09-18T07:38:53.601141+00:00",
-      "pendingBidCount": 6
+      "time": "2026-09-18T12:22:46.832894+00:00",
+      "pendingBidCount": 7
     },
     "cmu3h10jx0001l304m88x4v3s": {
       "count": 1,
@@ -253,11 +255,60 @@
       "pendingBidCount": 7
     },
     "cmu2z4d0l0001gm0aoriknes2": {
+      "count": 2,
+      "status": 409,
+      "success": true,
+      "time": "2026-09-18T12:22:49.139450+00:00",
+      "pendingBidCount": 7
+    },
+    "cmu2fms8h03p1lb04xmzease4": {
       "count": 1,
       "status": 201,
       "success": true,
-      "time": "2026-09-18T07:38:56.249235+00:00",
+      "time": "2026-09-18T12:22:50.143091+00:00",
+      "pendingBidCount": 5
+    },
+    "cmu2fh93o0001lb04ys9b8vkn": {
+      "count": 1,
+      "status": 201,
+      "success": true,
+      "time": "2026-09-18T12:22:51.653461+00:00",
+      "pendingBidCount": 7
+    },
+    "cmu2dbef10003gm0ajou3w8zf": {
+      "count": 1,
+      "status": 201,
+      "success": true,
+      "time": "2026-09-18T12:22:52.871314+00:00",
+      "pendingBidCount": 5
+    },
+    "cmu1i45d40001kw04h4xg0ikc": {
+      "count": 1,
+      "status": 201,
+      "success": true,
+      "time": "2026-09-18T12:22:54.355647+00:00",
+      "pendingBidCount": 7
+    },
+    "cmu196fie0001gm0bejfzqbbe": {
+      "count": 1,
+      "status": 201,
+      "success": true,
+      "time": "2026-09-18T12:22:55.281498+00:00",
       "pendingBidCount": 6
+    },
+    "cmu12ajtk000hjx04d3fy4pr2": {
+      "count": 1,
+      "status": 201,
+      "success": true,
+      "time": "2026-09-18T12:22:56.690162+00:00",
+      "pendingBidCount": 7
+    },
+    "cmu6lftpt0005l204qpa0nmjb": {
+      "count": 1,
+      "status": 201,
+      "success": true,
+      "time": "2026-09-18T12:22:57.898574+00:00",
+      "pendingBidCount": 5
     }
   },
   "bids": {
@@ -265,7 +316,7 @@
       "priceCents": 450,
       "status": "EXISTING",
       "pendingBidCount": 6,
-      "time": "2026-09-18T07:38:32.287356+00:00"
+      "time": "2026-09-18T12:22:37.157315+00:00"
     },
     "cmu2xovyu0001l2047um28p2y": {
       "priceCents": 360,
@@ -355,7 +406,7 @@
       "priceCents": 450,
       "status": "EXISTING",
       "pendingBidCount": 6,
-      "time": "2026-09-18T07:38:33.380162+00:00"
+      "time": "2026-09-18T12:22:37.747559+00:00"
     },
     "cmu4see7q0001k104c5huk6vv": {
       "priceCents": 450,
@@ -379,13 +430,13 @@
       "priceCents": 450,
       "status": "EXISTING",
       "pendingBidCount": 7,
-      "time": "2026-09-18T07:38:34.792768+00:00"
+      "time": "2026-09-18T12:22:40.434801+00:00"
     },
     "cmu6jp136000gl304pyltjrn4": {
-      "priceCents": 750,
-      "status": "SUBMITTED",
-      "pendingBidCount": 3,
-      "time": "2026-09-18T07:38:26.662879+00:00"
+      "priceCents": 450,
+      "status": "EXISTING",
+      "pendingBidCount": 6,
+      "time": "2026-09-18T12:22:35.955952+00:00"
     },
     "cmu6fg7750001gm0awan1oebw": {
       "priceCents": 450,
@@ -395,9 +446,9 @@
     },
     "cmu4g8wnd0003l204whccmo3q": {
       "priceCents": 450,
-      "status": "SUBMITTED",
-      "pendingBidCount": 5,
-      "time": "2026-09-18T07:38:35.870250+00:00"
+      "status": "EXISTING",
+      "pendingBidCount": 6,
+      "time": "2026-09-18T12:22:40.849450+00:00"
     },
     "cmu4ckvu5000cgm0a5mmjcf00": {
       "priceCents": 450,
@@ -407,15 +458,15 @@
     },
     "cmu4antc7000gjh049cwam9qu": {
       "priceCents": 450,
-      "status": "SUBMITTED",
-      "pendingBidCount": 5,
-      "time": "2026-09-18T07:38:40.637265+00:00"
+      "status": "EXISTING",
+      "pendingBidCount": 6,
+      "time": "2026-09-18T12:22:41.639601+00:00"
     },
     "cmu4a85i90005lb0483zjawax": {
       "priceCents": 450,
-      "status": "SUBMITTED",
-      "pendingBidCount": 6,
-      "time": "2026-09-18T07:38:42.600310+00:00"
+      "status": "EXISTING",
+      "pendingBidCount": 7,
+      "time": "2026-09-18T12:22:42.439056+00:00"
     },
     "cmu47671m0001jp04l1w6bh2a": {
       "priceCents": 450,
@@ -425,21 +476,21 @@
     },
     "cmu450hjx0001kx04a8zbry4m": {
       "priceCents": 450,
-      "status": "SUBMITTED",
-      "pendingBidCount": 5,
-      "time": "2026-09-18T07:38:45.911998+00:00"
+      "status": "EXISTING",
+      "pendingBidCount": 6,
+      "time": "2026-09-18T12:22:42.874897+00:00"
     },
     "cmu444gqi000ggm0aa7g969mn": {
       "priceCents": 450,
-      "status": "SUBMITTED",
-      "pendingBidCount": 5,
-      "time": "2026-09-18T07:38:47.518882+00:00"
+      "status": "EXISTING",
+      "pendingBidCount": 6,
+      "time": "2026-09-18T12:22:43.797416+00:00"
     },
     "cmu42snrb0001l804ci4y10hf": {
       "priceCents": 450,
-      "status": "SUBMITTED",
-      "pendingBidCount": 5,
-      "time": "2026-09-18T07:38:48.615755+00:00"
+      "status": "EXISTING",
+      "pendingBidCount": 6,
+      "time": "2026-09-18T12:22:44.893036+00:00"
     },
     "cmu41xs0b0001lc0464op5twt": {
       "priceCents": 450,
@@ -449,15 +500,15 @@
     },
     "cmu3w1spo0001l504a4khayhi": {
       "priceCents": 450,
-      "status": "SUBMITTED",
-      "pendingBidCount": 6,
-      "time": "2026-09-18T07:38:51.592267+00:00"
+      "status": "EXISTING",
+      "pendingBidCount": 7,
+      "time": "2026-09-18T12:22:45.794086+00:00"
     },
     "cmu3uzj560001le04kkmppng0": {
       "priceCents": 450,
-      "status": "SUBMITTED",
-      "pendingBidCount": 6,
-      "time": "2026-09-18T07:38:53.601161+00:00"
+      "status": "EXISTING",
+      "pendingBidCount": 7,
+      "time": "2026-09-18T12:22:46.832914+00:00"
     },
     "cmu3h10jx0001l304m88x4v3s": {
       "priceCents": 450,
@@ -467,9 +518,51 @@
     },
     "cmu2z4d0l0001gm0aoriknes2": {
       "priceCents": 450,
+      "status": "EXISTING",
+      "pendingBidCount": 7,
+      "time": "2026-09-18T12:22:49.139471+00:00"
+    },
+    "cmu2fms8h03p1lb04xmzease4": {
+      "priceCents": 450,
+      "status": "SUBMITTED",
+      "pendingBidCount": 5,
+      "time": "2026-09-18T12:22:50.143111+00:00"
+    },
+    "cmu2fh93o0001lb04ys9b8vkn": {
+      "priceCents": 450,
+      "status": "SUBMITTED",
+      "pendingBidCount": 7,
+      "time": "2026-09-18T12:22:51.653480+00:00"
+    },
+    "cmu2dbef10003gm0ajou3w8zf": {
+      "priceCents": 450,
+      "status": "SUBMITTED",
+      "pendingBidCount": 5,
+      "time": "2026-09-18T12:22:52.871337+00:00"
+    },
+    "cmu1i45d40001kw04h4xg0ikc": {
+      "priceCents": 450,
+      "status": "SUBMITTED",
+      "pendingBidCount": 7,
+      "time": "2026-09-18T12:22:54.355665+00:00"
+    },
+    "cmu196fie0001gm0bejfzqbbe": {
+      "priceCents": 450,
       "status": "SUBMITTED",
       "pendingBidCount": 6,
-      "time": "2026-09-18T07:38:56.249256+00:00"
+      "time": "2026-09-18T12:22:55.281516+00:00"
+    },
+    "cmu12ajtk000hjx04d3fy4pr2": {
+      "priceCents": 450,
+      "status": "SUBMITTED",
+      "pendingBidCount": 7,
+      "time": "2026-09-18T12:22:56.690216+00:00"
+    },
+    "cmu6lftpt0005l204qpa0nmjb": {
+      "priceCents": 360,
+      "status": "SUBMITTED",
+      "pendingBidCount": 5,
+      "time": "2026-09-18T12:22:57.898592+00:00"
     }
   },
   "jobs": {},
@@ -480,6 +573,6 @@
   "in_progress_jobs": 0,
   "delivered_jobs": 0,
   "completed_jobs": 0,
-  "candidate_evaluations": 200,
-  "bids_submitted_total": 35
+  "candidate_evaluations": 300,
+  "bids_submitted_total": 42
 }
