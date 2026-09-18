@@ -3,7 +3,7 @@
   "target_usd": 5000,
   "collected_usd": 0.0,
   "created_at": "2026-09-16T00:00:00-03:00",
-  "cycles": 15,
+  "cycles": 16,
   "toku_agent": {
     "id": "cmu3kcadt0003l804wdkgi3cu",
     "name": "UNICO-Ludaca",
@@ -42,7 +42,7 @@
   },
   "jobs_completed": {},
   "revenue_events": [],
-  "last_cycle": "2026-09-17T22:35:33.634936-03:00",
+  "last_cycle": "2026-09-17T23:35:11.887415-03:00",
   "last_error": "incumbent:maximum recursion depth exceeded; hunter:maximum recursion depth exceeded; specialist:maximum recursion depth exceeded",
   "toku_setup": {
     "setupScore": "3/5",
@@ -1325,7 +1325,7 @@
         "errors_count": 8
       }
     },
-    "updated_at": "2026-09-17T22:35:33.634244-03:00",
+    "updated_at": "2026-09-17T23:35:11.886797-03:00",
     "leaderboard": [
       {
         "lane": "incumbent",
@@ -1361,6 +1361,6 @@
     "three_lane_competition": true,
     "conversion_strategy_v4": true,
     "zero_revenue_protection": true,
-    "updated_at": "2026-09-17T22:35:33.634963-03:00"
+    "updated_at": "2026-09-17T23:35:11.887436-03:00"
   }
 }
