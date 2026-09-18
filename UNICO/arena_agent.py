@@ -163,8 +163,15 @@ def jobs(t,l):
         if q in (200,204):l["jobs"][jid]={"delivered":True,"time":now(),"priceCents":j.get("priceCents",0),"title":title}
     l.update({"accepted_jobs":ac,"in_progress_jobs":ip,"delivered_jobs":de,"completed_jobs":co})
 
+def expired():
+    end=os.environ.get("ARENA_END","2026-09-18T11:33:00-03:00")
+    dt=datetime.fromisoformat(end)
+    return datetime.now(dt.tzinfo)>=dt
+
 def main():
     l=load(LEDGER,ledger0());l["cycles"]+=1;l["last_cycle"]=now();l["last_error"]=None
+    if expired():
+        l["status"]="EXPIRED";l["retired"]=True;log("ARENA_EXPIRED_NO_NEW_WORK");save(LEDGER,l);return
     try:
         t=register(l);services(t,l);wallet(t,l);b=discover(t,l);jobs(t,l);wallet(t,l);l["status"]="ACTIVE";log(f"CYCLE_OK cycle={l['cycles']} bids={b} evals={l['candidate_evaluations']} earnings={l['earnings_total_cents']}")
     except Exception as e:
