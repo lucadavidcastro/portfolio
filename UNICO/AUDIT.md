@@ -1,116 +1,64 @@
-# UNICO Failure Audit — 2026-09-17
+# UNICO Audit — 2026-09-18
 
-## Confirmed failures in the previous architecture
+## Scope
 
-1. `agent_v3.py` did not increment `cycles`, update `last_cycle`, reconcile wallet earnings, or maintain the official `collected_usd` field. A successful workflow could therefore coexist with stale economic state.
-2. `agent_v3.py` marked a job as seen before the bid result. A transient 429/500/network failure could permanently suppress later retries for that job.
-3. OpenAI HTTP 429 errors were retried independently for multiple tasks in the same cycle instead of opening a cycle-level circuit breaker.
-4. The previous workflow could have multiple executions close together without an explicit concurrency guard.
-5. The previous `agent_v3.py` relied on one broad bidding lane, so volume was confused with conversion quality.
-6. Acceptance and delivery monitoring existed only partially and was not incorporated into the official revenue ledger.
-7. Wallet state was not reconciled after delivery in the active v3 workflow.
-8. There was no competitive experiment to identify which pricing/selection strategy actually produced verified revenue.
-9. The Toku webhook setup remains incomplete. Email notifications are active, but the webhook setup is not.
-10. Obrari was researched as a second channel, but it cannot be activated automatically from the current environment because the platform requires an Obrari owner account plus an LLM provider key configured in the platform. This remains a deployment dependency, not a claimed active revenue channel.
+This audit checks execution, Toku activity, bid acceptance, jobs, delivery, wallet evidence, errors, competition, pricing, selection and service strategy. Revenue is counted only when a completed job is linked to a verified wallet balance or payout event.
 
-## Mitigations now deployed
+## Verified state
 
-- Three autonomous lanes: `incumbent`, `hunter`, `specialist`.
-- Competition-aware descriptions and peer scoreboard.
-- Per-lane durable ledgers under `UNICO/competition/`.
-- Explicit wallet polling and verified `JOB_EARNING` reconciliation.
-- Acceptance/in-progress/delivered/completed status tracking.
-- Bid retry accounting with a bounded retry count.
-- Cycle-level LLM 429 circuit breaker.
-- GitHub Actions concurrency lock.
-- One reconciliation job owns the official `runtime.json` update.
-- End-of-day ranking by verified revenue first, then completed/accepted/successful-bid tie-breakers.
-- Losing lanes are retired after the competition closes.
-- Revenue remains zero until wallet evidence proves otherwise.
+- Verified revenue: **USD 0.00**.
+- Verified wallet balance: **USD 0.00**.
+- Accepted jobs: **0**.
+- In-progress jobs: **0**.
+- Delivered jobs: **0**.
+- Completed jobs: **0**.
+- Revenue events: **none**.
+- Agent errors in the last Arena ledgers: **none recorded**.
 
-## Day-7 scale backlog
+The repository ledger shows 1,500 candidate evaluations and 150 bid actions across five lanes, but those are activity metrics, not revenue.
 
-- Add a live second marketplace lane once Obrari credentials are available.
-- Add multi-provider LLM routing (OpenAI/Google/Anthropic/OpenAI-compatible providers) so one provider outage cannot stall execution.
-- Add historical conversion scoring by platform, category, price and lane.
-- Add direct-client acquisition and referral tracking.
-- Add automated model/cost selection based on expected margin.
+## Toku findings
 
-## Adaptive controller 2026-09-17T18:01:25.761952+00:00
+The previous Arena produced 89 new bid submissions and 61 re-attempts against existing bids. It produced zero acceptances and zero verified earnings. This is consistent with current public marketplace evidence: a recent independent census of toku.agency reported 4,164 bids, only 33 bids ever acted on (0.79%), 4,048 still pending (97.2%), and only 9 of 127 jobs resolving any bid. The marketplace is therefore unsuitable as the primary path to a time-critical USD 5,000 target. citeturn713093search0
 
-- incumbent: zero acceptance after 48 bids -> ratio 0.1800->0.1476; crowded-job cutoff 75->65
-- hunter: zero acceptance after 40 bids -> ratio 0.1600->0.1312; crowded-job cutoff 75->65
-- specialist: zero acceptance after 32 bids -> ratio 0.2200->0.1804; crowded-job cutoff 75->65
-- Aggregate bids: 120
-- Verified revenue: USD 0.00
+The old Arena also left stale state: `runtime.json` still showed `finalized: false` and lane statuses `ACTIVE` after the competition deadline had passed. The scheduler/workflow had already been removed, so no new execution could repair the state automatically.
 
-## Adaptive controller 2026-09-17T18:58:52.400547+00:00
+## Execution and persistence defects
 
-- incumbent: zero acceptance after 48 bids -> ratio 0.1476->0.1210; crowded-job cutoff 65->55
-- hunter: zero acceptance after 40 bids -> ratio 0.1312->0.1076; crowded-job cutoff 65->55
-- specialist: zero acceptance after 32 bids -> ratio 0.1804->0.1479; crowded-job cutoff 65->55
-- Aggregate bids: 120
-- Verified revenue: USD 0.00
+The forced reconciliation completed the economic calculation but failed during Git persistence because generated state conflicted with concurrent repository updates. The logs show merge conflicts on `board.json`, all lane JSON/log files, and `runtime.json`, followed by `ARENA_PERSIST_PUSH_FAILED`. This means the economic result was computed but the persistence path was not reliable.
 
-## Adaptive controller 2026-09-17T21:55:42.714524+00:00
+Decision: do not restart the old Arena. Its failure mode is architectural for the current objective: marketplace conversion is too low, and its persistence layer can race with concurrent GitHub updates.
 
-- incumbent: zero acceptance after 48 bids -> ratio 0.1210->0.0992; crowded-job cutoff 55->45
-- hunter: zero acceptance after 40 bids -> ratio 0.1076->0.0882; crowded-job cutoff 55->45
-- specialist: zero acceptance after 32 bids -> ratio 0.1479->0.1213; crowded-job cutoff 55->45
-- Aggregate bids: 120
-- Verified revenue: USD 0.00
+## Pricing and selection findings
 
-## Adaptive controller 2026-09-17T23:47:59.233123+00:00
+- High-volume bidding was not converting even after competition cutoffs and adaptive price-ratio changes.
+- The system optimized for bid placement instead of buyer action and payment evidence.
+- Toku prices observed publicly are typically low-ticket; a recent visible agent profile lists $5–$10 services, while the user's target requires USD 5,000 by 2026-11-09. This creates an order-of-magnitude mismatch between platform pricing and the required outcome. citeturn713093search1turn713093search4
+- A direct, escrowed marketplace with funded work and explicit payout verification is structurally preferable to open bidding. MoltJobs advertises funded-upfront jobs, validation before release, and USDC settlement, but no onboarding or account credentials are verified in this repository, so it is not counted as an active channel. citeturn713093search2
 
-- incumbent: zero acceptance after 48 bids -> ratio 0.0992->0.0813; crowded-job cutoff 45->40
-- hunter: zero acceptance after 40 bids -> ratio 0.0882->0.0800; crowded-job cutoff 45->40
-- specialist: zero acceptance after 32 bids -> ratio 0.1213->0.0995; crowded-job cutoff 45->40
-- Aggregate bids: 120
-- Verified revenue: USD 0.00
+## Current optimization decision
 
-## Adaptive controller 2026-09-18T01:35:43.487125+00:00
+1. Toku is retired as the primary revenue engine. No bids, contracts or pending work are treated as revenue.
+2. UNICO is now high-ticket and outcome-driven: prioritize direct client acquisition, niche production contracts and low-competition roles with project value >= USD 2,000 or recurring value >= USD 1,500/month.
+3. Qualification requires at least one of: public competition <= 20 applicants/proposals; a direct buyer contact; funded escrow/deposit; or a clearly defined recurring role with a credible payer.
+4. Reject generic mass-market editing roles, unpaid long tests, vague scope, and any opportunity where payout cannot be verified.
+5. The first seeded targets are New Era AI Studios, Evolve Media and Big Ma Pictures because they combine relevant work, higher ticket potential and lower visible competition than the prior Toku lane. They remain prospects, not revenue.
 
-- incumbent: zero acceptance after 48 bids -> ratio 0.0813->0.0800; crowded-job cutoff 40->40
-- hunter: zero acceptance after 40 bids -> ratio 0.0800->0.0800; crowded-job cutoff 40->40
-- specialist: zero acceptance after 32 bids -> ratio 0.0995->0.0816; crowded-job cutoff 40->40
-- Aggregate bids: 120
-- Verified revenue: USD 0.00
+## Current ledger truth
 
-## Adaptive controller 2026-09-18T02:35:20.943306+00:00
+- Starting verified revenue for the high-ticket reset: **USD 0.00**.
+- No target is marked won, contracted or paid in the ledger.
+- The next valid revenue update must include: buyer/platform identity, accepted job or signed contract, delivery evidence, and wallet/bank/escrow credit evidence.
 
-- incumbent: zero acceptance after 48 bids -> ratio 0.0800->0.0800; crowded-job cutoff 40->40
-- hunter: zero acceptance after 40 bids -> ratio 0.0800->0.0800; crowded-job cutoff 40->40
-- specialist: zero acceptance after 32 bids -> ratio 0.0816->0.0800; crowded-job cutoff 40->40
-- Aggregate bids: 120
-- Verified revenue: USD 0.00
+## Required engineering changes before any autonomous restart
 
+- Use one writer for runtime state; never let lane jobs commit shared ledgers concurrently.
+- Persist artifacts first, then run a single serialized reconcile/push job.
+- Add explicit `finalized`, `retired_at`, `last_verified_wallet_poll`, and `revenue_events` fields to the official state.
+- Add a hard assertion that the workflow cannot report success when persistence fails.
+- Add a dry-run audit mode that reads Toku state without placing bids.
+- Do not enable autonomous bidding again unless a measured acceptance rate and payout path are demonstrated with a small controlled experiment.
 
+## Bottom line
 
-## Full-system audit — Arena v1 — 2026-09-18
-
-### Critical defects found and retired
-
-11. **Agent multiplication bug.** The legacy `agent_v3.py` replaced `competition_agent.register` with a function that always called `/agents/register` with `confirmNew: true`. It ran every scheduled cycle, so the system could create another Toku agent instead of reusing the existing agent token. The persisted ledgers showed 10 cycles per lane after activation; logs show a fresh successful registration at each of those cycles. This architecture is now retired.
-12. **Monkey-patch recursion.** The legacy v4 wrapper assigned `ca.lane_score = adaptive_lane_score` and then called `ca.lane_score()` from inside `adaptive_lane_score()`, producing `maximum recursion depth exceeded` in all three lanes. This is retired with the wrapper.
-13. **Disconnected control plane.** The adaptive controller changed `strategy.json`, but the legacy engine still had its own hard-coded lane configuration and only partially imported strategy state. The controller could therefore report a strategy change without guaranteeing execution of that change.
-14. **Two active schedulers risk.** The legacy workflow and the new Arena workflow could coexist. The legacy workflow has now been deleted; only Arena v1 is intended to schedule autonomous revenue cycles.
-15. **Preflight caught a new syntax fault before execution.** Arena v1's first run failed because the reconciler file contained a newline escaping error. No Arena agent registration occurred on that failed preflight. The reconciler was corrected before the next run.
-
-### Arena v1 controls
-
-- Five independent lanes: sniper, research, creative, builder, premium.
-- One registration per lane, then encrypted token reuse.
-- Token vaults use OpenSSL AES-256-CBC + PBKDF2 and are stored only as encrypted artifacts/repository files.
-- 100-job discovery per lane per cycle; up to five lanes and a 10-minute schedule give a theoretical ceiling of thousands of candidate evaluations over 12 hours without requiring duplicate bids on the same job.
-- Each lane caps attempts per job at 3.
-- Competitive cutoff by pending bid count.
-- Price changes by competition density and lane mode.
-- Wallet reconciliation before and after work.
-- Hard 12-hour stop.
-- $100 verified-revenue target gate.
-- If the target is not met at the deadline, all five Arena lanes are marked retired in the competition ledger; if met, the board keeps the revenue leader and retires the others.
-- Self-test and Python compilation run before any lane can register on Toku.
-
-### Economic reality
-
-Toku currently shows 280+ open jobs and 2,385+ agents. Several visible jobs have 100+ pending bids, so a raw-volume strategy alone is not a reliable conversion strategy. The Arena therefore prioritizes low-competition jobs and instant-accept opportunities instead of blindly bidding everywhere. citeturn826265search1turn826265search2turn826265search7
+UNICO is operationally capable of evaluating opportunities and submitting bids, but it has **not demonstrated monetization**. The only verified economic result is **USD 0.00**. The optimization is therefore a channel and control-plane change, not a claim of earnings.
