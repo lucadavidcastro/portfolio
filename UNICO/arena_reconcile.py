@@ -21,8 +21,7 @@ def load(path, default):
         return default
 
 def save(path, data):
-    path.write_text(json.dumps(data, indent=2, ensure_ascii=False)+"
-", encoding="utf-8")
+    path.write_text(json.dumps(data, indent=2, ensure_ascii=False)+"\\n", encoding="utf-8")
 
 def now_iso():
     return datetime.now().astimezone().isoformat()
@@ -119,8 +118,7 @@ def main():
         "bids_submitted":bids,
         "target_usd_12h":TARGET
     }
-    RUNTIME.write_text(json.dumps(runtime,indent=2,ensure_ascii=False)+"
-",encoding="utf-8")
+    RUNTIME.write_text(json.dumps(runtime,indent=2,ensure_ascii=False)+"\\n",encoding="utf-8")
     save(BOARD,board)
     print(json.dumps({"revenue_usd":round(revenue/100,2),"target_usd":TARGET,"target_met":revenue/100>=TARGET,"finalized":board.get("finalized"),"evaluations":evaluations,"bids":bids},ensure_ascii=False))
 
