@@ -1,6 +1,7 @@
 import json
 import os
 import re
+import traceback
 from datetime import datetime, timezone
 from pathlib import Path
 from urllib.error import HTTPError, URLError
@@ -426,6 +427,7 @@ def main():
         ledger["last_error"] = str(e)
         ledger.setdefault("errors", []).append({"time": now(), "error": str(e)})
         log(f"CYCLE_ERROR {e}")
+        log(traceback.format_exc())
     save_json(LEDGER, ledger)
 
 
