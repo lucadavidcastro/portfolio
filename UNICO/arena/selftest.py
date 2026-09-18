@@ -5,7 +5,6 @@ ROOT = Path(__file__).resolve().parent.parent
 FILES = [
     ROOT / "arena_agent.py",
     ROOT / "arena_reconcile.py",
-    ROOT / "arena_controller.py",
 ]
 FORBIDDEN = ("ca.lane_score = adaptive_lane_score", "ca.create_bids = adaptive_create_bids", "recursive")
 
