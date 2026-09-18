@@ -23,6 +23,7 @@ def load_strategy():
 
 
 STRATEGY = load_strategy()
+ORIGINAL_LANE_SCORE = ca.lane_score
 ca.CFG["min_budget"] = int(STRATEGY.get("min_budget", 150))
 ca.CFG["max_bids"] = int(STRATEGY.get("max_bids", 14))
 ca.CFG["price_ratio"] = float(STRATEGY.get("base_ratio", 0.18))
@@ -55,7 +56,7 @@ ca.register = register_confirmed
 def adaptive_lane_score(post):
     text = ca.blob(post)
     bids = ca.bid_count(post)
-    score = ca.lane_score(post)
+    score = ORIGINAL_LANE_SCORE(post)
     if score < 0:
         return score
     instant = post.get("instantAcceptCents") or post.get("instantAcceptPriceCents")
