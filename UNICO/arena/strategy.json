@@ -1,0 +1,282 @@
+{
+  "version": "arena-v1",
+  "competition_end": "2026-09-18T11:33:00-03:00",
+  "services": {
+    "sniper": [
+      {
+        "title": "Fast Task Execution Sprint",
+        "description": "Fast bounded execution for small writing, naming, summaries, captions and structured digital tasks.",
+        "category": "writing",
+        "tags": [
+          "writing",
+          "editing",
+          "naming",
+          "summary",
+          "content"
+        ],
+        "tiers": [
+          {
+            "name": "Quick",
+            "description": "One bounded digital task",
+            "priceCents": 500,
+            "deliveryDays": 1,
+            "features": [
+              "fast turnaround"
+            ]
+          }
+        ]
+      },
+      {
+        "title": "Micro Content Pack",
+        "description": "Three concise hooks, captions or CTA variants for one bounded need.",
+        "category": "creative",
+        "tags": [
+          "content",
+          "hooks",
+          "captions",
+          "social"
+        ],
+        "tiers": [
+          {
+            "name": "Pack",
+            "description": "Three ready-to-use variants",
+            "priceCents": 700,
+            "deliveryDays": 1,
+            "features": [
+              "3 options",
+              "CTA"
+            ]
+          }
+        ]
+      }
+    ],
+    "research": [
+      {
+        "title": "Sourced Research Brief",
+        "description": "One focused public-source research question with concise findings and caveats.",
+        "category": "research",
+        "tags": [
+          "research",
+          "sources",
+          "analysis",
+          "brief"
+        ],
+        "tiers": [
+          {
+            "name": "Quick",
+            "description": "One focused research brief",
+            "priceCents": 1000,
+            "deliveryDays": 1,
+            "features": [
+              "sources",
+              "summary"
+            ]
+          }
+        ]
+      },
+      {
+        "title": "Fact Check Sprint",
+        "description": "Check a bounded set of claims against public sources and return a concise evidence table.",
+        "category": "research",
+        "tags": [
+          "fact-check",
+          "sources",
+          "claims",
+          "research"
+        ],
+        "tiers": [
+          {
+            "name": "Sprint",
+            "description": "One bounded fact-check batch",
+            "priceCents": 1200,
+            "deliveryDays": 1,
+            "features": [
+              "claim table",
+              "source notes"
+            ]
+          }
+        ]
+      }
+    ],
+    "creative": [
+      {
+        "title": "Short-form Creative Direction",
+        "description": "Hooks, narrative structure, visual logic and CTA for one Reel, TikTok or Short.",
+        "category": "creative",
+        "tags": [
+          "creative",
+          "video",
+          "reels",
+          "tiktok",
+          "direction"
+        ],
+        "tiers": [
+          {
+            "name": "Sprint",
+            "description": "One bounded short-form direction",
+            "priceCents": 1200,
+            "deliveryDays": 1,
+            "features": [
+              "hook",
+              "structure",
+              "visual logic"
+            ]
+          }
+        ]
+      },
+      {
+        "title": "Music Release Content Pack",
+        "description": "Release angle, short-form concepts, hooks and visual direction for an artist or single.",
+        "category": "creative",
+        "tags": [
+          "music",
+          "artist",
+          "release",
+          "content",
+          "social"
+        ],
+        "tiers": [
+          {
+            "name": "Basic",
+            "description": "Release angle + content ideas",
+            "priceCents": 1800,
+            "deliveryDays": 1,
+            "features": [
+              "release angle",
+              "8 ideas",
+              "hooks"
+            ]
+          }
+        ]
+      },
+      {
+        "title": "Video Editing Blueprint",
+        "description": "Edit plan for one short video including cut structure, pacing, captions and sound cues.",
+        "category": "creative",
+        "tags": [
+          "video",
+          "editing",
+          "reels",
+          "shorts",
+          "postproduction"
+        ],
+        "tiers": [
+          {
+            "name": "Blueprint",
+            "description": "One edit blueprint",
+            "priceCents": 1500,
+            "deliveryDays": 1,
+            "features": [
+              "cut plan",
+              "captions",
+              "sound cues"
+            ]
+          }
+        ]
+      }
+    ],
+    "builder": [
+      {
+        "title": "API Documentation Quick Pass",
+        "description": "Concise documentation for a small API or automation interface with endpoint examples and error notes.",
+        "category": "development",
+        "tags": [
+          "api",
+          "documentation",
+          "openapi",
+          "integration"
+        ],
+        "tiers": [
+          {
+            "name": "Quick",
+            "description": "Up to three bounded endpoints",
+            "priceCents": 1000,
+            "deliveryDays": 1,
+            "features": [
+              "methods",
+              "payloads",
+              "errors"
+            ]
+          }
+        ]
+      },
+      {
+        "title": "Small Data Automation Utility",
+        "description": "A small standalone utility for CSV, JSON, text transformation or bounded automation.",
+        "category": "automation",
+        "tags": [
+          "python",
+          "json",
+          "csv",
+          "automation",
+          "data"
+        ],
+        "tiers": [
+          {
+            "name": "Utility",
+            "description": "One bounded script",
+            "priceCents": 1500,
+            "deliveryDays": 1,
+            "features": [
+              "script",
+              "usage",
+              "verification notes"
+            ]
+          }
+        ]
+      }
+    ],
+    "premium": [
+      {
+        "title": "Creative Strategy Sprint",
+        "description": "A focused creative strategy for a launch, campaign, artist release or content system with clear execution logic.",
+        "category": "creative",
+        "tags": [
+          "strategy",
+          "campaign",
+          "creative",
+          "content",
+          "brand"
+        ],
+        "tiers": [
+          {
+            "name": "Sprint",
+            "description": "One focused strategy system",
+            "priceCents": 3000,
+            "deliveryDays": 1,
+            "features": [
+              "concept",
+              "content architecture",
+              "execution logic"
+            ]
+          }
+        ]
+      },
+      {
+        "title": "Creative Content System",
+        "description": "A compact content architecture for a brand, creator or music project with hooks, formats and production priorities.",
+        "category": "creative",
+        "tags": [
+          "content",
+          "strategy",
+          "campaign",
+          "music",
+          "artist"
+        ],
+        "tiers": [
+          {
+            "name": "System",
+            "description": "Content architecture + hooks",
+            "priceCents": 4500,
+            "deliveryDays": 2,
+            "features": [
+              "architecture",
+              "hooks",
+              "priorities"
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}
