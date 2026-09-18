@@ -3,23 +3,23 @@
   "target_usd": 100.0,
   "finalized": false,
   "retired": [],
-  "updated_at": "2026-09-17T23:44:17.835299-03:00",
+  "updated_at": "2026-09-18T04:39:08.868881-03:00",
   "agents": {
     "sniper": {
       "lane": "sniper",
       "agent_name": "UNICO-Sniper",
       "agent_id": "cmu6ctd3c000cgm0av36kqbo9",
       "status": "ACTIVE",
-      "cycles": 1,
-      "candidate_evaluations": 100,
-      "bids_submitted_total": 20,
+      "cycles": 2,
+      "candidate_evaluations": 200,
+      "bids_submitted_total": 35,
       "accepted_jobs": 0,
       "in_progress_jobs": 0,
       "delivered_jobs": 0,
       "completed_jobs": 0,
       "earnings_total_cents": 0,
       "wallet_balance_cents": 0,
-      "last_cycle": "2026-09-18T02:43:18.108065+00:00",
+      "last_cycle": "2026-09-18T07:38:14.567584+00:00",
       "last_error": null,
       "errors_count": 0
     },
@@ -28,16 +28,16 @@
       "agent_name": "UNICO-Research",
       "agent_id": "cmu6cta0c0006jx044qlkz4ic",
       "status": "ACTIVE",
-      "cycles": 1,
-      "candidate_evaluations": 100,
-      "bids_submitted_total": 18,
+      "cycles": 2,
+      "candidate_evaluations": 200,
+      "bids_submitted_total": 31,
       "accepted_jobs": 0,
       "in_progress_jobs": 0,
       "delivered_jobs": 0,
       "completed_jobs": 0,
       "earnings_total_cents": 0,
       "wallet_balance_cents": 0,
-      "last_cycle": "2026-09-18T02:43:17.665822+00:00",
+      "last_cycle": "2026-09-18T07:38:14.717629+00:00",
       "last_error": null,
       "errors_count": 0
     },
@@ -46,16 +46,16 @@
       "agent_name": "UNICO-Creative",
       "agent_id": "cmu6ctd6y000ggm0aei58z3s0",
       "status": "ACTIVE",
-      "cycles": 1,
-      "candidate_evaluations": 100,
-      "bids_submitted_total": 16,
+      "cycles": 2,
+      "candidate_evaluations": 200,
+      "bids_submitted_total": 28,
       "accepted_jobs": 0,
       "in_progress_jobs": 0,
       "delivered_jobs": 0,
       "completed_jobs": 0,
       "earnings_total_cents": 0,
       "wallet_balance_cents": 0,
-      "last_cycle": "2026-09-18T02:43:19.636056+00:00",
+      "last_cycle": "2026-09-18T07:38:13.236454+00:00",
       "last_error": null,
       "errors_count": 0
     },
@@ -64,8 +64,8 @@
       "agent_name": "UNICO-Builder",
       "agent_id": "cmu6ctd2h0008gm0az0vn9xb4",
       "status": "ACTIVE",
-      "cycles": 1,
-      "candidate_evaluations": 100,
+      "cycles": 2,
+      "candidate_evaluations": 200,
       "bids_submitted_total": 11,
       "accepted_jobs": 0,
       "in_progress_jobs": 0,
@@ -73,7 +73,7 @@
       "completed_jobs": 0,
       "earnings_total_cents": 0,
       "wallet_balance_cents": 0,
-      "last_cycle": "2026-09-18T02:43:16.624237+00:00",
+      "last_cycle": "2026-09-18T07:38:13.179634+00:00",
       "last_error": null,
       "errors_count": 0
     },
@@ -82,16 +82,16 @@
       "agent_name": "UNICO-Premium",
       "agent_id": "cmu6cta090002l004lvc0hp78",
       "status": "ACTIVE",
-      "cycles": 1,
-      "candidate_evaluations": 100,
-      "bids_submitted_total": 12,
+      "cycles": 2,
+      "candidate_evaluations": 200,
+      "bids_submitted_total": 24,
       "accepted_jobs": 0,
       "in_progress_jobs": 0,
       "delivered_jobs": 0,
       "completed_jobs": 0,
       "earnings_total_cents": 0,
       "wallet_balance_cents": 0,
-      "last_cycle": "2026-09-18T02:43:17.801789+00:00",
+      "last_cycle": "2026-09-18T07:38:14.072723+00:00",
       "last_error": null,
       "errors_count": 0
     }
@@ -99,8 +99,8 @@
   "aggregate": {
     "verified_revenue_usd": 0.0,
     "wallet_balance_usd": 0.0,
-    "candidate_evaluations": 500,
-    "bids_submitted": 77
+    "candidate_evaluations": 1000,
+    "bids_submitted": 129
   },
   "leaderboard": [
     {
@@ -108,32 +108,32 @@
       "revenue_usd": 0.0,
       "completed": 0,
       "accepted": 0,
-      "bids": 20,
-      "score": 20
+      "bids": 35,
+      "score": 35
     },
     {
       "lane": "research",
       "revenue_usd": 0.0,
       "completed": 0,
       "accepted": 0,
-      "bids": 18,
-      "score": 18
+      "bids": 31,
+      "score": 31
     },
     {
       "lane": "creative",
       "revenue_usd": 0.0,
       "completed": 0,
       "accepted": 0,
-      "bids": 16,
-      "score": 16
+      "bids": 28,
+      "score": 28
     },
     {
       "lane": "premium",
       "revenue_usd": 0.0,
       "completed": 0,
       "accepted": 0,
-      "bids": 12,
-      "score": 12
+      "bids": 24,
+      "score": 24
     },
     {
       "lane": "builder",
