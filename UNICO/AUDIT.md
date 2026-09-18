@@ -68,3 +68,11 @@
 - Aggregate bids: 120
 - Verified revenue: USD 0.00
 
+## Adaptive controller 2026-09-18T01:35:43.487125+00:00
+
+- incumbent: zero acceptance after 48 bids -> ratio 0.0813->0.0800; crowded-job cutoff 40->40
+- hunter: zero acceptance after 40 bids -> ratio 0.0800->0.0800; crowded-job cutoff 40->40
+- specialist: zero acceptance after 32 bids -> ratio 0.0995->0.0816; crowded-job cutoff 40->40
+- Aggregate bids: 120
+- Verified revenue: USD 0.00
+

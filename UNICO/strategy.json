@@ -1,11 +1,11 @@
 {
   "version": "v4-adaptive",
-  "updated_at": "2026-09-17T23:47:59.232930+00:00",
+  "updated_at": "2026-09-18T01:35:43.486882+00:00",
   "lanes": {
     "incumbent": {
       "min_budget": 150,
       "max_bids": 14,
-      "base_ratio": 0.0813,
+      "base_ratio": 0.08,
       "high_bid_cutoff": 40
     },
     "hunter": {
@@ -17,14 +17,14 @@
     "specialist": {
       "min_budget": 300,
       "max_bids": 12,
-      "base_ratio": 0.0995,
+      "base_ratio": 0.0816,
       "high_bid_cutoff": 40
     }
   },
   "global": {
     "total_bids": 120,
     "verified_revenue_usd": 0.0,
-    "last_reason": "incumbent: zero acceptance after 48 bids -> ratio 0.0992->0.0813; crowded-job cutoff 45->40 | hunter: zero acceptance after 40 bids -> ratio 0.0882->0.0800; crowded-job cutoff 45->40 | specialist: zero acceptance after 32 bids -> ratio 0.1213->0.0995; crowded-job cutoff 45->40",
-    "controller_runs": 4
+    "last_reason": "incumbent: zero acceptance after 48 bids -> ratio 0.0813->0.0800; crowded-job cutoff 40->40 | hunter: zero acceptance after 40 bids -> ratio 0.0800->0.0800; crowded-job cutoff 40->40 | specialist: zero acceptance after 32 bids -> ratio 0.0995->0.0816; crowded-job cutoff 40->40",
+    "controller_runs": 5
   }
 }
