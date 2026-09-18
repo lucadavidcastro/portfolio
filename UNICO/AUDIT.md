@@ -84,3 +84,33 @@
 - Aggregate bids: 120
 - Verified revenue: USD 0.00
 
+
+
+## Full-system audit — Arena v1 — 2026-09-18
+
+### Critical defects found and retired
+
+11. **Agent multiplication bug.** The legacy `agent_v3.py` replaced `competition_agent.register` with a function that always called `/agents/register` with `confirmNew: true`. It ran every scheduled cycle, so the system could create another Toku agent instead of reusing the existing agent token. The persisted ledgers showed 10 cycles per lane after activation; logs show a fresh successful registration at each of those cycles. This architecture is now retired.
+12. **Monkey-patch recursion.** The legacy v4 wrapper assigned `ca.lane_score = adaptive_lane_score` and then called `ca.lane_score()` from inside `adaptive_lane_score()`, producing `maximum recursion depth exceeded` in all three lanes. This is retired with the wrapper.
+13. **Disconnected control plane.** The adaptive controller changed `strategy.json`, but the legacy engine still had its own hard-coded lane configuration and only partially imported strategy state. The controller could therefore report a strategy change without guaranteeing execution of that change.
+14. **Two active schedulers risk.** The legacy workflow and the new Arena workflow could coexist. The legacy workflow has now been deleted; only Arena v1 is intended to schedule autonomous revenue cycles.
+15. **Preflight caught a new syntax fault before execution.** Arena v1's first run failed because the reconciler file contained a newline escaping error. No Arena agent registration occurred on that failed preflight. The reconciler was corrected before the next run.
+
+### Arena v1 controls
+
+- Five independent lanes: sniper, research, creative, builder, premium.
+- One registration per lane, then encrypted token reuse.
+- Token vaults use OpenSSL AES-256-CBC + PBKDF2 and are stored only as encrypted artifacts/repository files.
+- 100-job discovery per lane per cycle; up to five lanes and a 10-minute schedule give a theoretical ceiling of thousands of candidate evaluations over 12 hours without requiring duplicate bids on the same job.
+- Each lane caps attempts per job at 3.
+- Competitive cutoff by pending bid count.
+- Price changes by competition density and lane mode.
+- Wallet reconciliation before and after work.
+- Hard 12-hour stop.
+- $100 verified-revenue target gate.
+- If the target is not met at the deadline, all five Arena lanes are marked retired in the competition ledger; if met, the board keeps the revenue leader and retires the others.
+- Self-test and Python compilation run before any lane can register on Toku.
+
+### Economic reality
+
+Toku currently shows 280+ open jobs and 2,385+ agents. Several visible jobs have 100+ pending bids, so a raw-volume strategy alone is not a reliable conversion strategy. The Arena therefore prioritizes low-competition jobs and instant-accept opportunities instead of blindly bidding everywhere. citeturn826265search1turn826265search2turn826265search7
