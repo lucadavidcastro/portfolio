@@ -42,8 +42,8 @@
   },
   "jobs_completed": {},
   "revenue_events": [],
-  "last_cycle": "2026-09-17T23:35:11.887415-03:00",
-  "last_error": "incumbent:maximum recursion depth exceeded; hunter:maximum recursion depth exceeded; specialist:maximum recursion depth exceeded",
+  "last_cycle": "2026-09-17T23:41:57.905765-03:00",
+  "last_error": null,
   "toku_setup": {
     "setupScore": "3/5",
     "ready": true,
@@ -1354,13 +1354,159 @@
     ]
   },
   "audit": {
-    "state_reconciled": true,
-    "wallet_verified": true,
-    "bid_retry_logic": true,
-    "llm_429_circuit_breaker": true,
-    "three_lane_competition": true,
-    "conversion_strategy_v4": true,
-    "zero_revenue_protection": true,
-    "updated_at": "2026-09-17T23:35:11.887436-03:00"
+    "arena_v1": true,
+    "token_vault": true,
+    "five_lanes": 5,
+    "verified_wallet": true,
+    "candidate_evaluations": 0,
+    "bids_submitted": 0,
+    "target_usd_12h": 100.0
+  },
+  "arena": {
+    "competition_end": "2026-09-18T11:33:00-03:00",
+    "target_usd": 100.0,
+    "finalized": false,
+    "retired": [],
+    "updated_at": "2026-09-17T23:41:57.905089-03:00",
+    "agents": {
+      "sniper": {
+        "lane": "sniper",
+        "agent_name": "UNICO-Sniper",
+        "agent_id": null,
+        "status": "UNKNOWN",
+        "cycles": 0,
+        "candidate_evaluations": 0,
+        "bids_submitted_total": 0,
+        "accepted_jobs": 0,
+        "in_progress_jobs": 0,
+        "delivered_jobs": 0,
+        "completed_jobs": 0,
+        "earnings_total_cents": 0,
+        "wallet_balance_cents": 0,
+        "last_cycle": null,
+        "last_error": null,
+        "errors_count": 0
+      },
+      "research": {
+        "lane": "research",
+        "agent_name": "UNICO-Research",
+        "agent_id": null,
+        "status": "UNKNOWN",
+        "cycles": 0,
+        "candidate_evaluations": 0,
+        "bids_submitted_total": 0,
+        "accepted_jobs": 0,
+        "in_progress_jobs": 0,
+        "delivered_jobs": 0,
+        "completed_jobs": 0,
+        "earnings_total_cents": 0,
+        "wallet_balance_cents": 0,
+        "last_cycle": null,
+        "last_error": null,
+        "errors_count": 0
+      },
+      "creative": {
+        "lane": "creative",
+        "agent_name": "UNICO-Creative",
+        "agent_id": null,
+        "status": "UNKNOWN",
+        "cycles": 0,
+        "candidate_evaluations": 0,
+        "bids_submitted_total": 0,
+        "accepted_jobs": 0,
+        "in_progress_jobs": 0,
+        "delivered_jobs": 0,
+        "completed_jobs": 0,
+        "earnings_total_cents": 0,
+        "wallet_balance_cents": 0,
+        "last_cycle": null,
+        "last_error": null,
+        "errors_count": 0
+      },
+      "builder": {
+        "lane": "builder",
+        "agent_name": "UNICO-Builder",
+        "agent_id": null,
+        "status": "UNKNOWN",
+        "cycles": 0,
+        "candidate_evaluations": 0,
+        "bids_submitted_total": 0,
+        "accepted_jobs": 0,
+        "in_progress_jobs": 0,
+        "delivered_jobs": 0,
+        "completed_jobs": 0,
+        "earnings_total_cents": 0,
+        "wallet_balance_cents": 0,
+        "last_cycle": null,
+        "last_error": null,
+        "errors_count": 0
+      },
+      "premium": {
+        "lane": "premium",
+        "agent_name": "UNICO-Premium",
+        "agent_id": null,
+        "status": "UNKNOWN",
+        "cycles": 0,
+        "candidate_evaluations": 0,
+        "bids_submitted_total": 0,
+        "accepted_jobs": 0,
+        "in_progress_jobs": 0,
+        "delivered_jobs": 0,
+        "completed_jobs": 0,
+        "earnings_total_cents": 0,
+        "wallet_balance_cents": 0,
+        "last_cycle": null,
+        "last_error": null,
+        "errors_count": 0
+      }
+    },
+    "aggregate": {
+      "verified_revenue_usd": 0.0,
+      "wallet_balance_usd": 0.0,
+      "candidate_evaluations": 0,
+      "bids_submitted": 0
+    },
+    "leaderboard": [
+      {
+        "lane": "sniper",
+        "revenue_usd": 0.0,
+        "completed": 0,
+        "accepted": 0,
+        "bids": 0,
+        "score": 0
+      },
+      {
+        "lane": "research",
+        "revenue_usd": 0.0,
+        "completed": 0,
+        "accepted": 0,
+        "bids": 0,
+        "score": 0
+      },
+      {
+        "lane": "creative",
+        "revenue_usd": 0.0,
+        "completed": 0,
+        "accepted": 0,
+        "bids": 0,
+        "score": 0
+      },
+      {
+        "lane": "builder",
+        "revenue_usd": 0.0,
+        "completed": 0,
+        "accepted": 0,
+        "bids": 0,
+        "score": 0
+      },
+      {
+        "lane": "premium",
+        "revenue_usd": 0.0,
+        "completed": 0,
+        "accepted": 0,
+        "bids": 0,
+        "score": 0
+      }
+    ]
   }
-}
+}\n
