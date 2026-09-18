@@ -38,7 +38,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Validate Python syntax
-        run: python3 -m py_compile UNICO/arena_agent.py UNICO/arena_reconcile.py UNICO/arena_controller.py UNICO/arena/selftest.py
+        run: python3 -m py_compile UNICO/arena_agent.py UNICO/arena_reconcile.py UNICO/arena/selftest.py
       - name: Run architecture self-test
         run: python3 UNICO/arena/selftest.py
       - name: Verify required secrets
