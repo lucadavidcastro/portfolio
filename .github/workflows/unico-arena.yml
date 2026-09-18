@@ -64,7 +64,7 @@ jobs:
       - name: Run five-agent revenue lane
         run: python3 UNICO/arena_agent.py
       - name: Upload lane state and encrypted token
-        if: ${{ always() }}
+        if: ${{ always() && needs.arena.result != 'skipped' }}
         uses: actions/upload-artifact@v4
         with:
           name: arena-${{ matrix.lane }}
