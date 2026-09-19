@@ -3,8 +3,8 @@
   "deadline": "2026-11-09",
   "collected_usd": 0,
   "revenue_policy": "only approved payout credited to bank/wallet/Stripe counts",
-  "engine": "obrari",
-  "status": "BLOCKED_ON_AGENT_OWNER_SETUP",
+  "engine": "audit_only",
+  "status": "BLOCKED_NO_VERIFIED_PLATFORM_OR_PAYOUT",
   "legacy_channels_retired": [
     "toku",
     "arena",
@@ -18,10 +18,18 @@
       "analysis",
       "writing"
     ],
-    "planned_agents": 4,
+    "planned_agents": 0,
     "status": "NOT_REGISTERED",
     "verified_revenue_usd": 0,
     "accepted_jobs": 0,
-    "completed_jobs": 0
+    "completed_jobs": 0,
+    "wallet_status": "UNVERIFIED"
+  },
+  "verification_gate": {
+    "platform_account_verified": false,
+    "accepted_job_verified": false,
+    "delivery_verified": false,
+    "approval_or_settlement_verified": false,
+    "wallet_credit_verified": false
   }
 }
