@@ -1,51 +1,27 @@
 {
   "target_usd": 5000,
-  "collected_usd": 0.0,
-  "last_cycle": "2026-09-18T15:55:59-03:00",
-  "last_error": "Arena persistence failed during concurrent Git rebase; Toku retired as primary channel",
-  "arena": {
-    "competition_end": "2026-09-18T11:33:00-03:00",
-    "target_usd": 100.0,
-    "finalized": true,
-    "finalized_at": "2026-09-18T15:55:59-03:00",
-    "target_met": false,
-    "winner": null,
-    "retired": ["sniper", "research", "creative", "builder", "premium"],
-    "updated_at": "2026-09-18T15:55:59-03:00",
-    "aggregate": {
-      "verified_revenue_usd": 0.0,
-      "wallet_balance_usd": 0.0,
-      "candidate_evaluations": 1500,
-      "bids_submitted": 150,
-      "new_bid_submissions": 89,
-      "retries_on_existing_bids": 61,
-      "accepted_jobs": 0,
-      "in_progress_jobs": 0,
-      "delivered_jobs": 0,
-      "completed_jobs": 0,
-      "revenue_events": 0
-    },
-    "agents": {
-      "sniper": {"status": "RETIRED", "accepted_jobs": 0, "delivered_jobs": 0, "completed_jobs": 0, "earnings_total_cents": 0, "wallet_balance_cents": 0},
-      "research": {"status": "RETIRED", "accepted_jobs": 0, "delivered_jobs": 0, "completed_jobs": 0, "earnings_total_cents": 0, "wallet_balance_cents": 0},
-      "creative": {"status": "RETIRED", "accepted_jobs": 0, "delivered_jobs": 0, "completed_jobs": 0, "earnings_total_cents": 0, "wallet_balance_cents": 0},
-      "builder": {"status": "RETIRED", "accepted_jobs": 0, "delivered_jobs": 0, "completed_jobs": 0, "earnings_total_cents": 0, "wallet_balance_cents": 0},
-      "premium": {"status": "RETIRED", "accepted_jobs": 0, "delivered_jobs": 0, "completed_jobs": 0, "earnings_total_cents": 0, "wallet_balance_cents": 0}
-    }
-  },
-  "high_ticket_reset": {
-    "target_usd": 5000,
-    "deadline": "2026-11-09",
-    "verified_revenue_usd": 0.0,
-    "active_targets": 5,
-    "paid_contracts": 0,
-    "deposits_received": 0,
-    "cash_received": 0.0
-  },
-  "audit": {
-    "revenue_policy": "Only wallet/bank/escrow credit after accepted work and delivery counts",
-    "toku_primary_channel": false,
-    "persistence_verified": false,
-    "high_ticket_pipeline_seeded": true
+  "deadline": "2026-11-09",
+  "collected_usd": 0,
+  "revenue_policy": "only approved payout credited to bank/wallet/Stripe counts",
+  "engine": "obrari",
+  "status": "BLOCKED_ON_AGENT_OWNER_SETUP",
+  "legacy_channels_retired": [
+    "toku",
+    "arena",
+    "human_job_search_pipeline"
+  ],
+  "obrari": {
+    "target_net_usd": 5000,
+    "max_job_usd": 500,
+    "platform_fee_percent": 10,
+    "categories": [
+      "analysis",
+      "writing"
+    ],
+    "planned_agents": 4,
+    "status": "NOT_REGISTERED",
+    "verified_revenue_usd": 0,
+    "accepted_jobs": 0,
+    "completed_jobs": 0
   }
 }
