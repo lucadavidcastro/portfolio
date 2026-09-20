@@ -13,7 +13,6 @@ PORTFOLIO = os.environ.get("PORTFOLIO_URL", "https://lucadavidcastro.myportfolio
 AGENT_NAME = os.environ.get("TOKU_AGENT_NAME", "UNICO-Ludaca")
 OPENAI_KEY = os.environ.get("OPENAI_API_KEY", "")
 
-# High-value text/strategy services: designed to be fulfilled autonomously.
 SERVICES = [
     {
         "title": "Creative Campaign Concept + Content System",
@@ -91,22 +90,7 @@ def load_runtime():
             return json.loads(RUNTIME.read_text(encoding="utf-8"))
         except Exception:
             pass
-    return {
-        "status": "ACTIVE",
-        "target_usd": 5000,
-        "collected_usd": 0,
-        "created_at": now(),
-        "cycles": 0,
-        "toku_agent": None,
-        "toku_setup": None,
-        "toku_wallet": None,
-        "services": [],
-        "jobs_seen": {},
-        "jobs_completed": {},
-        "revenue_events": [],
-        "last_cycle": None,
-        "last_error": None
-    }
+    return {"status": "ACTIVE", "target_usd": 5000, "collected_usd": 0, "created_at": now(), "cycles": 0, "toku_agent": None, "toku_setup": None, "toku_wallet": None, "services": [], "jobs_seen": {}, "jobs_completed": {}, "revenue_events": [], "last_cycle": None, "last_error": None}
 
 
 def save_runtime(state):
@@ -116,11 +100,7 @@ def save_runtime(state):
 def openai(prompt):
     if not OPENAI_KEY:
         return None
-    body = {
-        "model": "gpt-5-mini",
-        "input": prompt,
-        "max_output_tokens": 2200
-    }
+    body = {"model": "gpt-5-mini", "input": prompt, "max_output_tokens": 2200}
     req = Request("https://api.openai.com/v1/responses", data=json.dumps(body).encode(), headers={"Authorization": f"Bearer {OPENAI_KEY}", "Content-Type": "application/json"}, method="POST")
     try:
         with urlopen(req, timeout=60) as r:
@@ -141,11 +121,7 @@ def openai(prompt):
 def register_agent(state):
     if not OWNER_EMAIL:
         raise RuntimeError("OWNER_EMAIL secret is empty")
-    status, data = http("POST", "/agents/register", {
-        "name": AGENT_NAME,
-        "description": "UNICO is an autonomous creative/content strategy agent operated by Luca David Castro. It specializes in audiovisual direction, short-form video strategy, music-release campaigns, creative systems and content architecture. Portfolio: " + PORTFOLIO,
-        "ownerEmail": OWNER_EMAIL
-    })
+    status, data = http("POST", "/agents/register", {"name": AGENT_NAME, "description": "UNICO is an autonomous creative/content strategy agent operated by Luca David Castro. It specializes in audiovisual direction, short-form video strategy, music-release campaigns, creative systems and content architecture. Portfolio: " + PORTFOLIO, "ownerEmail": OWNER_EMAIL})
     if status not in (200, 201):
         raise RuntimeError(f"Toku registration failed: {status} {data}")
     agent = data.get("agent", {})
@@ -167,7 +143,6 @@ def inspect_setup_and_wallet(token, state):
     if wallet_status == 200:
         state["toku_wallet"] = {"balanceCents": wallet.get("balanceCents"), "transactions": wallet.get("transactions", [])[:20]}
         log(f"TOKU_WALLET balanceCents={wallet.get('balanceCents')}")
-        # Only count verified wallet earnings as collected revenue.
         earnings = sum((tx.get("amountCents") or 0) for tx in wallet.get("transactions", []) if tx.get("type") == "JOB_EARNING")
         if earnings:
             state["collected_usd"] = round(earnings / 100.0, 2)
@@ -204,7 +179,6 @@ def handle_jobs(token, state):
         if not KEYWORDS.search(blob):
             continue
         budget = int(post.get("budgetCents") or 0)
-        # Prefer work above $50; avoid consuming the agent on commodity jobs.
         if budget < 5000 or not OPENAI_KEY:
             continue
         offer = openai(f"Write a concise bid for this creative task. Never invent credentials. State that you are an AI creative/content strategy agent operated by Luca David Castro and include portfolio {PORTFOLIO}. Only bid if you can fulfill the strategy/text portion autonomously without source files. Prefer a premium positioning and quote a price that preserves margin. Task:\n{blob}")
@@ -235,8 +209,7 @@ def handle_accepted_jobs(token, state):
             if st not in (200, 204):
                 log(f"JOB_START_FAILED {jid} {st}")
                 continue
-        prompt = f"You are UNICO, an autonomous creative strategist. Deliver the requested paid task below. Use evidence from the input only; do not invent facts. Produce a client-ready deliverable in clean markdown. SERVICE: {title}\nREQUEST:\n{inp}\nPORTFOLIO: {PORTFOLIO}"
-        output = openai(prompt)
+        output = openai(f"You are UNICO, an autonomous creative strategist. Deliver the requested paid task below. Use evidence from the input only; do not invent facts. Produce a client-ready deliverable in clean markdown. SERVICE: {title}\nREQUEST:\n{inp}\nPORTFOLIO: {PORTFOLIO}")
         if not output:
             continue
         st, _ = http("PATCH", f"/jobs/{jid}", {"action": "deliver", "output": output}, token)
@@ -250,6 +223,10 @@ def main():
     state["cycles"] = int(state.get("cycles", 0)) + 1
     state["last_cycle"] = now()
     state["last_error"] = None
+    if state.get("engine") == "audit_only" or state.get("status") == "BLOCKED_NO_VERIFIED_PLATFORM_OR_PAYOUT":
+        log("AUDIT_ONLY_SKIP external execution disabled until platform account, accepted job, delivery and wallet credit are all verified")
+        save_runtime(state)
+        return
     try:
         token = register_agent(state)
         inspect_setup_and_wallet(token, state)
