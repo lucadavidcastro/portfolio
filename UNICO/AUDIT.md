@@ -1,8 +1,8 @@
-# UNICO Audit — 2026-09-19
+# UNICO Audit — 2026-09-20
 
 ## Scope
 
-This audit checks execution, Toku activity, bid acceptance, jobs, delivery, wallet evidence, errors, competition, pricing, selection and service strategy. Revenue is counted only when a completed job is linked to a verified wallet/bank balance or payout event. Leads, bids, contracts, escrow, receivables and pending work are excluded.
+This audit checks Toku, bid acceptance, jobs, delivery, wallet evidence, errors, competition, pricing, selection and service strategy. Revenue is counted only when a completed job is linked to a verified wallet/bank/Stripe credit or payout event. Leads, bids, contracts, escrow, receivables and pending work are excluded.
 
 ## Verified economic state
 
@@ -13,64 +13,62 @@ This audit checks execution, Toku activity, bid acceptance, jobs, delivery, wall
 - Delivered jobs: **0 verified**.
 - Completed jobs: **0 verified**.
 - Revenue events: **none**.
-- Revenue ledger: header only; no collected transaction rows. (`REVENUE.csv`.)
+- `REVENUE.csv`: header plus `NOT_COLLECTED`; no transaction rows.
 
 No revenue advancement is declared.
 
-## Cross-ledger findings
+## Evidence cross-check
 
-1. `REVENUE.csv` contains no transaction rows, only `NOT_COLLECTED`; therefore collected revenue is zero.
-2. `runtime.json` still names `obrari` as the engine but marks it `NOT_REGISTERED` / `BLOCKED_ON_AGENT_OWNER_SETUP`; therefore Obrari is not an active execution or revenue channel.
-3. `runtime.json` correctly retires `toku`, `arena` and the human-job-search pipeline as legacy channels; no current payout evidence overrides that status.
-4. `STATE.md` is stale relative to the current runtime: it still says `CURRENT_DATE: 2026-09-16`, describes Toku infrastructure as deployed, and lists Toku payout onboarding as a remaining dependency. This is historical context only, not proof of a live channel.
-5. No repository file provides a wallet address, wallet balance snapshot, payout receipt, transaction hash, or bank/Stripe credit evidence. Wallet status must remain **unverified**.
+- `runtime.json` remains `engine: audit_only`, `status: BLOCKED_NO_VERIFIED_PLATFORM_OR_PAYOUT`, `collected_usd: 0`, `planned_agents: 0`, and all verification-gate flags false.
+- `REVENUE.csv` contains no collected transaction rows.
+- `STATE.md` was stale and inconsistent with the runtime (old date, old deadline, active status, and outdated Toku onboarding narrative). It was reconciled to 2026-09-20, deadline 2026-11-09, and blocked/audit-only status.
+- No wallet address, balance snapshot, payout receipt, transaction hash, bank credit or Stripe credit evidence exists in the repository.
 
-## Toku audit
+## Toku
 
-- Historical Arena ledger activity: 1,500 candidate evaluations, 150 bid actions, 89 new submissions and 61 re-attempts.
-- Verified acceptances: **0**.
-- Verified deliveries: **0**.
-- Verified payouts: **0**.
-- Toku therefore remains retired as a revenue engine. Further autonomous bidding is disabled in the economic model until a controlled test proves the full chain: platform account active → bid accepted → job delivered → payout credited.
+- Historical activity is not economic proof: prior ledgers record candidate evaluations, bid actions, submissions and re-attempts, but no verified acceptance, delivery or payout.
+- No current platform account, accepted job, delivery artifact, approval/settlement event or wallet credit is evidenced.
+- Toku remains retired from the revenue runtime. No bids should be placed until a controlled reactivation test can prove the full chain.
 
-The prior Toku process optimized bid volume rather than buyer action and payout proof. That is a selection failure, not a pricing win.
+## Execution and errors
 
-## Acceptance, jobs and delivery
+- `UNICO/agent.py` previously entered `main()` directly into external Toku registration, setup inspection, service publication, job discovery and bidding without honoring the current `runtime.json` audit-only state.
+- This was a material control defect: the repository claimed a blocked/audit-only runtime while code could still attempt external execution.
+- Fixed in this audit: `main()` now exits before registration, bidding or delivery whenever `engine == audit_only` or `status == BLOCKED_NO_VERIFIED_PLATFORM_OR_PAYOUT`, logs `AUDIT_ONLY_SKIP`, persists the cycle and leaves revenue unchanged.
+- This prevents false activity, accidental bidding and unverified runtime claims until the gate is deliberately cleared.
 
-No current ledger or repository evidence proves an accepted job, client approval, delivery artifact, or settled payment. Do not count any proposal, contract, pending task, or escrow balance toward revenue.
+## Wallet and revenue integrity
 
-## Errors and persistence
+- `agent.py` only derives `collected_usd` from Toku `JOB_EARNING` transactions returned by the wallet endpoint, but no current wallet response is stored as evidence in the repository and the platform is not verified.
+- No amount is counted from bids, contracts, service listings, escrow, pending jobs or platform balances without withdrawal/credit evidence.
+- `REVENUE.csv` remains unchanged because there is no qualifying transaction.
 
-The prior Arena audit recorded persistence failures caused by concurrent Git writes and merge conflicts. Current repository state does not show a live scheduler or a verified execution run for Obrari. Until a single-writer reconcile path and a post-run verification artifact exist, autonomous claims must remain audit-only.
+## Competition, pricing and selection
 
-## Competition, pricing and service selection
+Evidence supports a conservative reactivation strategy, not volume bidding:
 
-Evidence supports a conservative strategy:
+- Avoid low-ticket, high-volume marketplace bidding as the primary route to USD 5,000.
+- Prefer narrow services with a crisp acceptance test and delivery under 24–48 hours.
+- Current service configuration has price floors that are directionally reasonable for a first controlled test: approximately USD 75–150 for bounded strategy/content deliverables, with higher tiers only after acceptance evidence.
+- Do not optimize for bid count. Optimize for acceptance rate, completion rate, approval rate and verified payout rate.
+- Reject vague briefs, unpaid tests, requests requiring unauthorized credentials, jobs without a visible payout path, and work outside autonomous text/strategy scope.
 
-- Avoid low-ticket, high-volume marketplace bidding as the primary path to a USD 5,000 goal.
-- Prefer narrow, text/data/strategy services with a clear acceptance test and delivery in under 24 hours.
-- Use a minimum viable price of **USD 75** only for a tightly bounded first service; use **USD 100–150** for higher-value audits or content systems once acceptance evidence exists.
-- Reject vague briefs, unpaid tests, unverifiable claims, platform jobs without a visible payout path, and any task requiring unauthorized credentials.
-- No service is considered validated until at least one paid completion is evidenced end-to-end.
+## Changes applied
 
-## Optimization applied
-
-- Kept verified revenue at USD 0.00.
-- Classified Obrari as **blocked/unregistered**, not active.
-- Kept Toku retired; no new bids should be placed by the economic model.
-- Marked wallet status as **unverified** rather than inferred from platform UI.
-- Added a stale-state warning for `STATE.md` versus `runtime.json`.
-- Preserved the revenue gate: accepted job + delivery + approval/settlement + wallet/bank credit evidence.
+1. Updated `UNICO/agent.py` to enforce the audit-only/block gate before any Toku registration, service publication, bidding or delivery.
+2. Reconciled `UNICO/STATE.md` to the current date and runtime truth; removed stale claims that Toku was deployed/active and made the verification gate explicit.
+3. Kept `UNICO/runtime.json` unchanged economically at USD 0 and wallet unverified.
+4. Kept `UNICO/REVENUE.csv` unchanged because no qualifying payout exists.
 
 ## Required evidence for the next positive update
 
-All of the following must exist for the same transaction:
+All evidence must refer to the same transaction:
 
-1. Platform or buyer identity.
-2. Accepted job or signed contract.
-3. Delivery artifact and delivery timestamp.
-4. Approval/completion evidence.
-5. Wallet/bank/Stripe credit evidence, preferably with transaction ID/hash or a dated balance snapshot.
+1. Platform/account identity and payout rail.
+2. Accepted job or signed order.
+3. Delivery artifact and timestamp.
+4. Client approval/completion or platform settlement.
+5. Wallet/bank/Stripe credit evidence, preferably with transaction ID/hash or dated balance snapshot.
 
 Until then:
 
@@ -80,4 +78,4 @@ Until then:
 
 ## Bottom line
 
-UNICO has no verified income in the current ledgers. The optimization is to prevent false positives, stop unproductive Toku-style bidding, keep Obrari blocked until onboarding and payout are proven, and require end-to-end evidence before declaring any advance.
+UNICO has no verified income in the current ledgers. The main optimization this run was not to invent activity: it was to close the code/runtime contradiction, stop unproven external execution, reconcile stale state, and preserve a strict end-to-end evidence gate before any positive revenue claim.
