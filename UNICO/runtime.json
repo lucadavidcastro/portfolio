@@ -14,16 +14,22 @@
     "target_net_usd": 5000,
     "max_job_usd": 500,
     "platform_fee_percent": 10,
-    "categories": [
-      "analysis",
-      "writing"
-    ],
+    "categories": ["analysis", "writing"],
     "planned_agents": 0,
     "status": "NOT_REGISTERED",
     "verified_revenue_usd": 0,
     "accepted_jobs": 0,
     "completed_jobs": 0,
     "wallet_status": "UNVERIFIED"
+  },
+  "toku_controlled_test_params": {
+    "enabled": false,
+    "min_bid_cents": 7500,
+    "max_bids_per_cycle": 3,
+    "max_open_job_age_hours": 24,
+    "require_authenticated_job_discovery": true,
+    "wallet_counting": "settled_credits_only",
+    "no_reactivation_without_e2e_proof": true
   },
   "verification_gate": {
     "platform_account_verified": false,
