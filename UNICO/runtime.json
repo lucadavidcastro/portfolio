@@ -3,8 +3,8 @@
   "deadline": "2026-11-09",
   "collected_usd": 0,
   "revenue_policy": "only approved payout credited to bank/wallet/Stripe counts",
-  "engine": "audit_only",
-  "status": "BLOCKED_NO_VERIFIED_PLATFORM_OR_PAYOUT",
+  "engine": "obrari",
+  "status": "READY_FOR_AGENT_BENCHMARK",
   "legacy_channels_retired": [
     "toku",
     "arena",
@@ -14,13 +14,19 @@
     "target_net_usd": 5000,
     "max_job_usd": 500,
     "platform_fee_percent": 10,
-    "categories": ["analysis", "writing"],
+    "categories": [
+      "analysis",
+      "writing"
+    ],
     "planned_agents": 0,
-    "status": "NOT_REGISTERED",
+    "status": "PAYOUT_CONFIGURED",
     "verified_revenue_usd": 0,
     "accepted_jobs": 0,
     "completed_jobs": 0,
-    "wallet_status": "UNVERIFIED"
+    "wallet_status": "UNVERIFIED",
+    "payout_provider": "Stripe",
+    "payout_bank": "Banco Patagonia",
+    "payout_verified_by_user": true
   },
   "toku_controlled_test_params": {
     "enabled": false,
@@ -37,5 +43,12 @@
     "delivery_verified": false,
     "approval_or_settlement_verified": false,
     "wallet_credit_verified": false
+  },
+  "audit": {
+    "toku_primary_channel": false,
+    "obrari_primary_channel": true,
+    "payout_path": "Obrari -> Stripe -> Banco Patagonia",
+    "payout_configuration_confirmed_by_user": true,
+    "revenue_policy": "only bank-credit/payout after approved work counts"
   }
 }
