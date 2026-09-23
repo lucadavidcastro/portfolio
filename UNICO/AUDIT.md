@@ -1,4 +1,4 @@
-# UNICO Audit — 2026-09-22
+# UNICO Audit — 2026-09-23
 
 ## Scope
 
@@ -13,56 +13,52 @@ This audit checks Toku, bid acceptance, jobs, delivery, wallet evidence, errors,
 - Delivered jobs: **0 verified**.
 - Completed jobs: **0 verified**.
 - Revenue events: **none**.
-- `REVENUE.csv`: header plus `NOT_COLLECTED`; no transaction rows.
-- `runtime.json`: `engine=audit_only`, `status=BLOCKED_NO_VERIFIED_PLATFORM_OR_PAYOUT`, `collected_usd=0`, all verification-gate flags false.
+- `REVENUE.csv`: header plus `NOT_COLLECTED`; no transaction rows. fileciteturn328file0L2-L2
+- `runtime.json`: reconciled to `engine=audit_only`, `status=BLOCKED_NO_VERIFIED_PLATFORM_OR_PAYOUT`, `collected_usd=0`, all verification-gate flags false. fileciteturn326file0L2-L2
 
 No revenue advancement is declared.
 
 ## Ledger cross-check
 
-- `REVENUE.csv` contains no qualifying transaction.
-- `runtime.json` remains blocked and now includes explicit controlled-test parameters, but `enabled=false`.
-- No repository evidence exists for a current Toku account identity, accepted job, delivery artifact, approval/settlement event, withdrawal, bank credit, Stripe credit, transaction hash or dated wallet balance.
+- `REVENUE.csv` contains no qualifying transaction. fileciteturn328file0L2-L2
+- Runtime had drifted to `READY_FOR_AGENT_BENCHMARK` while the audit state was blocked. This inconsistency was corrected in commit `6cf3392f811cad432794acc145e2139f61d8a935`.
+- No repository evidence exists for a current Toku or Obrari account identity, accepted job, delivery artifact, approval/settlement event, withdrawal, bank credit, Stripe credit, transaction hash or dated wallet balance.
 - No lead, bid, contract, escrow amount, pending amount or platform-level balance has been counted as revenue.
 
-## Toku and market evidence
+## Platform and market status
 
-Fresh public Toku evidence shows **305+ open jobs** and **2,650+ listed agents**. The platform advertises **85% auto-credit to the agent wallet on completion** and withdrawal through **Stripe Connect**. This is platform-level evidence, not account-level proof for UNICO. citeturn547531search0
-
-Competition is severe. The current public homepage shows crowded jobs with roughly **120–169 bids** on several visible listings, including low-ticket work at **$3–$25**. This makes bid volume a poor optimization target and makes low-price creative positioning unattractive for a USD 5,000 target. citeturn547531search0
-
-A third-party directory independently describes Toku as an 85% payout / Stripe model, but it is not account-level evidence and is not used to declare revenue. citeturn547531search1turn547531search6
+- Toku remains retired and disabled in the runtime.
+- Obrari remains unregistered at the account level for UNICO; payout configuration claimed by the user is not independently evidenced in the repository.
+- No platform is declared active until the evidence chain is complete: platform identity, accepted job, delivery, approval/settlement and wallet/bank/Stripe credit.
 
 ## Errors and code risks
 
-`UNICO/agent.py` still contains two dormant correctness defects that must be fixed before any live reactivation:
+Previously identified risks remain open and are not reactivated:
 
-1. `handle_jobs()` calls `GET /agents/jobs?q=creative&status=OPEN&limit=100` without passing the agent token, while other authenticated calls do pass it. If Toku reactivates, job discovery may fail or behave as unauthenticated.
-2. `inspect_setup_and_wallet()` sums every `JOB_EARNING` transaction and writes that total to `collected_usd`. This can overstate revenue if the endpoint includes pending, reversible, historical or non-settled earnings. Counting must require transaction-level settlement/credit evidence and reconciliation to `REVENUE.csv`.
+1. `handle_jobs()` may call job discovery without a verified authenticated agent token.
+2. Wallet aggregation must remain transaction-level and settled-only; any broad sum of `JOB_EARNING` events is unsafe without settlement status and reconciliation to `REVENUE.csv`.
 
-Because `runtime.json` remains `audit_only` and blocked, neither defect produced external activity or revenue in this run.
+Because runtime is blocked and `toku_controlled_test_params.enabled=false`, these risks produced no external activity in this run.
 
 ## Pricing, selection and services
 
-UNICO's service catalog is directionally aligned with Luca's real capabilities: creative campaign systems, short-form video strategy/editing blueprints, and music-release content packages.
-
-However, the current Basic tiers at USD 15–25 are too low to support the target unless they are used only as deliberate reputation tests. The visible Toku market also contains many low-ticket agents and crowded $3–$25 jobs, so competing on price would create volume without enough net revenue. citeturn547531search0
-
-The correct controlled-test posture is:
+The current controlled-test parameters remain economically coherent but inactive:
 
 - minimum viable bid floor: **USD 75 gross**;
-- at most **3 bids per cycle**;
+- at most **3 bids per cycle** if a verified platform is reactivated;
 - prefer Standard/Premium briefs with clear inputs, objective acceptance criteria and delivery in 24–48 hours;
-- reject vague briefs, unpaid tests, jobs needing unauthorized credentials, and jobs with no visible payout path;
-- do not delegate to other agents before UNICO has one verified incoming payout and wallet liquidity.
+- reject vague briefs, unpaid tests, unauthorized-credential requests, and jobs without a visible payout path;
+- do not expand to Data or Code until verified quality and at least one settled payout exist.
+
+No pricing or service catalog change was justified by new account-level evidence in this run.
 
 ## Changes applied this run
 
-1. Updated `UNICO/runtime.json` with controlled-test parameters: `min_bid_cents=7500`, `max_bids_per_cycle=3`, authenticated job discovery required, settled-credits-only wallet counting, and `no_reactivation_without_e2e_proof=true`.
-2. Kept runtime economically unchanged at USD 0, wallet unverified and audit-only.
-3. Kept `REVENUE.csv` unchanged because no qualifying payout exists.
-4. Refreshed public Toku market evidence: 305+ open jobs, 2,650+ agents, 85% wallet credit / Stripe Connect payout claims, and visible high competition.
-5. Did not enable Toku, publish services, bid, accept work or declare income.
+1. Reconciled `UNICO/runtime.json` from `READY_FOR_AGENT_BENCHMARK` to `audit_only` / `BLOCKED_NO_VERIFIED_PLATFORM_OR_PAYOUT`.
+2. Preserved `collected_usd=0`, `verified_revenue_usd=0`, `wallet_status=UNVERIFIED`, `planned_agents=0` and all verification gates false.
+3. Kept Toku disabled and Obrari non-operational until end-to-end proof exists.
+4. Left `REVENUE.csv` unchanged because no qualifying payout exists.
+5. Recorded the runtime/audit drift and corrected it without declaring economic progress.
 
 ## Required evidence for the next positive update
 
@@ -82,4 +78,4 @@ Until then:
 
 ## Bottom line
 
-UNICO has no verified income in the current ledgers. The highest-value optimization this run was to keep the system blocked, formalize controlled-test economics, lower exposure to crowded low-ticket bidding, and preserve strict settled-wallet accounting. No leads, bids, contracts, escrow, pending jobs or platform-level claims were counted as revenue.
+UNICO has no verified income in the current ledgers. The only justified optimization this run was integrity control: reconciling the runtime with the blocked economic state and preserving settled-wallet accounting. No leads, bids, contracts, escrow, pending jobs or platform-level claims were counted as revenue.
