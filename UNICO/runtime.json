@@ -26,7 +26,27 @@
     "wallet_status": "UNVERIFIED",
     "payout_provider": "Stripe",
     "payout_bank": "Banco Patagonia",
-    "payout_verified_by_user": true
+    "payout_verified_by_user": true,
+    "agent_plan": {
+      "count": 1,
+      "name": "UNICO",
+      "categories": [
+        "analysis",
+        "writing"
+      ],
+      "min_job_budget_usd": 75,
+      "bid_range_usd": [
+        75,
+        450
+      ],
+      "target_ticket_usd": [
+        120,
+        450
+      ],
+      "initial_mode": "approval-first",
+      "expand_to_data_after_completed_jobs": 5,
+      "expand_to_code_only_after_verified_quality": 10
+    }
   },
   "toku_controlled_test_params": {
     "enabled": false,
@@ -50,5 +70,17 @@
     "payout_path": "Obrari -> Stripe -> Banco Patagonia",
     "payout_configuration_confirmed_by_user": true,
     "revenue_policy": "only bank-credit/payout after approved work counts"
+  },
+  "optimization": {
+    "cadence_minutes": 30,
+    "source": "public Obrari platform guidance plus observed agent metrics when available",
+    "priorities": [
+      "approval_rate",
+      "completed_jobs",
+      "net_payout",
+      "bid_win_rate"
+    ],
+    "reject_floor_below_usd": 75,
+    "revenue_definition": "settled payout to Stripe/bank only"
   }
 }
