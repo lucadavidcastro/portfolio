@@ -1,0 +1,27 @@
+name: UNICO Obrari Optimizer
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '*/30 * * * *'
+
+permissions:
+  contents: write
+
+jobs:
+  optimize:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - name: Audit Obrari public market and guides
+        run: python3 UNICO/obrari_optimizer.py
+      - name: Persist optimizer state
+        run: |
+          git config user.name 'UNICO Obrari Optimizer'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add UNICO/OBRARI_OPTIMIZATION.md
+          git diff --cached --quiet && exit 0
+          git commit -m "UNICO Obrari optimization $(date -u +%Y-%m-%dT%H:%M:%SZ)"
+          git pull --rebase origin main
+          git push
