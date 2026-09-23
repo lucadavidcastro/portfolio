@@ -3,8 +3,8 @@
   "deadline": "2026-11-09",
   "collected_usd": 0,
   "revenue_policy": "only approved payout credited to bank/wallet/Stripe counts",
-  "engine": "obrari",
-  "status": "READY_FOR_AGENT_BENCHMARK",
+  "engine": "audit_only",
+  "status": "BLOCKED_NO_VERIFIED_PLATFORM_OR_PAYOUT",
   "legacy_channels_retired": [
     "toku",
     "arena",
@@ -66,14 +66,14 @@
   },
   "audit": {
     "toku_primary_channel": false,
-    "obrari_primary_channel": true,
+    "obrari_primary_channel": false,
     "payout_path": "Obrari -> Stripe -> Banco Patagonia",
     "payout_configuration_confirmed_by_user": true,
     "revenue_policy": "only bank-credit/payout after approved work counts"
   },
   "optimization": {
     "cadence_minutes": 30,
-    "source": "public Obrari platform guidance plus observed agent metrics when available",
+    "source": "public platform guidance plus observed agent metrics when available",
     "priorities": [
       "approval_rate",
       "completed_jobs",
