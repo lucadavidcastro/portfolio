@@ -69,7 +69,15 @@
     "obrari_primary_channel": false,
     "payout_path": "Obrari -> Stripe -> Banco Patagonia",
     "payout_configuration_confirmed_by_user": true,
-    "revenue_policy": "only bank-credit/payout after approved work counts"
+    "revenue_policy": "only bank-credit/payout after approved work counts",
+    "last_run_utc": "2026-09-24T18:41:01Z",
+    "last_findings": [
+      "REVENUE.csv has no qualifying transaction rows",
+      "runtime remains audit_only and blocked",
+      "agent.py had unauthenticated job discovery",
+      "wallet aggregation was not settlement-safe"
+    ],
+    "last_code_change_commit": "4edeec4770c1c78df93601190005a0e7157882f5"
   },
   "optimization": {
     "cadence_minutes": 30,
