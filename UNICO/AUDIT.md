@@ -1,4 +1,4 @@
-# UNICO Audit — 2026-09-23
+# UNICO Audit — 2026-09-24
 
 ## Scope
 
@@ -14,14 +14,13 @@ This audit checks Toku, bid acceptance, jobs, delivery, wallet evidence, errors,
 - Completed jobs: **0 verified**.
 - Revenue events: **none**.
 - `REVENUE.csv`: header plus `NOT_COLLECTED`; no transaction rows. fileciteturn328file0L2-L2
-- `runtime.json`: reconciled to `engine=audit_only`, `status=BLOCKED_NO_VERIFIED_PLATFORM_OR_PAYOUT`, `collected_usd=0`, all verification-gate flags false. fileciteturn326file0L2-L2
+- `runtime.json`: `engine=audit_only`, `status=BLOCKED_NO_VERIFIED_PLATFORM_OR_PAYOUT`, `collected_usd=0`, all verification-gate flags false. fileciteturn326file0L2-L2
 
 No revenue advancement is declared.
 
 ## Ledger cross-check
 
 - `REVENUE.csv` contains no qualifying transaction. fileciteturn328file0L2-L2
-- Runtime had drifted to `READY_FOR_AGENT_BENCHMARK` while the audit state was blocked. This inconsistency was corrected in commit `6cf3392f811cad432794acc145e2139f61d8a935`.
 - No repository evidence exists for a current Toku or Obrari account identity, accepted job, delivery artifact, approval/settlement event, withdrawal, bank credit, Stripe credit, transaction hash or dated wallet balance.
 - No lead, bid, contract, escrow amount, pending amount or platform-level balance has been counted as revenue.
 
@@ -31,34 +30,32 @@ No revenue advancement is declared.
 - Obrari remains unregistered at the account level for UNICO; payout configuration claimed by the user is not independently evidenced in the repository.
 - No platform is declared active until the evidence chain is complete: platform identity, accepted job, delivery, approval/settlement and wallet/bank/Stripe credit.
 
-## Errors and code risks
+## Errors and code risks found and fixed
 
-Previously identified risks remain open and are not reactivated:
-
-1. `handle_jobs()` may call job discovery without a verified authenticated agent token.
-2. Wallet aggregation must remain transaction-level and settled-only; any broad sum of `JOB_EARNING` events is unsafe without settlement status and reconciliation to `REVENUE.csv`.
-
-Because runtime is blocked and `toku_controlled_test_params.enabled=false`, these risks produced no external activity in this run.
+1. `handle_jobs()` previously called job discovery without passing the authenticated token. This was fixed in commit `4edeec4770c1c78df93601190005a0e7157882f5`.
+2. Wallet aggregation previously summed all `JOB_EARNING` transactions regardless of settlement state. This was replaced with transaction-level accounting limited to statuses `SETTLED`, `PAID` or `COMPLETED`, and the checked timestamp is now persisted.
+3. Runtime remains in `audit_only`, so these fixes have not triggered external execution and have not created bids, services, jobs or payout claims.
 
 ## Pricing, selection and services
 
-The current controlled-test parameters remain economically coherent but inactive:
+The controlled-test parameters remain inactive but economically coherent:
 
 - minimum viable bid floor: **USD 75 gross**;
 - at most **3 bids per cycle** if a verified platform is reactivated;
-- prefer Standard/Premium briefs with clear inputs, objective acceptance criteria and delivery in 24–48 hours;
+- prefer briefs with clear inputs, objective acceptance criteria and delivery in 24–48 hours;
 - reject vague briefs, unpaid tests, unauthorized-credential requests, and jobs without a visible payout path;
 - do not expand to Data or Code until verified quality and at least one settled payout exist.
 
-No pricing or service catalog change was justified by new account-level evidence in this run.
+No pricing or service-catalog change was justified by new account-level evidence in this run. The existing creative service definitions in `agent.py` remain dormant because the runtime is blocked.
 
 ## Changes applied this run
 
-1. Reconciled `UNICO/runtime.json` from `READY_FOR_AGENT_BENCHMARK` to `audit_only` / `BLOCKED_NO_VERIFIED_PLATFORM_OR_PAYOUT`.
-2. Preserved `collected_usd=0`, `verified_revenue_usd=0`, `wallet_status=UNVERIFIED`, `planned_agents=0` and all verification gates false.
-3. Kept Toku disabled and Obrari non-operational until end-to-end proof exists.
-4. Left `REVENUE.csv` unchanged because no qualifying payout exists.
-5. Recorded the runtime/audit drift and corrected it without declaring economic progress.
+1. Updated `UNICO/agent.py` to pass authentication on job discovery.
+2. Updated wallet accounting to count settled earnings only and persist a reconciliation timestamp.
+3. Updated `UNICO/runtime.json` with the run timestamp, findings and code-fix commit.
+4. Preserved `collected_usd=0`, `verified_revenue_usd=0`, `wallet_status=UNVERIFIED`, `planned_agents=0` and all verification gates false.
+5. Kept Toku disabled and Obrari non-operational until end-to-end proof exists.
+6. Left `REVENUE.csv` unchanged because no qualifying payout exists.
 
 ## Required evidence for the next positive update
 
@@ -78,4 +75,4 @@ Until then:
 
 ## Bottom line
 
-UNICO has no verified income in the current ledgers. The only justified optimization this run was integrity control: reconciling the runtime with the blocked economic state and preserving settled-wallet accounting. No leads, bids, contracts, escrow, pending jobs or platform-level claims were counted as revenue.
+UNICO has no verified income in the current ledgers. This run produced only integrity and safety improvements: authenticated job discovery, settlement-safe wallet accounting, and a reconciled blocked runtime. No leads, bids, contracts, escrow, pending jobs or platform-level claims were counted as revenue.
