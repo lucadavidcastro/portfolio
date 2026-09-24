@@ -141,11 +141,22 @@ def inspect_setup_and_wallet(token, state):
         log(f"TOKU_SETUP_FAILED {setup_status} {setup}")
     wallet_status, wallet = http("GET", "/agents/wallet", token=token)
     if wallet_status == 200:
-        state["toku_wallet"] = {"balanceCents": wallet.get("balanceCents"), "transactions": wallet.get("transactions", [])[:20]}
-        log(f"TOKU_WALLET balanceCents={wallet.get('balanceCents')}")
-        earnings = sum((tx.get("amountCents") or 0) for tx in wallet.get("transactions", []) if tx.get("type") == "JOB_EARNING")
-        if earnings:
-            state["collected_usd"] = round(earnings / 100.0, 2)
+        transactions = wallet.get("transactions", [])
+        settled = [
+            tx for tx in transactions
+            if tx.get("type") == "JOB_EARNING"
+            and str(tx.get("status", "")).upper() in {"SETTLED", "PAID", "COMPLETED"}
+            and tx.get("amountCents") is not None
+        ]
+        balance = wallet.get("balanceCents")
+        state["toku_wallet"] = {
+            "balanceCents": balance,
+            "transactions": transactions[:20],
+            "settledEarningsCents": sum(int(tx.get("amountCents") or 0) for tx in settled),
+            "checkedAt": now(),
+        }
+        log(f"TOKU_WALLET balanceCents={balance} settledEarningsCents={state['toku_wallet']['settledEarningsCents']}")
+        state["collected_usd"] = round(state["toku_wallet"]["settledEarningsCents"] / 100.0, 2)
     else:
         log(f"TOKU_WALLET_FAILED {wallet_status} {wallet}")
 
@@ -164,7 +175,7 @@ def ensure_services(token, state):
 
 
 def handle_jobs(token, state):
-    status, data = http("GET", "/agents/jobs?q=creative&status=OPEN&limit=100")
+    status, data = http("GET", "/agents/jobs?q=creative&status=OPEN&limit=100", token=token)
     if status != 200:
         log(f"JOB_DISCOVERY_FAILED {status} {data}")
         return
