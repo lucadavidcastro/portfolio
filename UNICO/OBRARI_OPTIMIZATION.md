@@ -1,4 +1,4 @@
-# UNICO Obrari optimizer\n\nLast public-platform audit: 2026-10-31T08:41:23.737205+00:00\n\n## Current operating policy\n- Primary categories: analysis + writing.\n- Avoid floor jobs unless they are trivial, near-certain and useful for approval history.\n- Prefer jobs with explicit source material and bounded deliverables.\n- Optimize for approval rate before increasing bid aggressiveness. Obrari suspends an agent below 70% approval after 10+ completed jobs.\n- Revenue counts only after approved payout; do not count bids, accepted-but-unapproved work, or escrow.\n- Direct jobs through the public agent page have priority and no open-market bidding competition.\n\n## Public evidence snapshot\n### https://obrari.com/\n 
+# UNICO Obrari optimizer\n\nLast public-platform audit: 2026-10-31T15:05:58.616526+00:00\n\n## Current operating policy\n- Primary categories: analysis + writing.\n- Avoid floor jobs unless they are trivial, near-certain and useful for approval history.\n- Prefer jobs with explicit source material and bounded deliverables.\n- Optimize for approval rate before increasing bid aggressiveness. Obrari suspends an agent below 70% approval after 10+ completed jobs.\n- Revenue counts only after approved payout; do not count bids, accepted-but-unapproved work, or escrow.\n- Direct jobs through the public agent page have priority and no open-market bidding competition.\n\n## Public evidence snapshot\n### https://obrari.com/\n 
  
  
     
@@ -49,8 +49,13 @@
     
      
 
+    
+    
+
      
     
+     
+     
      
      
      
@@ -90,7 +95,7 @@
      
      
     {
-        "@context": "https://schema.org",\n\n### https://obrari.com/agents\n 
+        "@context"\n\n### https://obrari.com/agents\n 
  
  
     
@@ -141,8 +146,13 @@
     
      
 
+    
+    
+
      
     
+     
+     
      
      
      
@@ -182,7 +192,7 @@
      
      
     {
-        "@context": "http\n\n### https://obrari.com/guide/getting-started-agent-owner\n 
+  \n\n### https://obrari.com/guide/getting-started-agent-owner\n 
  
  
     
@@ -233,8 +243,13 @@
     
      
 
+    
+    
+
      
     
+     
+     
      
      
      
@@ -274,7 +289,7 @@
      
      
     {
-        "@context": "http\n\n### https://obrari.com/guide/earn-with-ai-agents\n 
+  \n\n### https://obrari.com/guide/earn-with-ai-agents\n 
  
  
     
@@ -325,8 +340,13 @@
     
      
 
+    
+    
+
      
     
+     
+     
      
      
      
@@ -366,7 +386,7 @@
      
      
     {
-        "@context": "https\n\n### https://obrari.com/guide/how-job-matching-works\n 
+   \n\n### https://obrari.com/guide/how-job-matching-works\n 
  
  
     
@@ -417,8 +437,13 @@
     
      
 
+    
+    
+
      
     
+     
+     
      
      
      
@@ -458,7 +483,7 @@
      
      
     {
-        "@context": "https://schema.\n\n### https://obrari.com/guide/ai-agents-for-analysis\n 
+        "@con\n\n### https://obrari.com/guide/ai-agents-for-analysis\n 
  
  
     
@@ -509,8 +534,13 @@
     
      
 
+    
+    
+
      
     
+     
+     
      
      
      
@@ -550,7 +580,7 @@
      
      
     {
-        "@context": "https://sche\n\n### https://obrari.com/guide/ai-agents-for-writing\n 
+        "@\n\n### https://obrari.com/guide/ai-agents-for-writing\n 
  
  
     
@@ -601,8 +631,13 @@
     
      
 
+    
+    
+
      
     
+     
+     
      
      
      
@@ -642,4 +677,4 @@
      
      
     {
-        "@context": "https://schema\n\n
+        "@co\n\n
